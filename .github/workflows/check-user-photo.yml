@@ -25,14 +25,24 @@ jobs:
           python - <<'PY'
           import json
           import os
-          import sys
+          import urllib.error
           import urllib.parse
           import urllib.request
 
+          result_path = "/tmp/vk-check.env"
+
+          def finish(ok, stage, code):
+              safe_stage = "".join(ch for ch in str(stage) if ch.isalnum() or ch == "-")[:24]
+              safe_code = "".join(ch for ch in str(code) if ch.isalnum() or ch == "-")[:16]
+              with open(result_path, "w", encoding="utf-8") as handle:
+                  handle.write(f"OK={'1' if ok else '0'}\n")
+                  handle.write(f"STAGE={safe_stage or 'unknown'}\n")
+                  handle.write(f"CODE={safe_code or 'unknown'}\n")
+              raise SystemExit(0 if ok else 1)
+
           token = os.environ.get("VK_USER_TOKEN", "")
           if not token:
-              print("VK_USER_TOKEN is missing", file=sys.stderr)
-              raise SystemExit(2)
+              finish(False, "secret", "missing")
 
           def vk(method, **params):
               payload = urllib.parse.urlencode({
@@ -43,47 +53,52 @@ jobs:
               request = urllib.request.Request(
                   f"https://api.vk.com/method/{method}",
                   data=payload,
-                  headers={"User-Agent": "vk-news-collector-user-token-check/1.0"},
+                  headers={"User-Agent": "vk-news-collector-user-token-check/1.1"},
               )
-              with urllib.request.urlopen(request, timeout=45) as response:
-                  document = json.load(response)
+              try:
+                  with urllib.request.urlopen(request, timeout=45) as response:
+                      document = json.load(response)
+              except urllib.error.HTTPError as exc:
+                  finish(False, method, f"http{exc.code}")
+              except Exception:
+                  finish(False, method, "network")
               if "error" in document:
-                  error = document["error"]
-                  code = error.get("error_code", "unknown")
-                  message = error.get("error_msg", "VK API error")
-                  print(f"VK API error {code}: {message}", file=sys.stderr)
-                  raise SystemExit(3)
+                  finish(False, method, document["error"].get("error_code", "api"))
               return document.get("response")
 
           users = vk("users.get")
           if not users:
-              print("VK did not return the authorized user", file=sys.stderr)
-              raise SystemExit(4)
+              finish(False, "users-get", "empty")
 
           server = vk("photos.getWallUploadServer", group_id=70948047)
           if not isinstance(server, dict) or not server.get("upload_url"):
-              print("VK did not return a wall photo upload URL", file=sys.stderr)
-              raise SystemExit(5)
+              finish(False, "photo-server", "empty")
 
-          user = users[0]
           print(json.dumps({
               "status": "ok",
-              "user_id": user.get("id"),
-              "first_name": user.get("first_name"),
-              "last_name": user.get("last_name"),
               "group_id": 70948047,
               "wall_photo_upload_allowed": True,
               "published": False,
               "uploaded": False,
-          }, ensure_ascii=False, indent=2))
+          }, ensure_ascii=False))
+          finish(True, "photo-server", "ok")
           PY
           RESULT=$?
-          if [ "$RESULT" -eq 0 ]; then
+          if [ -f /tmp/vk-check.env ]; then
+            . /tmp/vk-check.env
+          else
+            OK=0
+            STAGE=script
+            CODE=unexpected
+          fi
+          if [ "$OK" = "1" ]; then
             STATE=success
+            CONTEXT="vk-user-photo-check-ok"
             DESCRIPTION="VK user token can request wall photo upload"
           else
             STATE=error
-            DESCRIPTION="VK user token or wall photo access check failed"
+            CONTEXT="vk-user-photo-check-error-$STAGE-$CODE"
+            DESCRIPTION="VK user photo access check failed safely"
           fi
-          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA"             -f state="$STATE"             -f context="vk-user-photo-check"             -f description="$DESCRIPTION"
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state="$STATE" -f context="$CONTEXT" -f description="$DESCRIPTION"
           exit "$RESULT"
