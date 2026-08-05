@@ -117,7 +117,12 @@ def check_token(token: str) -> None:
     }, ensure_ascii=False, indent=2))
 
 
-def publish(token: str, message: str, image_path: Path | None = None) -> None:
+def publish(
+    token: str,
+    message: str,
+    image_path: Path | None = None,
+    publish_date: int | None = None,
+) -> None:
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Publishing is blocked: CONFIRM_PUBLISH must be YES")
     if not message.strip():
@@ -130,6 +135,9 @@ def publish(token: str, message: str, image_path: Path | None = None) -> None:
         "from_group": 1,
         "message": message.strip(),
     }
+    if publish_date is not None:
+        params["publish_date"] = publish_date
+
     attachment = None
     if image_path is not None:
         attachment = upload_wall_photo(token, group_id, image_path)
@@ -141,8 +149,9 @@ def publish(token: str, message: str, image_path: Path | None = None) -> None:
         raise RuntimeError("VK did not return post_id after wall.post")
 
     print(json.dumps({
-        "status": "published",
+        "status": "scheduled" if publish_date is not None else "published",
         "post_id": post_id,
+        "publish_date": publish_date,
         "attachment": attachment,
         "url": f"https://vk.ru/wall-{group_id}_{post_id}",
     }, ensure_ascii=False, indent=2))
@@ -153,6 +162,7 @@ def main() -> int:
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--message")
     parser.add_argument("--image", type=Path)
+    parser.add_argument("--publish-date", type=int)
     args = parser.parse_args()
 
     token = os.environ.get("VK_PUBLISH_TOKEN")
@@ -164,7 +174,7 @@ def main() -> int:
         if args.check:
             check_token(token)
         elif args.message is not None:
-            publish(token, args.message, args.image)
+            publish(token, args.message, args.image, args.publish_date)
         else:
             parser.error("use --check or --message")
     except Exception as exc:
