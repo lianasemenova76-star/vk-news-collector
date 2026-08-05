@@ -68,18 +68,21 @@
       }
 
       try {
-        const query = new URLSearchParams({
+        const encodedVerifier = btoa(unescape(encodeURIComponent(codeVerifier)))
+          .replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
+        const body = new URLSearchParams({
           grant_type: 'authorization_code',
           redirect_uri: REDIRECT_URL,
           client_id: String(APP_ID),
-          code_verifier: codeVerifier,
+          code_verifier: encodedVerifier,
+          code,
           state,
           device_id: deviceId
         });
 
-        const response = await fetch('https://id.vk.com/oauth2/auth?' + query.toString(), {
+        const response = await fetch('https://id.vk.com/oauth2/auth', {
           method: 'POST',
-          body: new URLSearchParams({ code })
+          body
         });
         const token = await response.json();
 
