@@ -1,0 +1,39 @@
+name: Attach approved photo to VK post
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "attach-photo-request.json"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vk-publish
+  cancel-in-progress: false
+
+jobs:
+  attach:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate approved request and attach photo
+        env:
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+        run: |
+          CONFIRMED="$(jq -r '.confirmed' attach-photo-request.json)"
+          POST_ID="$(jq -r '.post_id' attach-photo-request.json)"
+          IMAGE_PATH="$(jq -r '.image_path' attach-photo-request.json)"
+          test "$CONFIRMED" = "true"
+          test "$POST_ID" = "412425"
+          test -f "$IMAGE_PATH"
+          CONFIRM_ATTACH=YES python attach_photo.py --post-id "$POST_ID" --image "$IMAGE_PATH"
