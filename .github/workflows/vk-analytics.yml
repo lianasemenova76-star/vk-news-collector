@@ -1,0 +1,70 @@
+name: Collect VK post analytics
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: Start date in Moscow time (YYYY-MM-DD)
+        required: false
+        type: string
+      end_date:
+        description: End date in Moscow time (YYYY-MM-DD)
+        required: false
+        type: string
+  push:
+    branches:
+      - main
+    paths:
+      - "analytics.py"
+      - "analytics-request.json"
+      - ".github/workflows/vk-analytics.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vk-analytics
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve report dates
+        id: dates
+        env:
+          INPUT_START: ${{ inputs.start_date }}
+          INPUT_END: ${{ inputs.end_date }}
+        run: |
+          START_DATE="${INPUT_START:-$(jq -r '.start_date' analytics-request.json)}"
+          END_DATE="${INPUT_END:-$(jq -r '.end_date' analytics-request.json)}"
+          [[ "$START_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          [[ "$END_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          echo "start_date=$START_DATE" >> "$GITHUB_OUTPUT"
+          echo "end_date=$END_DATE" >> "$GITHUB_OUTPUT"
+
+      - name: Collect public VK counters
+        env:
+          VK_ANALYTICS_TOKEN: ${{ secrets.VK_ANALYTICS_TOKEN }}
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+        run: |
+          python analytics.py \
+            --start-date "${{ steps.dates.outputs.start_date }}" \
+            --end-date "${{ steps.dates.outputs.end_date }}" \
+            --output-dir analytics-report
+
+      - name: Upload private report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vk-analytics-${{ steps.dates.outputs.start_date }}-${{ steps.dates.outputs.end_date }}
+          path: analytics-report/
+          if-no-files-found: error
+          retention-days: 7
