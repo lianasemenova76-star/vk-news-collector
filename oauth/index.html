@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Авторизация публикации VK</title>
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1d2733;background:#f3f6f9}
+    body{margin:0;min-height:100vh;display:grid;place-items:center}
+    main{width:min(560px,calc(100% - 40px));padding:32px;background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+    h1{margin:0 0 12px;font-size:24px}p{line-height:1.5}
+    button{width:100%;margin-top:16px;padding:12px 18px;border:0;border-radius:10px;background:#07f;color:#fff;font:600 16px/1.2 inherit;cursor:pointer}
+    button:disabled{opacity:.55;cursor:default}.note{color:#65707c;font-size:14px}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Доступ к публикации в VK</h1>
+    <p>Кнопка запросит у VK права на публикацию записей и загрузку фотографий. Никакие пароли эта страница не получает.</p>
+    <p class="note">После входа токены будут показаны только в этом браузере. Не присылай их в чат и не делай скриншот страницы с токенами.</p>
+    <button id="login">Войти через VK и выдать доступ</button>
+    <p id="status" class="note"></p>
+  </main>
+  <script src="https://unpkg.com/@vkid/sdk@2.6.7/dist-sdk/umd/index.js"></script>
+  <script>
+    const APP_ID = 54708342;
+    const REDIRECT_URL = 'https://lianasemenova76-star.github.io/vk-news-collector/oauth/callback.html';
+    const SCOPES = 'wall photos groups';
+
+    function randomUrlSafe(bytes = 48) {
+      const data = new Uint8Array(bytes);
+      crypto.getRandomValues(data);
+      return btoa(String.fromCharCode(...data))
+        .replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
+    }
+
+    const state = randomUrlSafe(24);
+    const codeVerifier = randomUrlSafe(64);
+    sessionStorage.setItem('vk_oauth_state', state);
+    sessionStorage.setItem('vk_code_verifier', codeVerifier);
+
+    VKID.Config.init({
+      app: APP_ID,
+      redirectUrl: REDIRECT_URL,
+      state,
+      codeVerifier,
+      scope: SCOPES
+    });
+
+    const button = document.getElementById('login');
+    const status = document.getElementById('status');
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      status.textContent = 'Открываю VK ID…';
+      try {
+        await VKID.Auth.login();
+      } catch (error) {
+        button.disabled = false;
+        status.textContent = 'Не удалось открыть авторизацию: ' + (error?.error_description || error?.message || String(error));
+      }
+    });
+  </script>
+</body>
+</html>
