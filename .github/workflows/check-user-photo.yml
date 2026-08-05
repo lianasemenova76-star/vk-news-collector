@@ -1,5 +1,5 @@
 name: Check VK user photo access
-# Check matching VK RU API domain: 2026-08-05
+# Recheck renewed VK user token: 2026-08-05
 
 on:
   workflow_dispatch:
