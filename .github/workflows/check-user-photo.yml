@@ -1,0 +1,89 @@
+name: Check VK user photo access
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/check-user-photo.yml"
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify user token without publishing
+        env:
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+
+          token = os.environ.get("VK_USER_TOKEN", "")
+          if not token:
+              print("VK_USER_TOKEN is missing", file=sys.stderr)
+              raise SystemExit(2)
+
+          def vk(method, **params):
+              payload = urllib.parse.urlencode({
+                  "access_token": token,
+                  "v": "5.199",
+                  **params,
+              }).encode()
+              request = urllib.request.Request(
+                  f"https://api.vk.com/method/{method}",
+                  data=payload,
+                  headers={"User-Agent": "vk-news-collector-user-token-check/1.0"},
+              )
+              with urllib.request.urlopen(request, timeout=45) as response:
+                  document = json.load(response)
+              if "error" in document:
+                  error = document["error"]
+                  code = error.get("error_code", "unknown")
+                  message = error.get("error_msg", "VK API error")
+                  print(f"VK API error {code}: {message}", file=sys.stderr)
+                  raise SystemExit(3)
+              return document.get("response")
+
+          users = vk("users.get")
+          if not users:
+              print("VK did not return the authorized user", file=sys.stderr)
+              raise SystemExit(4)
+
+          server = vk("photos.getWallUploadServer", group_id=70948047)
+          if not isinstance(server, dict) or not server.get("upload_url"):
+              print("VK did not return a wall photo upload URL", file=sys.stderr)
+              raise SystemExit(5)
+
+          user = users[0]
+          print(json.dumps({
+              "status": "ok",
+              "user_id": user.get("id"),
+              "first_name": user.get("first_name"),
+              "last_name": user.get("last_name"),
+              "group_id": 70948047,
+              "wall_photo_upload_allowed": True,
+              "published": False,
+              "uploaded": False,
+          }, ensure_ascii=False, indent=2))
+          PY
+          RESULT=$?
+          if [ "$RESULT" -eq 0 ]; then
+            STATE=success
+            DESCRIPTION="VK user token can request wall photo upload"
+          else
+            STATE=error
+            DESCRIPTION="VK user token or wall photo access check failed"
+          fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA"             -f state="$STATE"             -f context="vk-user-photo-check"             -f description="$DESCRIPTION"
+          exit "$RESULT"
