@@ -1,5 +1,5 @@
 name: Check VK user photo access
-# Diagnose VK ID token compatibility: 2026-08-05
+# Check matching VK RU API domain: 2026-08-05
 
 on:
   workflow_dispatch:
@@ -51,7 +51,7 @@ jobs:
               request = urllib.request.Request(
                   f"https://id.vk.ru/oauth2/user_info?{query}",
                   data=body,
-                  headers={"User-Agent": "vk-news-collector-user-token-check/1.2"},
+                  headers={"User-Agent": "vk-news-collector-user-token-check/1.3"},
               )
               try:
                   with urllib.request.urlopen(request, timeout=45) as response:
@@ -74,7 +74,7 @@ jobs:
                   **params,
               }).encode()
               request = urllib.request.Request(
-                  f"https://api.vk.com/method/{method}",
+                  f"https://api.vk.ru/method/{method}",
                   data=payload,
                   headers={"User-Agent": "vk-news-collector-user-token-check/1.2"},
               )
