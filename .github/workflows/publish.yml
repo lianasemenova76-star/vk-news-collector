@@ -35,22 +35,33 @@ jobs:
           CONFIRMED="$(jq -r '.confirmed' publish-request.json)"
           MESSAGE="$(jq -r '.message' publish-request.json)"
           IMAGE_PATH="$(jq -r '.image_path // empty' publish-request.json)"
+          PUBLISH_DATE="$(jq -r '.publish_date // empty' publish-request.json)"
           test "$CONFIRMED" = "true"
           test -n "$MESSAGE"
+          PUBLISH_ARGS=()
+          if [ -n "$PUBLISH_DATE" ]; then
+            PUBLISH_ARGS+=(--publish-date "$PUBLISH_DATE")
+          fi
           set +e
           if [ -n "$IMAGE_PATH" ]; then
             test -f "$IMAGE_PATH" || exit 3
-            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --image "$IMAGE_PATH" 2>&1)
+            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --image "$IMAGE_PATH" "${PUBLISH_ARGS[@]}" 2>&1)
           else
-            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" 2>&1)
+            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" "${PUBLISH_ARGS[@]}" 2>&1)
           fi
           RESULT=$?
           printf '%s\n' "$OUTPUT"
           if [ "$RESULT" -eq 0 ]; then
             POST_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["post_id"])')
+            RESULT_STATUS=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["status"])')
             STATE=success
-            CONTEXT="vk-published-$POST_ID"
-            DESCRIPTION="approved VK post published"
+            if [ "$RESULT_STATUS" = "scheduled" ]; then
+              CONTEXT="vk-scheduled-$POST_ID"
+              DESCRIPTION="approved VK post scheduled"
+            else
+              CONTEXT="vk-published-$POST_ID"
+              DESCRIPTION="approved VK post published"
+            fi
           else
             LAST_LINE=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
             STATE=error
