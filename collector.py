@@ -50,18 +50,29 @@ def api_call(token: str, domain: str, offset: int = 0) -> dict:
 
 
 def source_name_from_response(source: dict, response: dict) -> str:
-    groups = response.get("groups") or []
-    if groups:
-        return groups[0].get("name") or source["domain"]
+    items = response.get("items") or []
+    owner_id = items[0].get("owner_id") if items else None
 
-    profiles = response.get("profiles") or []
-    if profiles:
-        profile = profiles[0]
-        full_name = " ".join(
-            part for part in (profile.get("first_name"), profile.get("last_name")) if part
+    if owner_id is not None and owner_id < 0:
+        group_id = abs(owner_id)
+        group = next(
+            (item for item in response.get("groups") or [] if item.get("id") == group_id),
+            None,
         )
-        if full_name:
-            return full_name
+        if group and group.get("name"):
+            return group["name"]
+
+    if owner_id is not None and owner_id > 0:
+        profile = next(
+            (item for item in response.get("profiles") or [] if item.get("id") == owner_id),
+            None,
+        )
+        if profile:
+            full_name = " ".join(
+                part for part in (profile.get("first_name"), profile.get("last_name")) if part
+            )
+            if full_name:
+                return full_name
 
     return source.get("name") or source["domain"]
 
