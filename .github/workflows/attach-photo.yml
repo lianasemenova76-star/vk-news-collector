@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  statuses: write
 
 concurrency:
   group: vk-publish
@@ -26,9 +27,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate approved request and attach photo
+      - name: Validate, attach and report
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           CONFIRMED="$(jq -r '.confirmed' attach-photo-request.json)"
           POST_ID="$(jq -r '.post_id' attach-photo-request.json)"
@@ -36,4 +38,11 @@ jobs:
           test "$CONFIRMED" = "true"
           test "$POST_ID" = "412425"
           test -f "$IMAGE_PATH"
-          CONFIRM_ATTACH=YES python attach_photo.py --post-id "$POST_ID" --image "$IMAGE_PATH"
+          set +e
+          OUTPUT=$(CONFIRM_ATTACH=YES python attach_photo.py --post-id "$POST_ID" --image "$IMAGE_PATH" 2>&1)
+          RESULT=$?
+          printf '%s\n' "$OUTPUT"
+          DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | cut -c1-120)
+          if [ "$RESULT" -eq 0 ]; then STATE=success; else STATE=error; fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state="$STATE" -f context="vk-photo-attachment" -f description="$DESCRIPTION"
+          exit "$RESULT"
