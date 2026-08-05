@@ -53,6 +53,7 @@ jobs:
 
       - name: Collect public VK counters
         env:
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
           VK_ANALYTICS_TOKEN: ${{ secrets.VK_ANALYTICS_TOKEN }}
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
         run: |

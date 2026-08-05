@@ -220,9 +220,16 @@ def main() -> int:
     if (args.end_date - args.start_date).days > 31:
         parser.error("period must not exceed 32 calendar days")
 
-    token = os.environ.get("VK_ANALYTICS_TOKEN") or os.environ.get("VK_PUBLISH_TOKEN")
+    token = (
+        os.environ.get("VK_USER_TOKEN")
+        or os.environ.get("VK_ANALYTICS_TOKEN")
+        or os.environ.get("VK_PUBLISH_TOKEN")
+    )
     if not token:
-        print("VK_ANALYTICS_TOKEN or VK_PUBLISH_TOKEN is not set", file=sys.stderr)
+        print(
+            "VK_USER_TOKEN, VK_ANALYTICS_TOKEN or VK_PUBLISH_TOKEN is not set",
+            file=sys.stderr,
+        )
         return 1
 
     period_start = datetime.combine(args.start_date, datetime_time.min, tzinfo=MOSCOW)
