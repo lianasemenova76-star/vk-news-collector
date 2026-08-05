@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect recent public posts from configured VK communities."""
+"""Collect recent public posts from configured VK communities and public profiles."""
 
 from __future__ import annotations
 
@@ -30,9 +30,10 @@ def api_call(token: str, domain: str, offset: int = 0) -> dict:
             "count": 100,
             "offset": offset,
             "filter": "owner",
+            "extended": 1,
         }
     )
-    request = Request(f"{API_URL}?{params}", headers={"User-Agent": "vk-news-collector/1.0"})
+    request = Request(f"{API_URL}?{params}", headers={"User-Agent": "vk-news-collector/1.1"})
     try:
         with urlopen(request, timeout=30) as response:
             payload = json.load(response)
@@ -46,6 +47,23 @@ def api_call(token: str, domain: str, offset: int = 0) -> dict:
             f"{error.get('error_msg', 'unknown error')}"
         )
     return payload["response"]
+
+
+def source_name_from_response(source: dict, response: dict) -> str:
+    groups = response.get("groups") or []
+    if groups:
+        return groups[0].get("name") or source["domain"]
+
+    profiles = response.get("profiles") or []
+    if profiles:
+        profile = profiles[0]
+        full_name = " ".join(
+            part for part in (profile.get("first_name"), profile.get("last_name")) if part
+        )
+        if full_name:
+            return full_name
+
+    return source.get("name") or source["domain"]
 
 
 def best_photo_url(photo: dict) -> str | None:
@@ -118,17 +136,21 @@ def parse_post(post: dict, source: dict) -> dict:
 
 def collect_source(token: str, source: dict, cutoff_timestamp: int) -> list[dict]:
     domain = source["domain"]
+    resolved_source = dict(source)
     collected: list[dict] = []
     offset = 0
 
-    for _ in range(10):
+    for page_number in range(10):
         response = api_call(token, domain, offset)
+        if page_number == 0:
+            resolved_source["name"] = source_name_from_response(source, response)
+
         items = response.get("items", [])
         if not items:
             break
 
         collected.extend(
-            parse_post(post, source)
+            parse_post(post, resolved_source)
             for post in items
             if post.get("date", 0) >= cutoff_timestamp
         )
@@ -140,7 +162,7 @@ def collect_source(token: str, source: dict, cutoff_timestamp: int) -> list[dict
             break
 
         offset += len(items)
-        time.sleep(0.35)
+        time.sleep(0.4)
 
     unique = {post["id"]: post for post in collected}
     return sorted(unique.values(), key=lambda post: post["published_at"], reverse=True)
@@ -160,11 +182,14 @@ def main() -> int:
     posts: list[dict] = []
     errors: list[dict] = []
 
-    for source in sources:
+    for index, source in enumerate(sources):
         try:
             posts.extend(collect_source(token, source, int(cutoff.timestamp())))
         except Exception as exc:  # Keep other sources working if one fails.
             errors.append({"source": source["domain"], "error": str(exc)})
+
+        if index < len(sources) - 1:
+            time.sleep(0.4)
 
     posts.sort(key=lambda post: post["published_at"], reverse=True)
     document = {
