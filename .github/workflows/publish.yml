@@ -32,6 +32,12 @@ jobs:
         run: |
           CONFIRMED="$(jq -r '.confirmed' publish-request.json)"
           MESSAGE="$(jq -r '.message' publish-request.json)"
+          IMAGE_PATH="$(jq -r '.image_path // empty' publish-request.json)"
           test "$CONFIRMED" = "true"
           test -n "$MESSAGE"
-          CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE"
+          if [ -n "$IMAGE_PATH" ]; then
+            test -f "$IMAGE_PATH"
+            CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --image "$IMAGE_PATH"
+          else
+            CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE"
+          fi
