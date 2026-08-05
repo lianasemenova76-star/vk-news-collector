@@ -1,5 +1,5 @@
 name: Check VK user photo access
-# Manual recheck after VK user secrets update: 2026-08-05
+# Diagnose VK ID token compatibility: 2026-08-05
 
 on:
   workflow_dispatch:
@@ -45,6 +45,28 @@ jobs:
           if not token:
               finish(False, "secret", "missing")
 
+          def vkid_user_info():
+              query = urllib.parse.urlencode({"client_id": "54708342"})
+              body = urllib.parse.urlencode({"access_token": token}).encode()
+              request = urllib.request.Request(
+                  f"https://id.vk.ru/oauth2/user_info?{query}",
+                  data=body,
+                  headers={"User-Agent": "vk-news-collector-user-token-check/1.2"},
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=45) as response:
+                      document = json.load(response)
+              except urllib.error.HTTPError as exc:
+                  finish(False, "vkid-userinfo", f"http{exc.code}")
+              except Exception:
+                  finish(False, "vkid-userinfo", "network")
+              if "error" in document:
+                  finish(False, "vkid-userinfo", document.get("error", "oauth"))
+              if not isinstance(document.get("user"), dict):
+                  finish(False, "vkid-userinfo", "empty")
+
+          vkid_user_info()
+
           def vk(method, **params):
               payload = urllib.parse.urlencode({
                   "access_token": token,
@@ -54,7 +76,7 @@ jobs:
               request = urllib.request.Request(
                   f"https://api.vk.com/method/{method}",
                   data=payload,
-                  headers={"User-Agent": "vk-news-collector-user-token-check/1.1"},
+                  headers={"User-Agent": "vk-news-collector-user-token-check/1.2"},
               )
               try:
                   with urllib.request.urlopen(request, timeout=45) as response:
