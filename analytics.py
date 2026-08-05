@@ -7,6 +7,7 @@ import argparse
 import csv
 import json
 import os
+import secrets
 import sys
 import time
 from datetime import date, datetime, time as datetime_time, timedelta
@@ -19,6 +20,7 @@ from zoneinfo import ZoneInfo
 
 API_BASE = "https://api.vk.com/method"
 API_VERSION = "5.199"
+VK_APP_ID = "54708342"
 GROUP_DOMAIN = "vtutaeve"
 MOSCOW = ZoneInfo("Europe/Moscow")
 
@@ -42,6 +44,40 @@ def api_call(method: str, token: str, **params: object) -> object:
             f"{error.get('error_msg', 'unknown error')}"
         )
     return document.get("response")
+
+
+def refresh_user_token(refresh_token: str, device_id: str) -> str:
+    state = secrets.token_urlsafe(24)
+    payload = urlencode(
+        {
+            "grant_type": "refresh_token",
+            "refresh_token": refresh_token,
+            "client_id": VK_APP_ID,
+            "device_id": device_id,
+            "state": state,
+        }
+    ).encode("utf-8")
+    request = Request(
+        "https://id.vk.com/oauth2/auth",
+        data=payload,
+        headers={"User-Agent": "vk-news-collector-analytics/2.0"},
+    )
+    try:
+        with urlopen(request, timeout=60) as response:
+            document = json.load(response)
+    except (HTTPError, URLError, TimeoutError) as exc:
+        raise RuntimeError(f"VK token refresh failed: {exc}") from exc
+    if "error" in document:
+        raise RuntimeError(
+            "VK token refresh failed: "
+            + str(document.get("error_description") or document.get("error"))
+        )
+    if document.get("state") and document["state"] != state:
+        raise RuntimeError("VK token refresh failed: state mismatch")
+    token = document.get("access_token")
+    if not token:
+        raise RuntimeError("VK token refresh failed: access_token is missing")
+    return str(token)
 
 
 def extract_groups(response: object) -> list[dict]:
@@ -220,11 +256,20 @@ def main() -> int:
     if (args.end_date - args.start_date).days > 31:
         parser.error("period must not exceed 32 calendar days")
 
-    token = (
-        os.environ.get("VK_USER_TOKEN")
-        or os.environ.get("VK_ANALYTICS_TOKEN")
-        or os.environ.get("VK_PUBLISH_TOKEN")
-    )
+    refresh_token = os.environ.get("VK_USER_REFRESH_TOKEN")
+    device_id = os.environ.get("VK_USER_DEVICE_ID")
+    if refresh_token and device_id:
+        try:
+            token = refresh_user_token(refresh_token, device_id)
+        except Exception as exc:
+            print(str(exc), file=sys.stderr)
+            return 2
+    else:
+        token = (
+            os.environ.get("VK_USER_TOKEN")
+            or os.environ.get("VK_ANALYTICS_TOKEN")
+            or os.environ.get("VK_PUBLISH_TOKEN")
+        )
     if not token:
         print(
             "VK_USER_TOKEN, VK_ANALYTICS_TOKEN or VK_PUBLISH_TOKEN is not set",
