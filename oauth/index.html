@@ -73,10 +73,13 @@
           scope: SCOPES,
           state,
           v: '2.6.7',
-          sdk_type: 'vkid'
+          provider: 'vkid',
+          prompt: 'consent',
+          lang_id: '0',
+          scheme: 'light'
         });
 
-        location.assign('https://id.vk.ru/authorize?' + params.toString());
+        location.assign('https://id.vk.com/authorize?' + params.toString());
       } catch (error) {
         button.disabled = false;
         status.className = 'note error';
