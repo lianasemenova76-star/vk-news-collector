@@ -10,7 +10,7 @@
     main{width:min(560px,calc(100% - 40px));padding:32px;background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.08)}
     h1{margin:0 0 12px;font-size:24px}p{line-height:1.5}
     button{width:100%;margin-top:16px;padding:12px 18px;border:0;border-radius:10px;background:#07f;color:#fff;font:600 16px/1.2 inherit;cursor:pointer}
-    button:disabled{opacity:.55;cursor:default}.note{color:#65707c;font-size:14px}
+    button:disabled{opacity:.55;cursor:default}.note{color:#65707c;font-size:14px}.error{color:#c62828}
   </style>
 </head>
 <body>
@@ -18,10 +18,9 @@
     <h1>Доступ к публикации в VK</h1>
     <p>Кнопка запросит у VK права на публикацию записей и загрузку фотографий. Никакие пароли эта страница не получает.</p>
     <p class="note">После входа токены будут показаны только в этом браузере. Не присылай их в чат и не делай скриншот страницы с токенами.</p>
-    <button id="login">Войти через VK и выдать доступ</button>
-    <p id="status" class="note"></p>
+    <button id="login" type="button">Войти через VK и выдать доступ</button>
+    <p id="status" class="note" aria-live="polite"></p>
   </main>
-  <script src="https://unpkg.com/@vkid/sdk@2.6.7/dist-sdk/umd/index.js"></script>
   <script>
     const APP_ID = 54708342;
     const REDIRECT_URL = 'https://lianasemenova76-star.github.io/vk-news-collector/oauth/callback.html';
@@ -34,29 +33,54 @@
         .replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
     }
 
-    const state = randomUrlSafe(24);
-    const codeVerifier = randomUrlSafe(64);
-    sessionStorage.setItem('vk_oauth_state', state);
-    sessionStorage.setItem('vk_code_verifier', codeVerifier);
+    function base64Url(bytes) {
+      return btoa(String.fromCharCode(...bytes))
+        .replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
+    }
 
-    VKID.Config.init({
-      app: APP_ID,
-      redirectUrl: REDIRECT_URL,
-      state,
-      codeVerifier,
-      scope: SCOPES
-    });
+    async function sha256(value) {
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value));
+      return base64Url(new Uint8Array(digest));
+    }
 
     const button = document.getElementById('login');
     const status = document.getElementById('status');
+
     button.addEventListener('click', async () => {
       button.disabled = true;
+      status.className = 'note';
       status.textContent = 'Открываю VK ID…';
+
       try {
-        await VKID.Auth.login();
+        if (!window.crypto?.subtle) {
+          throw new Error('Браузер не поддерживает безопасную авторизацию PKCE.');
+        }
+
+        const state = randomUrlSafe(24);
+        const codeVerifier = randomUrlSafe(64);
+        const codeChallenge = await sha256(codeVerifier);
+
+        sessionStorage.setItem('vk_oauth_state', state);
+        sessionStorage.setItem('vk_code_verifier', codeVerifier);
+
+        const params = new URLSearchParams({
+          client_id: String(APP_ID),
+          app_id: String(APP_ID),
+          redirect_uri: REDIRECT_URL,
+          response_type: 'code',
+          code_challenge: codeChallenge,
+          code_challenge_method: 'S256',
+          scope: SCOPES,
+          state,
+          v: '2.6.7',
+          sdk_type: 'vkid'
+        });
+
+        location.assign('https://id.vk.ru/authorize?' + params.toString());
       } catch (error) {
         button.disabled = false;
-        status.textContent = 'Не удалось открыть авторизацию: ' + (error?.error_description || error?.message || String(error));
+        status.className = 'note error';
+        status.textContent = 'Не удалось открыть авторизацию: ' + (error?.message || String(error));
       }
     });
   </script>
