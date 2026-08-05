@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  statuses: write
 
 concurrency:
   group: vk-publish
@@ -29,15 +30,33 @@ jobs:
       - name: Validate approved request and publish
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           CONFIRMED="$(jq -r '.confirmed' publish-request.json)"
           MESSAGE="$(jq -r '.message' publish-request.json)"
           IMAGE_PATH="$(jq -r '.image_path // empty' publish-request.json)"
           test "$CONFIRMED" = "true"
           test -n "$MESSAGE"
+          set +e
           if [ -n "$IMAGE_PATH" ]; then
-            test -f "$IMAGE_PATH"
-            CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --image "$IMAGE_PATH"
+            test -f "$IMAGE_PATH" || exit 3
+            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --image "$IMAGE_PATH" 2>&1)
           else
-            CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE"
+            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" 2>&1)
           fi
+          RESULT=$?
+          printf '%s\n' "$OUTPUT"
+          if [ "$RESULT" -eq 0 ]; then
+            POST_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["post_id"])')
+            STATE=success
+            CONTEXT="vk-published-$POST_ID"
+            DESCRIPTION="approved VK post published"
+          else
+            LAST_LINE=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
+            STATE=error
+            CONTEXT="vk-publish-error-$LAST_LINE"
+            DESCRIPTION="$LAST_LINE"
+          fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$STATE" -f context="$CONTEXT" -f description="$DESCRIPTION"
+          exit "$RESULT"
