@@ -3,7 +3,8 @@ name: Collect VK news
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 3 * * *"
+    # 06:15, 12:15 and 18:15 Moscow time (UTC+3)
+    - cron: "15 3,9,15 * * *"
   push:
     branches:
       - main
