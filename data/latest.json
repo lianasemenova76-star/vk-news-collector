@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-05T10:04:08.002687+00:00",
-  "period_start": "2026-08-04T10:04:08.002687+00:00",
-  "period_end": "2026-08-05T10:04:08.002687+00:00",
+  "generated_at": "2026-08-05T10:05:52.010407+00:00",
+  "period_start": "2026-08-04T10:05:52.010407+00:00",
+  "period_end": "2026-08-05T10:05:52.010407+00:00",
   "source_count": 18,
   "post_count": 167,
   "errors": [
@@ -20,7 +20,7 @@
       "url": "https://vk.ru/wall-38242868_1907868",
       "is_pinned": false,
       "metrics": {
-        "views": 38,
+        "views": 73,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -42,7 +42,7 @@
       "url": "https://vk.ru/wall-194763496_1029093",
       "is_pinned": false,
       "metrics": {
-        "views": 28,
+        "views": 58,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -88,7 +88,7 @@
       "url": "https://vk.ru/wall-102907097_39927",
       "is_pinned": false,
       "metrics": {
-        "views": 3,
+        "views": 5,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -110,7 +110,7 @@
       "url": "https://vk.ru/wall-169508339_50368",
       "is_pinned": false,
       "metrics": {
-        "views": 20,
+        "views": 22,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -132,7 +132,7 @@
       "url": "https://vk.ru/wall-195801765_61064",
       "is_pinned": false,
       "metrics": {
-        "views": 20,
+        "views": 28,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -205,7 +205,7 @@
       "url": "https://vk.ru/wall689542040_174392",
       "is_pinned": false,
       "metrics": {
-        "views": 190,
+        "views": 202,
         "likes": 0,
         "reposts": 0,
         "comments": 1
@@ -235,7 +235,7 @@
       "url": "https://vk.ru/wall-226153295_11797",
       "is_pinned": false,
       "metrics": {
-        "views": 17,
+        "views": 20,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -297,7 +297,7 @@
       "url": "https://vk.ru/wall-194763496_1029080",
       "is_pinned": false,
       "metrics": {
-        "views": 759,
+        "views": 773,
         "likes": 3,
         "reposts": 0,
         "comments": 0
@@ -361,7 +361,7 @@
       "url": "https://vk.ru/wall-77822465_348621",
       "is_pinned": false,
       "metrics": {
-        "views": 197,
+        "views": 202,
         "likes": 3,
         "reposts": 1,
         "comments": 1
@@ -383,7 +383,7 @@
       "url": "https://vk.ru/wall-114491512_147038",
       "is_pinned": false,
       "metrics": {
-        "views": 161,
+        "views": 169,
         "likes": 2,
         "reposts": 0,
         "comments": 0
@@ -405,7 +405,7 @@
       "url": "https://vk.ru/wall-138682048_119004",
       "is_pinned": false,
       "metrics": {
-        "views": 141,
+        "views": 143,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -427,7 +427,7 @@
       "url": "https://vk.ru/wall-127341155_7319",
       "is_pinned": false,
       "metrics": {
-        "views": 130,
+        "views": 136,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -457,7 +457,7 @@
       "url": "https://vk.ru/wall-194763496_1029076",
       "is_pinned": false,
       "metrics": {
-        "views": 1165,
+        "views": 1208,
         "likes": 5,
         "reposts": 4,
         "comments": 3
@@ -474,7 +474,7 @@
       "url": "https://vk.ru/wall-195801765_61063",
       "is_pinned": false,
       "metrics": {
-        "views": 130,
+        "views": 139,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -500,7 +500,7 @@
       "url": "https://vk.ru/wall-38242868_1907848",
       "is_pinned": false,
       "metrics": {
-        "views": 1086,
+        "views": 1123,
         "likes": 4,
         "reposts": 0,
         "comments": 0
@@ -585,7 +585,7 @@
       "url": "https://vk.ru/wall-169508339_50366",
       "is_pinned": false,
       "metrics": {
-        "views": 99,
+        "views": 100,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -663,7 +663,7 @@
       "url": "https://vk.ru/wall-38242868_1907836",
       "is_pinned": false,
       "metrics": {
-        "views": 1526,
+        "views": 1553,
         "likes": 0,
         "reposts": 0,
         "comments": 3
@@ -680,7 +680,7 @@
       "url": "https://vk.ru/wall-77822465_348618",
       "is_pinned": false,
       "metrics": {
-        "views": 543,
+        "views": 563,
         "likes": 4,
         "reposts": 0,
         "comments": 0
@@ -702,7 +702,7 @@
       "url": "https://vk.ru/wall-194763496_1029064",
       "is_pinned": false,
       "metrics": {
-        "views": 1548,
+        "views": 1563,
         "likes": 11,
         "reposts": 2,
         "comments": 7
@@ -748,7 +748,7 @@
       "url": "https://vk.ru/wall-161095827_23050",
       "is_pinned": false,
       "metrics": {
-        "views": 357,
+        "views": 358,
         "likes": 2,
         "reposts": 3,
         "comments": 1
@@ -790,7 +790,7 @@
       "url": "https://vk.ru/wall689542040_174387",
       "is_pinned": false,
       "metrics": {
-        "views": 625,
+        "views": 627,
         "likes": 8,
         "reposts": 1,
         "comments": 1
@@ -812,7 +812,7 @@
       "url": "https://vk.ru/wall-213385877_138",
       "is_pinned": false,
       "metrics": {
-        "views": 1147,
+        "views": 1168,
         "likes": 20,
         "reposts": 3,
         "comments": 0
@@ -834,7 +834,7 @@
       "url": "https://vk.ru/wall-213385877_138",
       "is_pinned": false,
       "metrics": {
-        "views": 1149,
+        "views": 1170,
         "likes": 20,
         "reposts": 3,
         "comments": 0
@@ -856,7 +856,7 @@
       "url": "https://vk.ru/wall-213385877_138",
       "is_pinned": false,
       "metrics": {
-        "views": 1158,
+        "views": 1171,
         "likes": 20,
         "reposts": 3,
         "comments": 0
@@ -878,7 +878,7 @@
       "url": "https://vk.ru/wall-77822465_348614",
       "is_pinned": false,
       "metrics": {
-        "views": 772,
+        "views": 775,
         "likes": 1,
         "reposts": 1,
         "comments": 0
@@ -900,7 +900,7 @@
       "url": "https://vk.ru/wall-38242868_1907817",
       "is_pinned": false,
       "metrics": {
-        "views": 1926,
+        "views": 1947,
         "likes": 3,
         "reposts": 1,
         "comments": 0
@@ -922,7 +922,7 @@
       "url": "https://vk.ru/wall-38242868_1907814",
       "is_pinned": false,
       "metrics": {
-        "views": 6320,
+        "views": 6367,
         "likes": 11,
         "reposts": 1,
         "comments": 1
@@ -983,7 +983,7 @@
       "url": "https://vk.ru/wall-38242868_1907809",
       "is_pinned": false,
       "metrics": {
-        "views": 2893,
+        "views": 2905,
         "likes": 0,
         "reposts": 1,
         "comments": 1
@@ -1000,7 +1000,7 @@
       "url": "https://vk.ru/wall-195801765_61061",
       "is_pinned": false,
       "metrics": {
-        "views": 241,
+        "views": 242,
         "likes": 2,
         "reposts": 0,
         "comments": 0
@@ -1044,7 +1044,7 @@
       "url": "https://vk.ru/wall-194763496_1029044",
       "is_pinned": false,
       "metrics": {
-        "views": 5225,
+        "views": 5247,
         "likes": 15,
         "reposts": 5,
         "comments": 3
@@ -1070,7 +1070,7 @@
       "url": "https://vk.ru/wall-38242868_1907793",
       "is_pinned": false,
       "metrics": {
-        "views": 5861,
+        "views": 5885,
         "likes": 73,
         "reposts": 5,
         "comments": 16
@@ -1206,7 +1206,7 @@
       "url": "https://vk.ru/wall-77822465_348606",
       "is_pinned": false,
       "metrics": {
-        "views": 687,
+        "views": 688,
         "likes": 2,
         "reposts": 0,
         "comments": 0
@@ -1228,7 +1228,7 @@
       "url": "https://vk.ru/wall-194763496_1029033",
       "is_pinned": false,
       "metrics": {
-        "views": 2041,
+        "views": 2048,
         "likes": 6,
         "reposts": 2,
         "comments": 0
@@ -1250,7 +1250,7 @@
       "url": "https://vk.ru/wall-38242868_1907780",
       "is_pinned": false,
       "metrics": {
-        "views": 2734,
+        "views": 2740,
         "likes": 5,
         "reposts": 1,
         "comments": 0
@@ -1448,7 +1448,7 @@
       "url": "https://vk.ru/wall-38242868_1907767",
       "is_pinned": false,
       "metrics": {
-        "views": 7278,
+        "views": 7294,
         "likes": 39,
         "reposts": 2,
         "comments": 7
@@ -1531,7 +1531,7 @@
       "url": "https://vk.ru/wall-77822465_348601",
       "is_pinned": false,
       "metrics": {
-        "views": 821,
+        "views": 823,
         "likes": 5,
         "reposts": 0,
         "comments": 0
@@ -1553,7 +1553,7 @@
       "url": "https://vk.ru/wall-38242868_1907766",
       "is_pinned": false,
       "metrics": {
-        "views": 3862,
+        "views": 3868,
         "likes": 32,
         "reposts": 3,
         "comments": 1
@@ -1575,7 +1575,7 @@
       "url": "https://vk.ru/wall-194763496_1029021",
       "is_pinned": false,
       "metrics": {
-        "views": 1655,
+        "views": 1657,
         "likes": 20,
         "reposts": 1,
         "comments": 0
@@ -1599,7 +1599,7 @@
       "url": "https://vk.ru/wall-114491512_147031",
       "is_pinned": false,
       "metrics": {
-        "views": 628,
+        "views": 632,
         "likes": 7,
         "reposts": 1,
         "comments": 0
@@ -1621,7 +1621,7 @@
       "url": "https://vk.ru/wall-138682048_118998",
       "is_pinned": false,
       "metrics": {
-        "views": 1014,
+        "views": 1017,
         "likes": 40,
         "reposts": 1,
         "comments": 1
@@ -1660,7 +1660,7 @@
       "url": "https://vk.ru/wall-77822465_348599",
       "is_pinned": false,
       "metrics": {
-        "views": 842,
+        "views": 843,
         "likes": 8,
         "reposts": 2,
         "comments": 1
@@ -1682,7 +1682,7 @@
       "url": "https://vk.ru/wall-38242868_1907748",
       "is_pinned": false,
       "metrics": {
-        "views": 4144,
+        "views": 4152,
         "likes": 47,
         "reposts": 2,
         "comments": 3
@@ -1704,7 +1704,7 @@
       "url": "https://vk.ru/wall-194763496_1029002",
       "is_pinned": false,
       "metrics": {
-        "views": 3820,
+        "views": 3827,
         "likes": 7,
         "reposts": 6,
         "comments": 1
@@ -1728,7 +1728,7 @@
       "url": "https://vk.ru/wall-38242868_1907733",
       "is_pinned": false,
       "metrics": {
-        "views": 3999,
+        "views": 4005,
         "likes": 4,
         "reposts": 0,
         "comments": 0
@@ -1750,7 +1750,7 @@
       "url": "https://vk.ru/wall-38242868_1907724",
       "is_pinned": false,
       "metrics": {
-        "views": 3882,
+        "views": 3887,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -1776,7 +1776,7 @@
       "url": "https://vk.ru/wall-194763496_1028991",
       "is_pinned": false,
       "metrics": {
-        "views": 4093,
+        "views": 4102,
         "likes": 16,
         "reposts": 4,
         "comments": 4
@@ -1825,7 +1825,7 @@
       "url": "https://vk.ru/wall-38242868_1907713",
       "is_pinned": false,
       "metrics": {
-        "views": 4481,
+        "views": 4489,
         "likes": 8,
         "reposts": 2,
         "comments": 0
@@ -1851,7 +1851,7 @@
       "url": "https://vk.ru/wall689542040_174377",
       "is_pinned": false,
       "metrics": {
-        "views": 1850,
+        "views": 1851,
         "likes": 13,
         "reposts": 3,
         "comments": 3
@@ -1881,7 +1881,7 @@
       "url": "https://vk.ru/wall-194763496_1028981",
       "is_pinned": false,
       "metrics": {
-        "views": 6247,
+        "views": 6257,
         "likes": 27,
         "reposts": 0,
         "comments": 4
@@ -1907,7 +1907,7 @@
       "url": "https://vk.ru/wall-38242868_1907703",
       "is_pinned": false,
       "metrics": {
-        "views": 8828,
+        "views": 8838,
         "likes": 15,
         "reposts": 1,
         "comments": 15
@@ -1929,7 +1929,7 @@
       "url": "https://vk.ru/wall689542040_174374",
       "is_pinned": false,
       "metrics": {
-        "views": 1891,
+        "views": 1894,
         "likes": 15,
         "reposts": 6,
         "comments": 3
@@ -2004,7 +2004,7 @@
       "url": "https://vk.ru/wall-38242868_1907691",
       "is_pinned": false,
       "metrics": {
-        "views": 7589,
+        "views": 7590,
         "likes": 16,
         "reposts": 9,
         "comments": 1
@@ -2081,7 +2081,7 @@
       "url": "https://vk.ru/wall689542040_174368",
       "is_pinned": false,
       "metrics": {
-        "views": 1562,
+        "views": 1563,
         "likes": 8,
         "reposts": 1,
         "comments": 1
@@ -2141,7 +2141,7 @@
       "url": "https://vk.ru/wall-38242868_1907687",
       "is_pinned": false,
       "metrics": {
-        "views": 5604,
+        "views": 5607,
         "likes": 12,
         "reposts": 1,
         "comments": 0
@@ -2163,7 +2163,7 @@
       "url": "https://vk.ru/wall689542040_174365",
       "is_pinned": false,
       "metrics": {
-        "views": 1545,
+        "views": 1546,
         "likes": 12,
         "reposts": 2,
         "comments": 2
@@ -2231,7 +2231,7 @@
       "url": "https://vk.ru/wall-194763496_1028964",
       "is_pinned": false,
       "metrics": {
-        "views": 3951,
+        "views": 3956,
         "likes": 14,
         "reposts": 2,
         "comments": 3
@@ -2253,7 +2253,7 @@
       "url": "https://vk.ru/wall-77822465_348583",
       "is_pinned": false,
       "metrics": {
-        "views": 1523,
+        "views": 1524,
         "likes": 11,
         "reposts": 1,
         "comments": 0
@@ -2297,7 +2297,7 @@
       "url": "https://vk.ru/wall-38242868_1907676",
       "is_pinned": false,
       "metrics": {
-        "views": 7604,
+        "views": 7610,
         "likes": 9,
         "reposts": 3,
         "comments": 1
@@ -2314,7 +2314,7 @@
       "url": "https://vk.ru/wall-195801765_61053",
       "is_pinned": false,
       "metrics": {
-        "views": 1197,
+        "views": 1200,
         "likes": 2,
         "reposts": 0,
         "comments": 0
@@ -2340,7 +2340,7 @@
       "url": "https://vk.ru/wall-38242868_1907675",
       "is_pinned": false,
       "metrics": {
-        "views": 11089,
+        "views": 11110,
         "likes": 17,
         "reposts": 49,
         "comments": 0
@@ -2379,7 +2379,7 @@
       "url": "https://vk.ru/wall-194763496_1028958",
       "is_pinned": false,
       "metrics": {
-        "views": 5310,
+        "views": 5316,
         "likes": 20,
         "reposts": 1,
         "comments": 3
@@ -2427,7 +2427,7 @@
       "url": "https://vk.ru/wall-38242868_1907665",
       "is_pinned": false,
       "metrics": {
-        "views": 11956,
+        "views": 11967,
         "likes": 16,
         "reposts": 6,
         "comments": 3
@@ -2561,7 +2561,7 @@
       "url": "https://vk.ru/wall-194763496_1028951",
       "is_pinned": false,
       "metrics": {
-        "views": 12503,
+        "views": 12528,
         "likes": 118,
         "reposts": 9,
         "comments": 1
@@ -2583,7 +2583,7 @@
       "url": "https://vk.ru/wall-226153295_11790",
       "is_pinned": false,
       "metrics": {
-        "views": 371,
+        "views": 374,
         "likes": 3,
         "reposts": 1,
         "comments": 0
@@ -2609,7 +2609,7 @@
       "url": "https://vk.ru/wall-138682048_118981",
       "is_pinned": false,
       "metrics": {
-        "views": 3555,
+        "views": 3564,
         "likes": 59,
         "reposts": 10,
         "comments": 5
@@ -2631,7 +2631,7 @@
       "url": "https://vk.ru/wall-195801765_61052",
       "is_pinned": false,
       "metrics": {
-        "views": 1165,
+        "views": 1167,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -2661,7 +2661,7 @@
       "url": "https://vk.ru/wall-38242868_1907648",
       "is_pinned": false,
       "metrics": {
-        "views": 6960,
+        "views": 6963,
         "likes": 25,
         "reposts": 1,
         "comments": 0
@@ -2709,7 +2709,7 @@
       "url": "https://vk.ru/wall-38242868_1907645",
       "is_pinned": false,
       "metrics": {
-        "views": 5165,
+        "views": 5168,
         "likes": 18,
         "reposts": 4,
         "comments": 0
@@ -2735,7 +2735,7 @@
       "url": "https://vk.ru/wall-77822465_348575",
       "is_pinned": false,
       "metrics": {
-        "views": 1388,
+        "views": 1389,
         "likes": 17,
         "reposts": 1,
         "comments": 0
@@ -2757,7 +2757,7 @@
       "url": "https://vk.ru/wall-169508339_50340",
       "is_pinned": false,
       "metrics": {
-        "views": 1165,
+        "views": 1167,
         "likes": 4,
         "reposts": 0,
         "comments": 0
@@ -2827,7 +2827,7 @@
       "url": "https://vk.ru/wall-194763496_1028936",
       "is_pinned": false,
       "metrics": {
-        "views": 7049,
+        "views": 7054,
         "likes": 23,
         "reposts": 4,
         "comments": 0
@@ -2861,7 +2861,7 @@
       "url": "https://vk.ru/wall-138682048_118979",
       "is_pinned": false,
       "metrics": {
-        "views": 896,
+        "views": 899,
         "likes": 5,
         "reposts": 0,
         "comments": 1
@@ -2899,7 +2899,7 @@
       "url": "https://vk.ru/wall-38242868_1907628",
       "is_pinned": false,
       "metrics": {
-        "views": 8404,
+        "views": 8410,
         "likes": 8,
         "reposts": 0,
         "comments": 3
@@ -2916,7 +2916,7 @@
       "url": "https://vk.ru/wall689542040_174355",
       "is_pinned": false,
       "metrics": {
-        "views": 1966,
+        "views": 1967,
         "likes": 17,
         "reposts": 9,
         "comments": 1
@@ -2992,7 +2992,7 @@
       "url": "https://vk.ru/wall-38242868_1907616",
       "is_pinned": false,
       "metrics": {
-        "views": 7618,
+        "views": 7621,
         "likes": 74,
         "reposts": 5,
         "comments": 5
@@ -3022,7 +3022,7 @@
       "url": "https://vk.ru/wall-77822465_348570",
       "is_pinned": false,
       "metrics": {
-        "views": 1354,
+        "views": 1355,
         "likes": 0,
         "reposts": 3,
         "comments": 0
@@ -3044,7 +3044,7 @@
       "url": "https://vk.ru/wall-194763496_1028927",
       "is_pinned": false,
       "metrics": {
-        "views": 9825,
+        "views": 9833,
         "likes": 19,
         "reposts": 4,
         "comments": 0
@@ -3090,7 +3090,7 @@
       "url": "https://vk.ru/wall-138682048_118976",
       "is_pinned": false,
       "metrics": {
-        "views": 1063,
+        "views": 1065,
         "likes": 3,
         "reposts": 1,
         "comments": 0
@@ -3112,7 +3112,7 @@
       "url": "https://vk.ru/wall-38242868_1907601",
       "is_pinned": false,
       "metrics": {
-        "views": 7854,
+        "views": 7855,
         "likes": 4,
         "reposts": 0,
         "comments": 4
@@ -3223,7 +3223,7 @@
       "url": "https://vk.ru/wall-38242868_1907589",
       "is_pinned": false,
       "metrics": {
-        "views": 7724,
+        "views": 7727,
         "likes": 14,
         "reposts": 2,
         "comments": 0
@@ -3245,7 +3245,7 @@
       "url": "https://vk.ru/wall-127341155_7313",
       "is_pinned": false,
       "metrics": {
-        "views": 3475,
+        "views": 3482,
         "likes": 102,
         "reposts": 12,
         "comments": 5
@@ -3307,7 +3307,7 @@
       "url": "https://vk.ru/wall-138682048_118970",
       "is_pinned": false,
       "metrics": {
-        "views": 7760,
+        "views": 7771,
         "likes": 84,
         "reposts": 17,
         "comments": 4
@@ -3351,7 +3351,7 @@
       "url": "https://vk.ru/wall-38242868_1907582",
       "is_pinned": false,
       "metrics": {
-        "views": 6584,
+        "views": 6588,
         "likes": 67,
         "reposts": 3,
         "comments": 4
@@ -3399,7 +3399,7 @@
       "url": "https://vk.ru/wall-138682048_118968",
       "is_pinned": false,
       "metrics": {
-        "views": 2932,
+        "views": 2933,
         "likes": 10,
         "reposts": 6,
         "comments": 4
@@ -3466,7 +3466,7 @@
       "url": "https://vk.ru/wall-38242868_1907568",
       "is_pinned": false,
       "metrics": {
-        "views": 8202,
+        "views": 8204,
         "likes": 26,
         "reposts": 3,
         "comments": 0
@@ -3520,7 +3520,7 @@
       "url": "https://vk.ru/wall-38242868_1907563",
       "is_pinned": false,
       "metrics": {
-        "views": 9478,
+        "views": 9483,
         "likes": 25,
         "reposts": 43,
         "comments": 26
@@ -3542,7 +3542,7 @@
       "url": "https://vk.ru/wall-194763496_1028887",
       "is_pinned": false,
       "metrics": {
-        "views": 6539,
+        "views": 6541,
         "likes": 33,
         "reposts": 10,
         "comments": 3
@@ -3564,7 +3564,7 @@
       "url": "https://vk.ru/wall-77822465_348548",
       "is_pinned": false,
       "metrics": {
-        "views": 2899,
+        "views": 2900,
         "likes": 42,
         "reposts": 4,
         "comments": 9
@@ -3586,7 +3586,7 @@
       "url": "https://vk.ru/wall-38242868_1907562",
       "is_pinned": false,
       "metrics": {
-        "views": 5583,
+        "views": 5589,
         "likes": 6,
         "reposts": 0,
         "comments": 0
@@ -3608,7 +3608,7 @@
       "url": "https://vk.ru/wall-138682048_118964",
       "is_pinned": false,
       "metrics": {
-        "views": 1362,
+        "views": 1363,
         "likes": 21,
         "reposts": 0,
         "comments": 0
@@ -3674,7 +3674,7 @@
       "url": "https://vk.ru/wall-77822465_348545",
       "is_pinned": false,
       "metrics": {
-        "views": 5603,
+        "views": 5604,
         "likes": 23,
         "reposts": 17,
         "comments": 7
@@ -3784,7 +3784,7 @@
       "url": "https://vk.ru/wall-182866999_3806",
       "is_pinned": false,
       "metrics": {
-        "views": 1339,
+        "views": 1340,
         "likes": 10,
         "reposts": 1,
         "comments": 0
@@ -3822,7 +3822,7 @@
       "url": "https://vk.ru/wall-194763496_1028877",
       "is_pinned": false,
       "metrics": {
-        "views": 7102,
+        "views": 7106,
         "likes": 27,
         "reposts": 5,
         "comments": 3
@@ -3852,7 +3852,7 @@
       "url": "https://vk.ru/wall-38242868_1907543",
       "is_pinned": false,
       "metrics": {
-        "views": 8490,
+        "views": 8497,
         "likes": 30,
         "reposts": 25,
         "comments": 1
@@ -4018,7 +4018,7 @@
       "url": "https://vk.ru/wall-38242868_1907526",
       "is_pinned": false,
       "metrics": {
-        "views": 20820,
+        "views": 20833,
         "likes": 233,
         "reposts": 10,
         "comments": 32
@@ -4035,7 +4035,7 @@
       "url": "https://vk.ru/wall-38242868_1907523",
       "is_pinned": false,
       "metrics": {
-        "views": 5768,
+        "views": 5771,
         "likes": 15,
         "reposts": 0,
         "comments": 0
