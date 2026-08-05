@@ -65,14 +65,12 @@
 
         const params = new URLSearchParams({
           client_id: String(APP_ID),
-          app_id: String(APP_ID),
           redirect_uri: REDIRECT_URL,
           response_type: 'code',
           code_challenge: codeChallenge,
           code_challenge_method: 'S256',
           scope: SCOPES,
           state,
-          v: '2.6.7',
           provider: 'vkid',
           prompt: 'consent',
           lang_id: '0',
