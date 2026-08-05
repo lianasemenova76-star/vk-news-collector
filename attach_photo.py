@@ -100,6 +100,12 @@ def attach_photo(token: str, post_id: int, image_path: Path) -> None:
     if not posts:
         raise RuntimeError(f"VK post {owner_id}_{post_id} was not found")
     post = posts[0]
+    existing_photos = [
+        item for item in post.get("attachments", []) if item.get("type") == "photo"
+    ]
+    if existing_photos:
+        print(json.dumps({"status": "already_attached", "post_id": post_id}, ensure_ascii=False))
+        return
 
     server = api_call("photos.getWallUploadServer", token, group_id=group_id)
     uploaded = upload_multipart(server["upload_url"], image_path)

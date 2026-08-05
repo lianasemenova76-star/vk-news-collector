@@ -19,14 +19,10 @@ jobs:
   attach:
     runs-on: ubuntu-latest
     steps:
-      - name: Download repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Validate, attach and report
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
@@ -42,7 +38,7 @@ jobs:
           OUTPUT=$(CONFIRM_ATTACH=YES python attach_photo.py --post-id "$POST_ID" --image "$IMAGE_PATH" 2>&1)
           RESULT=$?
           printf '%s\n' "$OUTPUT"
-          DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | cut -c1-120)
-          if [ "$RESULT" -eq 0 ]; then STATE=success; else STATE=error; fi
-          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state="$STATE" -f context="vk-photo-attachment" -f description="$DESCRIPTION"
+          LAST_LINE=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-100)
+          if [ "$RESULT" -eq 0 ]; then STATE=success; CONTEXT="vk-photo-attached"; else STATE=error; CONTEXT="vk-photo-error: $LAST_LINE"; fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state="$STATE" -f context="$CONTEXT" -f description="$LAST_LINE"
           exit "$RESULT"
