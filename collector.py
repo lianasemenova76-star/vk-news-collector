@@ -212,7 +212,8 @@ def main() -> int:
     print(f"Collected {len(posts)} posts from {len(sources)} source(s)")
     if errors:
         print(json.dumps(errors, ensure_ascii=False), file=sys.stderr)
-        return 2
+        if len(errors) == len(sources):
+            return 2
     return 0
 
 
