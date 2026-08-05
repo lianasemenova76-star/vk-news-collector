@@ -1,0 +1,32 @@
+name: Verify VK post attachment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "verify-attachment-request.json"
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify photo and report status
+        env:
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python verify_attachment.py
+          RESULT=$?
+          if [ "$RESULT" -eq 0 ]; then STATE=success; DESCRIPTION="Photo attached"; else STATE=error; DESCRIPTION="Photo missing"; fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state="$STATE" -f context="vk-attachment-verification" -f description="$DESCRIPTION"
+          exit "$RESULT"
