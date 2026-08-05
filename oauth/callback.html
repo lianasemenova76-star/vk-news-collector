@@ -22,18 +22,16 @@
     <p id="message">Обмениваю одноразовый код на токены.</p>
     <section id="results" hidden>
       <p class="ok">VK выдал доступ. Скопируй значения по одному в GitHub Secrets. Не присылай их в чат и не делай скриншот.</p>
-      <div class="secret"><label for="access">VK_USER_TOKEN</label><input id="access" type="password" readonly><button data-copy="access">Копировать</button></div>
-      <div class="secret"><label for="refresh">VK_USER_REFRESH_TOKEN</label><input id="refresh" type="password" readonly><button data-copy="refresh">Копировать</button></div>
-      <div class="secret"><label for="device">VK_USER_DEVICE_ID</label><input id="device" type="password" readonly><button data-copy="device">Копировать</button></div>
+      <div class="secret"><label for="access">VK_USER_TOKEN</label><input id="access" type="password" readonly><button type="button" data-copy="access">Копировать</button></div>
+      <div class="secret"><label for="refresh">VK_USER_REFRESH_TOKEN</label><input id="refresh" type="password" readonly><button type="button" data-copy="refresh">Копировать</button></div>
+      <div class="secret"><label for="device">VK_USER_DEVICE_ID</label><input id="device" type="password" readonly><button type="button" data-copy="device">Копировать</button></div>
       <p id="meta" class="note"></p>
     </section>
     <p class="note">Эта страница не сохраняет токены в файлы, историю браузера или репозиторий.</p>
   </main>
-  <script src="https://unpkg.com/@vkid/sdk@2.6.7/dist-sdk/umd/index.js"></script>
   <script>
     const APP_ID = 54708342;
     const REDIRECT_URL = 'https://lianasemenova76-star.github.io/vk-news-collector/oauth/callback.html';
-    const SCOPES = 'wall photos groups';
     const params = new URLSearchParams(location.search);
     const title = document.getElementById('title');
     const message = document.getElementById('message');
@@ -69,16 +67,29 @@
         return;
       }
 
-      VKID.Config.init({
-        app: APP_ID,
-        redirectUrl: REDIRECT_URL,
-        state,
-        codeVerifier,
-        scope: SCOPES
-      });
-
       try {
-        const token = await VKID.Auth.exchangeCode(code, deviceId, codeVerifier);
+        const query = new URLSearchParams({
+          grant_type: 'authorization_code',
+          redirect_uri: REDIRECT_URL,
+          client_id: String(APP_ID),
+          code_verifier: codeVerifier,
+          state,
+          device_id: deviceId
+        });
+
+        const response = await fetch('https://id.vk.ru/oauth2/auth?' + query.toString(), {
+          method: 'POST',
+          body: new URLSearchParams({ code })
+        });
+        const token = await response.json();
+
+        if (!response.ok || token.error) {
+          throw new Error(token.error_description || token.error || 'VK не выдал токен');
+        }
+        if (token.state && token.state !== state) {
+          throw new Error('Проверка безопасности state не прошла.');
+        }
+
         sessionStorage.removeItem('vk_oauth_state');
         sessionStorage.removeItem('vk_code_verifier');
 
@@ -94,7 +105,7 @@
         message.textContent = 'Теперь сохрани три значения в GitHub Secrets.';
         results.hidden = false;
       } catch (error) {
-        fail(error?.error_description || error?.error || error?.message || String(error));
+        fail(error?.message || String(error));
       }
     }
 
@@ -102,7 +113,14 @@
       const id = event.target?.dataset?.copy;
       if (!id) return;
       const input = document.getElementById(id);
-      await navigator.clipboard.writeText(input.value);
+      try {
+        await navigator.clipboard.writeText(input.value);
+      } catch {
+        input.type = 'text';
+        input.select();
+        document.execCommand('copy');
+        input.type = 'password';
+      }
       const old = event.target.textContent;
       event.target.textContent = 'Скопировано';
       setTimeout(() => { event.target.textContent = old; }, 1200);
