@@ -1,6 +1,11 @@
 name: Collect recent VK comments
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "comments-request.json"
   workflow_dispatch:
     inputs:
       days:
