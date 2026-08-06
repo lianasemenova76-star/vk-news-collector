@@ -27,6 +27,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install story image support
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+
       - name: Validate approved requests and publish
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
@@ -38,6 +41,9 @@ jobs:
             MESSAGE=$(jq -r ".posts[$i].message" publish-request.json)
             PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
             IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
+            DUPLICATE_TO_STORY=$(jq -r ".posts[$i].duplicate_to_story // false" publish-request.json)
+            STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" publish-request.json)
+            STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" publish-request.json)
             test -n "$MESSAGE"
             ARGS=(--message "$MESSAGE")
             if [ -n "$PUBLISH_DATE" ]; then ARGS+=(--publish-date "$PUBLISH_DATE"); fi
@@ -45,6 +51,12 @@ jobs:
               [[ "$IMAGE_PATH" == media/* ]]
               test -f "$IMAGE_PATH"
               ARGS+=(--image "$IMAGE_PATH")
+            fi
+            if [ "$DUPLICATE_TO_STORY" = "true" ]; then
+              test -z "$PUBLISH_DATE"
+              test -n "$STORY_TITLE"
+              ARGS+=(--duplicate-to-story --story-title "$STORY_TITLE")
+              if [ -n "$STORY_TEXT" ]; then ARGS+=(--story-text "$STORY_TEXT"); fi
             fi
             CONFIRM_PUBLISH=YES python publisher.py "${ARGS[@]}"
           done
