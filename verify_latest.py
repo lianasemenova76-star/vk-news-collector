@@ -17,7 +17,14 @@ prefix = str(request_data.get("expected_prefix", "")).strip()
 if not prefix:
     raise RuntimeError("expected_prefix is empty")
 
-token = os.environ["VK_PUBLISH_TOKEN"]
+token = (
+    os.environ.get("VK_USER_TOKEN")
+    or os.environ.get("VK_ANALYTICS_TOKEN")
+    or os.environ.get("VK_PUBLISH_TOKEN")
+)
+if not token:
+    raise RuntimeError("VK verification token is not set")
+
 payload = urlencode({
     "access_token": token,
     "v": API_VERSION,
@@ -27,7 +34,7 @@ payload = urlencode({
 request = Request(
     f"{API_BASE}/wall.get",
     data=payload,
-    headers={"User-Agent": "vk-news-collector-verifier/1.2"},
+    headers={"User-Agent": "vk-news-collector-verifier/1.3"},
 )
 with urlopen(request, timeout=60) as response:
     document = json.load(response)
