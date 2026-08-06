@@ -1,0 +1,42 @@
+name: Verify VK post and linked story
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "story-verify-request.json"
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify wall post and story
+        env:
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          OUTPUT=$(python verify_story.py 2>&1)
+          RESULT=$?
+          printf '%s\n' "$OUTPUT"
+          if [ "$RESULT" -eq 0 ]; then
+            POST_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["post_id"])')
+            STORY_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["story_id"])')
+            STATE=success
+            DESCRIPTION="post $POST_ID and story $STORY_ID verified"
+          else
+            STATE=error
+            DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-100)
+          fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$STATE" -f context="vk-story-check" -f description="$DESCRIPTION"
+          exit "$RESULT"
