@@ -1,0 +1,59 @@
+name: Collect recent VK comments
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: Number of recent wall days to inspect
+        required: false
+        default: "7"
+        type: string
+  schedule:
+    - cron: "30 3 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vk-comments
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Restore previous comment checkpoint
+        uses: actions/cache/restore@v4
+        with:
+          path: state/comments.json
+          key: vk-comments-state-${{ github.run_id }}
+          restore-keys: |
+            vk-comments-state-
+      - name: Collect comments without replying
+        env:
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          VK_ANALYTICS_TOKEN: ${{ secrets.VK_ANALYTICS_TOKEN }}
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          INPUT_DAYS: ${{ inputs.days }}
+        run: |
+          DAYS="${INPUT_DAYS:-7}"
+          [[ "$DAYS" =~ ^[0-9]+$ ]]
+          python comments.py \
+            --days "$DAYS" \
+            --checkpoint state/comments.json \
+            --output-dir comments-report
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vk-comments-${{ github.run_id }}
+          path: comments-report/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Save comment checkpoint
+        uses: actions/cache/save@v4
+        with:
+          path: state/comments.json
+          key: vk-comments-state-${{ github.run_id }}
