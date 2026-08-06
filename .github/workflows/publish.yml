@@ -33,6 +33,7 @@ jobs:
       - name: Validate approved requests and publish
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           jq -e '.confirmed == true' publish-request.json
           COUNT=$(jq '.posts | length' publish-request.json)
@@ -58,5 +59,28 @@ jobs:
               ARGS+=(--duplicate-to-story --story-title "$STORY_TITLE")
               if [ -n "$STORY_TEXT" ]; then ARGS+=(--story-text "$STORY_TEXT"); fi
             fi
-            CONFIRM_PUBLISH=YES python publisher.py "${ARGS[@]}"
+            set +e
+            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py "${ARGS[@]}" 2>&1)
+            RESULT=$?
+            set -e
+            printf '%s\n' "$OUTPUT"
+            if [ "$RESULT" -eq 0 ]; then
+              POST_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["post_id"])')
+              STORY_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; data=json.load(sys.stdin); print((data.get("story") or {}).get("story_id", ""))')
+              STATE=success
+              if [ -n "$STORY_ID" ]; then
+                DESCRIPTION="post $POST_ID and story $STORY_ID published"
+                CONTEXT="vk-publish/post-$POST_ID-story-$STORY_ID"
+              else
+                DESCRIPTION="post $POST_ID published"
+                CONTEXT="vk-publish/post-$POST_ID"
+              fi
+            else
+              STATE=error
+              DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
+              CONTEXT="vk-publish/$DESCRIPTION"
+            fi
+            gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+              -f state="$STATE" -f context="$CONTEXT" -f description="$DESCRIPTION"
+            if [ "$RESULT" -ne 0 ]; then exit "$RESULT"; fi
           done
