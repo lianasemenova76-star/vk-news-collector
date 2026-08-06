@@ -1,0 +1,30 @@
+name: Prepare Tutaev weather draft
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 2 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tutaev-weather
+  cancel-in-progress: true
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Prepare forecast draft without publishing
+        run: python weather.py --output-dir weather-report
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tutaev-weather-${{ github.run_id }}
+          path: weather-report/
+          if-no-files-found: error
+          retention-days: 7
