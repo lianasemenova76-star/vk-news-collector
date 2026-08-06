@@ -62,9 +62,9 @@ def find_linked_story(token: str, post_id: int) -> dict | None:
 
 
 def main() -> int:
-    token = os.environ.get("VK_PUBLISH_TOKEN")
+    token = os.environ.get("VK_USER_TOKEN") or os.environ.get("VK_PUBLISH_TOKEN")
     if not token:
-        print("VK_PUBLISH_TOKEN is not set", file=sys.stderr)
+        print("VK_USER_TOKEN and VK_PUBLISH_TOKEN are not set", file=sys.stderr)
         return 1
     try:
         request = json.loads(REQUEST_PATH.read_text(encoding="utf-8"))
