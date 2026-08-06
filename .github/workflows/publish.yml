@@ -42,17 +42,31 @@ jobs:
             MESSAGE=$(jq -r ".posts[$i].message" publish-request.json)
             PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
             IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
+            IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" publish-request.json)
+            EDIT_POST_ID=$(jq -r ".posts[$i].edit_post_id // empty" publish-request.json)
             DUPLICATE_TO_STORY=$(jq -r ".posts[$i].duplicate_to_story // false" publish-request.json)
             STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" publish-request.json)
             STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" publish-request.json)
             test -n "$MESSAGE"
             ARGS=(--message "$MESSAGE")
             if [ -n "$PUBLISH_DATE" ]; then ARGS+=(--publish-date "$PUBLISH_DATE"); fi
-            if [ -n "$IMAGE_PATH" ]; then
+            if [ -n "$EDIT_POST_ID" ]; then ARGS+=(--edit-post-id "$EDIT_POST_ID"); fi
+            if [ -n "$IMAGE_URL" ]; then
+              [[ "$IMAGE_URL" == https://* ]]
+              IMAGE_PATH="$RUNNER_TEMP/vk-image-$i.jpg"
+              python - "$IMAGE_URL" "$IMAGE_PATH" <<'PY'
+import sys
+from urllib.request import Request, urlopen
+url, path = sys.argv[1:]
+request = Request(url, headers={"User-Agent": "Mozilla/5.0", "Referer": "https://vk.com/"})
+with urlopen(request, timeout=120) as response, open(path, "wb") as output:
+    output.write(response.read())
+PY
+            elif [ -n "$IMAGE_PATH" ]; then
               [[ "$IMAGE_PATH" == media/* ]]
               test -f "$IMAGE_PATH"
-              ARGS+=(--image "$IMAGE_PATH")
             fi
+            if [ -n "$IMAGE_PATH" ]; then ARGS+=(--image "$IMAGE_PATH"); fi
             if [ "$DUPLICATE_TO_STORY" = "true" ]; then
               test -z "$PUBLISH_DATE"
               test -n "$STORY_TITLE"
