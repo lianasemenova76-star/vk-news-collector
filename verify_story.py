@@ -37,7 +37,10 @@ def api_call(method: str, token: str, **params: object) -> object:
 
 
 def find_post(token: str, expected_prefix: str) -> dict | None:
-    response = api_call("wall.get", token, owner_id=-GROUP_ID, count=50)
+    try:
+        response = api_call("wall.get", token, owner_id=-GROUP_ID, count=50)
+    except Exception as exc:
+        raise RuntimeError(f"wall.get failed: {exc}") from exc
     items = response.get("items", []) if isinstance(response, dict) else []
     return next(
         (post for post in items if post.get("text", "").startswith(expected_prefix)),
@@ -46,7 +49,10 @@ def find_post(token: str, expected_prefix: str) -> dict | None:
 
 
 def find_linked_story(token: str, post_id: int) -> dict | None:
-    response = api_call("stories.get", token, owner_id=-GROUP_ID, extended=0)
+    try:
+        response = api_call("stories.get", token, owner_id=-GROUP_ID, extended=0)
+    except Exception as exc:
+        raise RuntimeError(f"stories.get failed: {exc}") from exc
     items = response.get("items", []) if isinstance(response, dict) else []
     needle = f"wall-{GROUP_ID}_{post_id}"
     return next(
