@@ -77,12 +77,19 @@ def attachment_summary(comment: dict) -> list[str]:
     return [str(item.get("type")) for item in comment.get("attachments", []) if item.get("type")]
 
 
-def normalize_comment(comment: dict, owner_id: int, post_id: int, profiles: dict[int, dict]) -> dict:
+def normalize_comment(
+    comment: dict,
+    owner_id: int,
+    post_id: int,
+    post_text: str,
+    profiles: dict[int, dict],
+) -> dict:
     comment_id = int(comment["id"])
     author_id = int(comment.get("from_id") or 0)
     return {
         "comment_id": comment_id,
         "post_id": post_id,
+        "post_text": post_text,
         "published_at": datetime.fromtimestamp(int(comment["date"]), tz=MOSCOW).isoformat(timespec="minutes"),
         "author_id": author_id,
         "author": author_name(author_id, profiles),
@@ -166,7 +173,13 @@ def main() -> int:
                     published = int(candidate.get("date") or 0)
                     newest_seen = max(newest_seen, published)
                     if published > checkpoint:
-                        normalized.append(normalize_comment(candidate, owner_id, int(post["id"]), profiles))
+                        normalized.append(normalize_comment(
+                            candidate,
+                            owner_id,
+                            int(post["id"]),
+                            str(post.get("text") or "").strip(),
+                            profiles,
+                        ))
     except Exception as exc:
         print(str(exc), file=sys.stderr)
         return 2
