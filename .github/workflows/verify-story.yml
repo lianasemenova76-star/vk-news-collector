@@ -33,10 +33,12 @@ jobs:
             STORY_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["story_id"])')
             STATE=success
             DESCRIPTION="post $POST_ID and story $STORY_ID verified"
+            CONTEXT="vk-story-check/post-$POST_ID-story-$STORY_ID"
           else
             STATE=error
-            DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-100)
+            DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
+            CONTEXT="vk-story-check/$DESCRIPTION"
           fi
           gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
-            -f state="$STATE" -f context="vk-story-check" -f description="$DESCRIPTION"
+            -f state="$STATE" -f context="$CONTEXT" -f description="$DESCRIPTION"
           exit "$RESULT"
