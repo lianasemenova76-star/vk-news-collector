@@ -37,10 +37,14 @@ jobs:
           for i in $(seq 0 $((COUNT-1))); do
             MESSAGE=$(jq -r ".posts[$i].message" publish-request.json)
             PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
+            IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
             test -n "$MESSAGE"
-            if [ -n "$PUBLISH_DATE" ]; then
-              CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --publish-date "$PUBLISH_DATE"
-            else
-              CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE"
+            ARGS=(--message "$MESSAGE")
+            if [ -n "$PUBLISH_DATE" ]; then ARGS+=(--publish-date "$PUBLISH_DATE"); fi
+            if [ -n "$IMAGE_PATH" ]; then
+              [[ "$IMAGE_PATH" == media/* ]]
+              test -f "$IMAGE_PATH"
+              ARGS+=(--image "$IMAGE_PATH")
             fi
+            CONFIRM_PUBLISH=YES python publisher.py "${ARGS[@]}"
           done
