@@ -67,7 +67,11 @@ def main() -> int:
         or os.environ.get("VK_USER_TOKEN")
         or os.environ.get("VK_PUBLISH_TOKEN")
     )
-    story_token = os.environ.get("VK_USER_TOKEN") or os.environ.get("VK_PUBLISH_TOKEN")
+    story_token = (
+        os.environ.get("VK_ANALYTICS_TOKEN")
+        or os.environ.get("VK_USER_TOKEN")
+        or os.environ.get("VK_PUBLISH_TOKEN")
+    )
     if not wall_token or not story_token:
         print("VK reader tokens are not set", file=sys.stderr)
         return 1
