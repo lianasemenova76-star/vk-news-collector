@@ -32,6 +32,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Restore previous comment checkpoint
+        if: github.event_name != 'push'
         uses: actions/cache/restore@v4
         with:
           path: state/comments.json
@@ -45,13 +46,18 @@ jobs:
           VK_ANALYTICS_TOKEN: ${{ secrets.VK_ANALYTICS_TOKEN }}
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
           INPUT_DAYS: ${{ inputs.days }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
           DAYS="${INPUT_DAYS:-7}"
           [[ "$DAYS" =~ ^[0-9]+$ ]]
+          CHECKPOINT_ARGS=()
+          if [[ "$EVENT_NAME" != "push" ]]; then
+            CHECKPOINT_ARGS=(--checkpoint state/comments.json)
+          fi
           python comments.py \
             --days "$DAYS" \
-            --checkpoint state/comments.json \
-            --output-dir comments-report
+            --output-dir comments-report \
+            "${CHECKPOINT_ARGS[@]}"
       - uses: actions/upload-artifact@v4
         with:
           name: vk-comments-${{ github.run_id }}
@@ -59,6 +65,7 @@ jobs:
           if-no-files-found: error
           retention-days: 7
       - name: Save comment checkpoint
+        if: github.event_name != 'push'
         uses: actions/cache/save@v4
         with:
           path: state/comments.json
