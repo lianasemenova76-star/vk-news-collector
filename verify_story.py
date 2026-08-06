@@ -73,7 +73,12 @@ def main() -> int:
         for _ in range(7):
             post = find_post(token, expected_prefix)
             if post:
-                story = find_linked_story(token, int(post["id"]))
+                try:
+                    story = find_linked_story(token, int(post["id"]))
+                except Exception as exc:
+                    raise RuntimeError(
+                        f"post {post['id']} exists; story read failed: {exc}"
+                    ) from exc
                 if story:
                     break
             time.sleep(15)
