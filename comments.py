@@ -129,7 +129,12 @@ def load_checkpoint(path: Path) -> int:
 
 
 def token_from_environment() -> str | None:
-    return os.environ.get("VK_PUBLISH_TOKEN") or os.environ.get("VK_ANALYTICS_TOKEN") or os.environ.get("VK_USER_TOKEN")
+    return (
+        os.environ.get("VK_SERVICE_TOKEN")
+        or os.environ.get("VK_ANALYTICS_TOKEN")
+        or os.environ.get("VK_USER_TOKEN")
+        or os.environ.get("VK_PUBLISH_TOKEN")
+    )
 
 
 def main() -> int:
