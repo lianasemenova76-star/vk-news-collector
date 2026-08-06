@@ -248,6 +248,7 @@ def publish(
     duplicate_to_story: bool = False,
     story_title: str | None = None,
     story_text: str | None = None,
+    edit_post_id: int | None = None,
 ) -> None:
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Publishing is blocked: CONFIRM_PUBLISH must be YES")
@@ -276,10 +277,17 @@ def publish(
         attachment = upload_wall_photo(token, group_id, image_path)
         params["attachments"] = attachment
 
-    response = api_call("wall.post", token, **params)
-    post_id = response.get("post_id") if isinstance(response, dict) else None
-    if not post_id:
-        raise RuntimeError("VK did not return post_id after wall.post")
+    if edit_post_id is not None:
+        params["post_id"] = edit_post_id
+        response = api_call("wall.edit", token, **params)
+        if response != 1:
+            raise RuntimeError("VK did not confirm wall.edit")
+        post_id = edit_post_id
+    else:
+        response = api_call("wall.post", token, **params)
+        post_id = response.get("post_id") if isinstance(response, dict) else None
+        if not post_id:
+            raise RuntimeError("VK did not return post_id after wall.post")
 
     story = None
     if duplicate_to_story:
@@ -292,7 +300,7 @@ def publish(
         )
 
     print(json.dumps({
-        "status": "scheduled" if publish_date is not None else "published",
+        "status": "edited" if edit_post_id is not None else ("scheduled" if publish_date is not None else "published"),
         "post_id": post_id,
         "publish_date": publish_date,
         "attachment": attachment,
@@ -310,6 +318,7 @@ def main() -> int:
     parser.add_argument("--duplicate-to-story", action="store_true")
     parser.add_argument("--story-title")
     parser.add_argument("--story-text")
+    parser.add_argument("--edit-post-id", type=int)
     args = parser.parse_args()
 
     token = os.environ.get("VK_PUBLISH_TOKEN")
@@ -329,6 +338,7 @@ def main() -> int:
                 args.duplicate_to_story,
                 args.story_title,
                 args.story_text,
+                args.edit_post_id,
             )
         else:
             parser.error("use --check or --message")
