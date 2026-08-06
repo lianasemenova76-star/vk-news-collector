@@ -62,9 +62,14 @@ def find_linked_story(token: str, post_id: int) -> dict | None:
 
 
 def main() -> int:
-    token = os.environ.get("VK_USER_TOKEN") or os.environ.get("VK_PUBLISH_TOKEN")
-    if not token:
-        print("VK_USER_TOKEN and VK_PUBLISH_TOKEN are not set", file=sys.stderr)
+    wall_token = (
+        os.environ.get("VK_SERVICE_TOKEN")
+        or os.environ.get("VK_USER_TOKEN")
+        or os.environ.get("VK_PUBLISH_TOKEN")
+    )
+    story_token = os.environ.get("VK_USER_TOKEN") or os.environ.get("VK_PUBLISH_TOKEN")
+    if not wall_token or not story_token:
+        print("VK reader tokens are not set", file=sys.stderr)
         return 1
     try:
         request = json.loads(REQUEST_PATH.read_text(encoding="utf-8"))
@@ -77,10 +82,10 @@ def main() -> int:
         post = None
         story = None
         for _ in range(7):
-            post = find_post(token, expected_prefix)
+            post = find_post(wall_token, expected_prefix)
             if post:
                 try:
-                    story = find_linked_story(token, int(post["id"]))
+                    story = find_linked_story(story_token, int(post["id"]))
                 except Exception as exc:
                     raise RuntimeError(
                         f"post {post['id']} exists; story read failed: {exc}"
