@@ -32,7 +32,8 @@ jobs:
           POST_ID="$(jq -r '.post_id' attach-photo-request.json)"
           IMAGE_PATH="$(jq -r '.image_path' attach-photo-request.json)"
           test "$CONFIRMED" = "true"
-          test "$POST_ID" = "412425"
+          [[ "$POST_ID" =~ ^[0-9]+$ ]]
+          [[ "$IMAGE_PATH" == media/* ]]
           test -f "$IMAGE_PATH"
           set +e
           OUTPUT=$(CONFIRM_ATTACH=YES python attach_photo.py --post-id "$POST_ID" --image "$IMAGE_PATH" 2>&1)
