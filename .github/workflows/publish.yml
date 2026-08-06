@@ -1,4 +1,4 @@
-name: Publish approved VK post
+name: Publish approved VK posts
 
 on:
   push:
@@ -27,47 +27,20 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate approved request and publish
+      - name: Validate approved requests and publish
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
-          GH_TOKEN: ${{ github.token }}
         run: |
-          CONFIRMED="$(jq -r '.confirmed' publish-request.json)"
-          MESSAGE="$(jq -r '.message' publish-request.json)"
-          IMAGE_PATH="$(jq -r '.image_path // empty' publish-request.json)"
-          PUBLISH_DATE="$(jq -r '.publish_date // empty' publish-request.json)"
-          test "$CONFIRMED" = "true"
-          test -n "$MESSAGE"
-          PUBLISH_ARGS=()
-          if [ -n "$PUBLISH_DATE" ]; then
-            PUBLISH_ARGS+=(--publish-date "$PUBLISH_DATE")
-          fi
-          set +e
-          if [ -n "$IMAGE_PATH" ]; then
-            test -f "$IMAGE_PATH" || exit 3
-            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --image "$IMAGE_PATH" "${PUBLISH_ARGS[@]}" 2>&1)
-          else
-            OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" "${PUBLISH_ARGS[@]}" 2>&1)
-          fi
-          RESULT=$?
-          printf '%s\n' "$OUTPUT"
-          if [ "$RESULT" -eq 0 ]; then
-            POST_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["post_id"])')
-            RESULT_STATUS=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin)["status"])')
-            STATE=success
-            if [ "$RESULT_STATUS" = "scheduled" ]; then
-              CONTEXT="vk-scheduled-$POST_ID"
-              DESCRIPTION="approved VK post scheduled"
+          jq -e '.confirmed == true' publish-request.json
+          COUNT=$(jq '.posts | length' publish-request.json)
+          test "$COUNT" -gt 0
+          for i in $(seq 0 $((COUNT-1))); do
+            MESSAGE=$(jq -r ".posts[$i].message" publish-request.json)
+            PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
+            test -n "$MESSAGE"
+            if [ -n "$PUBLISH_DATE" ]; then
+              CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE" --publish-date "$PUBLISH_DATE"
             else
-              CONTEXT="vk-published-$POST_ID"
-              DESCRIPTION="approved VK post published"
+              CONFIRM_PUBLISH=YES python publisher.py --message "$MESSAGE"
             fi
-          else
-            LAST_LINE=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
-            STATE=error
-            CONTEXT="vk-publish-error-$LAST_LINE"
-            DESCRIPTION="$LAST_LINE"
-          fi
-          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
-            -f state="$STATE" -f context="$CONTEXT" -f description="$DESCRIPTION"
-          exit "$RESULT"
+          done
