@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a VK token and publish approved text with an optional wall photo."""
+"""Publish approved VK posts, optionally duplicating them to community stories."""
 
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ import mimetypes
 import os
 import secrets
 import sys
+import tempfile
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -62,13 +63,13 @@ def resolve_group(token: str) -> dict:
     return group
 
 
-def upload_multipart(url: str, image_path: Path) -> dict:
+def upload_multipart(url: str, image_path: Path, field_name: str = "photo") -> dict:
     boundary = f"----AgataVK{secrets.token_hex(12)}"
     mime = mimetypes.guess_type(image_path.name)[0] or "image/png"
     data = image_path.read_bytes()
     body = (
         f"--{boundary}\r\n"
-        f'Content-Disposition: form-data; name="photo"; filename="{image_path.name}"\r\n'
+        f'Content-Disposition: form-data; name="{field_name}"; filename="{image_path.name}"\r\n'
         f"Content-Type: {mime}\r\n\r\n"
     ).encode("utf-8") + data + f"\r\n--{boundary}--\r\n".encode("utf-8")
     request = Request(
@@ -106,6 +107,128 @@ def upload_wall_photo(token: str, group_id: int, image_path: Path) -> str:
     return f"photo{photo['owner_id']}_{photo['id']}"
 
 
+def story_font(size: int, bold: bool = False):
+    from PIL import ImageFont
+
+    filename = "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"
+    candidates = (
+        Path("/usr/share/fonts/truetype/dejavu") / filename,
+        Path("/usr/share/fonts/dejavu") / filename,
+    )
+    for candidate in candidates:
+        if candidate.is_file():
+            return ImageFont.truetype(str(candidate), size=size)
+    return ImageFont.load_default()
+
+
+def pixel_wrapped_lines(draw, text: str, font, max_width: int) -> list[str]:
+    lines: list[str] = []
+    current: list[str] = []
+    for word in text.strip().split():
+        candidate = " ".join([*current, word])
+        if current and draw.textlength(candidate, font=font) > max_width:
+            lines.append(" ".join(current))
+            current = [word]
+        else:
+            current.append(word)
+    if current:
+        lines.append(" ".join(current))
+    return lines or [""]
+
+
+def render_story(title: str, text: str, output_path: Path) -> None:
+    from PIL import Image, ImageDraw
+
+    width, height = 1080, 1920
+    image = Image.new("RGB", (width, height))
+    pixels = image.load()
+    top = (18, 87, 190)
+    bottom = (4, 30, 84)
+    for y in range(height):
+        ratio = y / (height - 1)
+        color = tuple(round(a + (b - a) * ratio) for a, b in zip(top, bottom))
+        for x in range(width):
+            pixels[x, y] = color
+
+    draw = ImageDraw.Draw(image)
+    accent = (76, 166, 255)
+    white = (255, 255, 255)
+    muted = (213, 231, 255)
+    draw.rounded_rectangle((92, 135, 988, 1505), radius=48, fill=(9, 52, 126))
+    draw.rounded_rectangle((92, 135, 112, 1505), radius=10, fill=accent)
+
+    small_font = story_font(34, bold=True)
+    title_font = story_font(68, bold=True)
+    text_font = story_font(44)
+    draw.text((150, 225), "ТУТАЕВ | ГЛАВНЫЕ НОВОСТИ ОКРУГА", font=small_font, fill=muted)
+
+    y = 520
+    for line in pixel_wrapped_lines(draw, title.upper(), title_font, 760):
+        draw.text((150, y), line, font=title_font, fill=white)
+        y += 92
+
+    y += 95
+    for line in pixel_wrapped_lines(draw, text, text_font, 760):
+        draw.text((150, y), line, font=text_font, fill=muted)
+        y += 64
+
+    draw.text((150, 1665), "Нажмите, чтобы открыть пост", font=small_font, fill=white)
+    image.save(output_path, format="PNG", optimize=True)
+
+
+def get_story_upload_server(
+    token: str,
+    group_id: int,
+    link_url: str | None = None,
+) -> dict:
+    params: dict[str, object] = {"group_id": group_id, "add_to_news": 1}
+    if link_url:
+        params.update({"link_url": link_url, "link_text": "open"})
+    response = api_call("stories.getPhotoUploadServer", token, **params)
+    if not isinstance(response, dict) or not response.get("upload_url"):
+        raise RuntimeError("VK did not return a story upload URL")
+    return response
+
+
+def publish_story(
+    token: str,
+    group_id: int,
+    post_id: int,
+    title: str,
+    text: str,
+) -> dict:
+    link_url = f"https://vk.com/wall-{group_id}_{post_id}"
+    server = get_story_upload_server(token, group_id, link_url)
+    with tempfile.TemporaryDirectory(prefix="vk-story-") as temp_dir:
+        image_path = Path(temp_dir) / "story.png"
+        render_story(title, text, image_path)
+        uploaded = upload_multipart(server["upload_url"], image_path, field_name="file")
+
+    upload_response = uploaded.get("response") if isinstance(uploaded, dict) else None
+    upload_result = (
+        upload_response.get("upload_result")
+        if isinstance(upload_response, dict)
+        else None
+    )
+    if not upload_result:
+        raise RuntimeError("VK did not return upload_result for the story")
+
+    saved = api_call("stories.save", token, upload_results=upload_result)
+    items = saved.get("items", []) if isinstance(saved, dict) else []
+    if not items:
+        raise RuntimeError("VK did not return the saved story")
+    story = items[0]
+    story_id = story.get("id")
+    owner_id = story.get("owner_id", -group_id)
+    if not story_id:
+        raise RuntimeError("VK returned a story without id")
+    return {
+        "story_id": story_id,
+        "owner_id": owner_id,
+        "url": f"https://vk.com/story{owner_id}_{story_id}",
+    }
+
+
 def check_token(token: str) -> None:
     group = resolve_group(token)
     print(json.dumps({
@@ -122,6 +245,9 @@ def publish(
     message: str,
     image_path: Path | None = None,
     publish_date: int | None = None,
+    duplicate_to_story: bool = False,
+    story_title: str | None = None,
+    story_text: str | None = None,
 ) -> None:
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Publishing is blocked: CONFIRM_PUBLISH must be YES")
@@ -130,6 +256,13 @@ def publish(
 
     group = resolve_group(token)
     group_id = int(group["id"])
+    if duplicate_to_story:
+        if publish_date is not None:
+            raise RuntimeError("Story duplication is only supported for immediate posts")
+        if not story_title or not story_title.strip():
+            raise RuntimeError("story_title is required for story duplication")
+        # Permission preflight: do not publish the wall post if VK rejects community stories.
+        get_story_upload_server(token, group_id)
     params: dict[str, object] = {
         "owner_id": -group_id,
         "from_group": 1,
@@ -148,12 +281,23 @@ def publish(
     if not post_id:
         raise RuntimeError("VK did not return post_id after wall.post")
 
+    story = None
+    if duplicate_to_story:
+        story = publish_story(
+            token,
+            group_id,
+            int(post_id),
+            story_title or "",
+            story_text or "Откройте пост и ответьте в комментариях",
+        )
+
     print(json.dumps({
         "status": "scheduled" if publish_date is not None else "published",
         "post_id": post_id,
         "publish_date": publish_date,
         "attachment": attachment,
         "url": f"https://vk.ru/wall-{group_id}_{post_id}",
+        "story": story,
     }, ensure_ascii=False, indent=2))
 
 
@@ -163,6 +307,9 @@ def main() -> int:
     parser.add_argument("--message")
     parser.add_argument("--image", type=Path)
     parser.add_argument("--publish-date", type=int)
+    parser.add_argument("--duplicate-to-story", action="store_true")
+    parser.add_argument("--story-title")
+    parser.add_argument("--story-text")
     args = parser.parse_args()
 
     token = os.environ.get("VK_PUBLISH_TOKEN")
@@ -174,7 +321,15 @@ def main() -> int:
         if args.check:
             check_token(token)
         elif args.message is not None:
-            publish(token, args.message, args.image, args.publish_date)
+            publish(
+                token,
+                args.message,
+                args.image,
+                args.publish_date,
+                args.duplicate_to_story,
+                args.story_title,
+                args.story_text,
+            )
         else:
             parser.error("use --check or --message")
     except Exception as exc:
