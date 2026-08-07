@@ -34,6 +34,7 @@ jobs:
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
           VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
           GH_TOKEN: ${{ github.token }}
         run: |
           jq -e '.confirmed == true' publish-request.json
@@ -44,6 +45,7 @@ jobs:
             PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
             IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
             IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" publish-request.json)
+            SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" publish-request.json)
             EDIT_POST_ID=$(jq -r ".posts[$i].edit_post_id // empty" publish-request.json)
             DUPLICATE_TO_STORY=$(jq -r ".posts[$i].duplicate_to_story // false" publish-request.json)
             STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" publish-request.json)
@@ -61,6 +63,10 @@ jobs:
               test -f "$IMAGE_PATH"
             fi
             if [ -n "$IMAGE_PATH" ]; then ARGS+=(--image "$IMAGE_PATH"); fi
+            if [ -n "$SOURCE_POST" ]; then
+              [[ "$SOURCE_POST" =~ ^-?[0-9]+_[0-9]+$ ]]
+              ARGS+=(--source-post "$SOURCE_POST")
+            fi
             if [ "$DUPLICATE_TO_STORY" = "true" ]; then
               test -z "$PUBLISH_DATE"
               test -n "$STORY_TITLE"
