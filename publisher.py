@@ -107,6 +107,29 @@ def upload_wall_photo(token: str, group_id: int, image_path: Path) -> str:
     return f"photo{photo['owner_id']}_{photo['id']}"
 
 
+def source_wall_photos(token: str, source_post: str) -> list[str]:
+    response = api_call("wall.getById", token, posts=source_post)
+    posts = response if isinstance(response, list) else response.get("items", [])
+    if not posts:
+        raise RuntimeError(f"VK source post was not found: {source_post}")
+    result: list[str] = []
+    for item in posts[0].get("attachments", []):
+        if item.get("type") != "photo":
+            continue
+        photo = item.get("photo") or {}
+        owner_id = photo.get("owner_id")
+        photo_id = photo.get("id")
+        if owner_id is None or photo_id is None:
+            continue
+        attachment = f"photo{owner_id}_{photo_id}"
+        if photo.get("access_key"):
+            attachment += f"_{photo['access_key']}"
+        result.append(attachment)
+    if not result:
+        raise RuntimeError(f"VK source post has no photos: {source_post}")
+    return result
+
+
 def story_font(size: int, bold: bool = False):
     from PIL import ImageFont
 
@@ -250,6 +273,8 @@ def publish(
     story_text: str | None = None,
     edit_post_id: int | None = None,
     photo_token: str | None = None,
+    source_post: str | None = None,
+    source_token: str | None = None,
 ) -> None:
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Publishing is blocked: CONFIRM_PUBLISH must be YES")
@@ -276,6 +301,10 @@ def publish(
     attachment = None
     if image_path is not None:
         attachment = upload_wall_photo(photo_token or token, group_id, image_path)
+        params["attachments"] = attachment
+    elif source_post is not None:
+        attachments = source_wall_photos(source_token or token, source_post)
+        attachment = ",".join(attachments)
         params["attachments"] = attachment
 
     if edit_post_id is not None:
@@ -320,6 +349,7 @@ def main() -> int:
     parser.add_argument("--story-title")
     parser.add_argument("--story-text")
     parser.add_argument("--edit-post-id", type=int)
+    parser.add_argument("--source-post")
     args = parser.parse_args()
 
     token = os.environ.get("VK_PUBLISH_TOKEN")
@@ -341,6 +371,8 @@ def main() -> int:
                 args.story_text,
                 args.edit_post_id,
                 os.environ.get("VK_USER_TOKEN"),
+                args.source_post,
+                os.environ.get("VK_SERVICE_TOKEN"),
             )
         else:
             parser.error("use --check or --message")
