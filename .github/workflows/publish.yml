@@ -33,6 +33,7 @@ jobs:
       - name: Validate approved requests and publish
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
           GH_TOKEN: ${{ github.token }}
         run: |
           jq -e '.confirmed == true' publish-request.json
