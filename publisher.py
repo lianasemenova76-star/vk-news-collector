@@ -249,6 +249,7 @@ def publish(
     story_title: str | None = None,
     story_text: str | None = None,
     edit_post_id: int | None = None,
+    photo_token: str | None = None,
 ) -> None:
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Publishing is blocked: CONFIRM_PUBLISH must be YES")
@@ -274,7 +275,7 @@ def publish(
 
     attachment = None
     if image_path is not None:
-        attachment = upload_wall_photo(token, group_id, image_path)
+        attachment = upload_wall_photo(photo_token or token, group_id, image_path)
         params["attachments"] = attachment
 
     if edit_post_id is not None:
@@ -339,6 +340,7 @@ def main() -> int:
                 args.story_title,
                 args.story_text,
                 args.edit_post_id,
+                os.environ.get("VK_USER_TOKEN"),
             )
         else:
             parser.error("use --check or --message")
