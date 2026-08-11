@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+from http.client import IncompleteRead
 import os
 import sys
 import time
@@ -33,12 +34,20 @@ def api_call(token: str, domain: str, offset: int = 0) -> dict:
             "extended": 1,
         }
     )
-    request = Request(f"{API_URL}?{params}", headers={"User-Agent": "vk-news-collector/1.1"})
-    try:
-        with urlopen(request, timeout=30) as response:
-            payload = json.load(response)
-    except (HTTPError, URLError, TimeoutError) as exc:
-        raise RuntimeError(f"VK request failed for {domain}: {exc}") from exc
+    request = Request(f"{API_URL}?{params}", headers={"User-Agent": "vk-news-collector/1.2"})
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            with urlopen(request, timeout=60) as response:
+                payload = json.load(response)
+            break
+        except (HTTPError, URLError, TimeoutError, IncompleteRead) as exc:
+            last_error = exc
+            if attempt == 2:
+                raise RuntimeError(f"VK request failed for {domain}: {exc}") from exc
+            time.sleep(2 * (attempt + 1))
+    else:
+        raise RuntimeError(f"VK request failed for {domain}: {last_error}")
 
     if "error" in payload:
         error = payload["error"]
