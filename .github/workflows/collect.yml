@@ -22,6 +22,9 @@ jobs:
     steps:
       - name: Download repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -42,5 +45,5 @@ jobs:
             echo "No changes to save"
           else
             git commit -m "Update VK news"
-            git push
+            git push origin HEAD:main
           fi
