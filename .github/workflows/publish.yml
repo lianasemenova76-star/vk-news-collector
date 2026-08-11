@@ -47,12 +47,13 @@ jobs:
             IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" publish-request.json)
             SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" publish-request.json)
             EDIT_POST_ID=$(jq -r ".posts[$i].edit_post_id // empty" publish-request.json)
-            DUPLICATE_TO_STORY=$(jq -r ".posts[$i].duplicate_to_story // false" publish-request.json)
             STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" publish-request.json)
             STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" publish-request.json)
             test -n "$MESSAGE"
-            ARGS=(--message "$MESSAGE")
-            if [ -n "$PUBLISH_DATE" ]; then ARGS+=(--publish-date "$PUBLISH_DATE"); fi
+            test -z "$PUBLISH_DATE"
+            test -n "$STORY_TITLE"
+            ARGS=(--message "$MESSAGE" --duplicate-to-story --story-title "$STORY_TITLE")
+            if [ -n "$STORY_TEXT" ]; then ARGS+=(--story-text "$STORY_TEXT"); fi
             if [ -n "$EDIT_POST_ID" ]; then ARGS+=(--edit-post-id "$EDIT_POST_ID"); fi
             if [ -n "$IMAGE_URL" ]; then
               [[ "$IMAGE_URL" == https://* ]]
@@ -66,12 +67,6 @@ jobs:
             if [ -n "$SOURCE_POST" ]; then
               [[ "$SOURCE_POST" =~ ^-?[0-9]+_[0-9]+$ ]]
               ARGS+=(--source-post="$SOURCE_POST")
-            fi
-            if [ "$DUPLICATE_TO_STORY" = "true" ]; then
-              test -z "$PUBLISH_DATE"
-              test -n "$STORY_TITLE"
-              ARGS+=(--duplicate-to-story --story-title "$STORY_TITLE")
-              if [ -n "$STORY_TEXT" ]; then ARGS+=(--story-text "$STORY_TEXT"); fi
             fi
             set +e
             OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py "${ARGS[@]}" 2>&1)
