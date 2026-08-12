@@ -2,9 +2,16 @@ name: Collect VK news
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "data/collect-request.json"
 
 permissions:
   contents: write
+
+concurrency:
+  group: vk-news-collection
+  cancel-in-progress: false
 
 jobs:
   collect:
@@ -35,5 +42,6 @@ jobs:
             echo "No changes to save"
           else
             git commit -m "Update VK news"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
