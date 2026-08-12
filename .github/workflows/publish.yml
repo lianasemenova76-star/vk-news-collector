@@ -64,7 +64,7 @@ jobs:
             if [ -n "$IMAGE_PATH" ]; then ARGS+=(--image "$IMAGE_PATH"); fi
             if [ -n "$SOURCE_POST" ]; then
               [[ "$SOURCE_POST" =~ ^-?[0-9]+_[0-9]+$ ]]
-              ARGS+=(--source-post "$SOURCE_POST")
+              ARGS+=(--source-post="$SOURCE_POST")
             fi
             if [ -n "$STORY_TITLE" ]; then
               ARGS+=(--duplicate-to-story --story-title "$STORY_TITLE")
