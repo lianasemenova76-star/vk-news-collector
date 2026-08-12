@@ -1,7 +1,7 @@
 {
   "confirmed": true,
-  "approved_at": "2026-08-12T05:06:00Z",
-  "request_id": "publish-selected-news-2026-08-12-no-stories",
+  "approved_at": "2026-08-12T05:18:00Z",
+  "request_id": "publish-selected-news-2026-08-12-no-stories-retry",
   "posts": [
     {
       "publish_date": 1786523400,
