@@ -1,11 +1,1187 @@
 {
-  "generated_at": "2026-08-17T03:35:47.599362+00:00",
-  "period_start": "2026-08-16T03:35:47.599362+00:00",
-  "period_end": "2026-08-17T03:35:47.599362+00:00",
+  "generated_at": "2026-08-17T07:53:41.236388+00:00",
+  "period_start": "2026-08-16T07:53:41.236388+00:00",
+  "period_end": "2026-08-17T07:53:41.236388+00:00",
   "source_count": 17,
-  "post_count": 101,
+  "post_count": 119,
   "errors": [],
   "posts": [
+    {
+      "id": "-161095827_23148",
+      "source": "dzif76",
+      "source_name": "Министерство здравоохранения Ярославской области",
+      "published_at": "2026-08-17T07:51:49+00:00",
+      "text": "📅17 – 23 августа Неделя отказа от алкоголя.",
+      "url": "https://vk.ru/wall-161095827_23148",
+      "is_pinned": false,
+      "metrics": {
+        "views": 14,
+        "likes": 1,
+        "reposts": 1,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-32.userapi.com/s/v1/ig2/uvMpAO6FGY7VBQpu2zi19Gp5rvgYKachvFt4kXpWMTiGZQUauVipQuPVHslf_sIpcHVcqUrUaRkiIqmYCZ-k5m8I.jpg?quality=95&as=32x29,48x43,72x65,108x97,160x144,240x216,360x325,480x433,540x487,640x577,720x649,1080x974&from=bu&cs=1080x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-33.userapi.com/s/v1/ig2/KVuBnvD7qwxKj64npCLPKwKOhDUUkvtzAnBbzziW7Wk9C8V8QKKFjQorWT7DIE3ueuCE0omfwvbJdVqp_pl6k0lP.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&from=bu&cs=1080x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-69.userapi.com/s/v1/ig2/-VDE4Sh651QG8dxv11CGHVieiiYevlyaEvuAdbB7oX57Cns-iPmZs6vkvelZ3-F_guk2j3eTBOA79We_Cn_ezyRX.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&from=bu&cs=1080x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-81.userapi.com/s/v1/ig2/Mkz-sB5aUp0LQDJZ7uMA-9Tv9-DKweITcn0E2LcQWaqgF98jW1SvRXH6NP_kOJEtzIqGMN7UzYfz5khxLFud4tj9.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&from=bu&cs=1080x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "689542040_174820",
+      "source": "evraevmikhail",
+      "source_name": "Mikhail Evraev",
+      "published_at": "2026-08-17T07:39:12+00:00",
+      "text": "На встрече с журналистами подробно говорили о социальной поддержке семей. В Ярославской области действует 30 видов выплат для семей с детьми, и мы постоянно расширяем эту систему.\n \nС этого года ввели единовременную выплату 200 тысяч рублей мамам до 25 лет при рождении первого ребенка, до 27 лет – второго, до 29 лет – третьего и последующих детей. Более 600 семей уже получили эту выплату.\n \nЕще одна новая мера – 300 тысяч рублей при рождении третьего или последующего ребенка в семье, где возраст родителей до 35 лет. Эту поддержку с начала года уже получили более 150 семей.\n \nРасширили и другие направления. В пунктах проката вещей для новорожденных теперь могут получать помощь больше категорий семей. С июля в регионе начала работать услуга «Социальная няня» – бесплатный кратковременный присмотр за детьми до трех лет.\n \nС этого года мы изменили подход к компенсации за обучение детей из многодетных семей: теперь она положена на каждого ребенка, а не на одного. С этого года приняли решение производить выплату на школьную и спортивную форму для многодетных семей без учета дохода. Прием заявлений идет до 1 ноября.\n \nБюджет остается социально направленным, две трети его идут на нужды людей. Будем и дальше поддерживать семьи, чтобы в регионе было комфортно жить и растить детей.",
+      "url": "https://vk.ru/wall689542040_174820",
+      "is_pinned": false,
+      "metrics": {
+        "views": 134,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 1
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-43.userapi.com/s/v1/ig2/SdndFOJDz7w-CCXV3x5OsGCbZVgoOpPTTVEqXeJiRR9G3gIEpInTcLiZqhma4XE7mHVGuCnvPv0rBBevEoczqgaI.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x720,1440x810,1498x843&from=bu&cs=1498x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-5.userapi.com/s/v1/ig2/BkfgVpUksAOtAxRxUJGAgy_NPNx9Vbh77WJk8K6cLwwypCFG12TJ-bAnKs27JbMPjhMiioXUbvumXsDE_d475VSr.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,2560x1440&from=bu&cs=2560x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-51.userapi.com/s/v1/ig2/xzAAQ1mHLx1mZqbaGOW5DfH1yrctImkAuDR54LUR1uqPnxGbAl4lyH2hPgA6g65PUIBJ6-gNl8wraBPEIbz2KC3f.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,1620x1080&from=bu&cs=1620x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-47.userapi.com/s/v1/ig2/7nlPDepzsdpQsRZEGOfiRhIzhth1urMzjXw5Upz7P5Csz93cwRljeogagQSgsKLBddoCb3PgV5ZQRcFpl-GHpaS2.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,2560x1440&from=bu&cs=2560x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-58.userapi.com/s/v1/ig2/OGHH9_0WdEfg6DkQcJ94I9akrwgGPuHmEiSvxxnbNfsJtIgW7211JgHvTJR519cCFqP0sHr4DVYSp5GueIKEtuuk.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x481,1080x721,1280x854,1440x961,1693x1130&from=bu&cs=1693x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-87.userapi.com/s/v1/ig2/86a5jwY0NB_PUwcZ6TGmOlC6SOk9DQHQbl-vG_M8kAg_v78y-RP3-XyWWftVJ43KLbNBNRHJfsfWbMvKqgrndjsa.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,1920x1440&from=bu&cs=1920x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-21.userapi.com/s/v1/ig2/pSpIEAdr67nojMyUh_YxJF-DfDMptdrRl7ElZGnl3xQRdJ98D6MeUK634dxb-efvAAtHmwO_zZ4d_ehhzFjh0FIv.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,1620x1080&from=bu&cs=1620x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-13.userapi.com/s/v1/ig2/IsnUr1LhJ1oPmm84dcqSsG2DoplO132xf6h9s0rIo9WL8k6EI1ao5ob2atZji074UUjBCt6rMRPQudaXjgHkW3ic.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-46.userapi.com/s/v1/ig2/lSIEgFiuQGo7k6GkDZUYrdElySXOg25Via9m263tlqoxjYetPQOKYIh0aCXUoXe_7aft4dDYwzxy1ek-fs9Cef3-.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&cs=2560x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-35.userapi.com/s/v1/ig2/TqyhL0KSZuB_L6JuLIpzYnePOtiJ2VWxKNbzs895ShAGQM1pZrJfCZIdH_uIoooTuQJpLOK511ruwxFHVGIFcV6x.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,1620x1080&from=bu&cs=1620x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-48950797_53155",
+      "source": "sorokalife",
+      "source_name": "СОРОКА — Новости Ярославля и области",
+      "published_at": "2026-08-17T07:31:04+00:00",
+      "text": "В Ярославской области коровы продолжают громить кладбище https://soroka-news.ru/v-yaroslavskoj-oblasti-korovy-prodolzhayut-gromit-kladbishhe/",
+      "url": "https://vk.ru/wall-48950797_53155",
+      "is_pinned": false,
+      "metrics": {
+        "views": 64,
+        "likes": 1,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-78.userapi.com/s/v1/ig2/RECF72GP2RuzbvSFeC-2G6zjLb0tlC02Ej71A4j6AXYf_yzRGTpBWMv7-z1y-rbe8p8MxV9cHmKtMX6zvypwY4lX.jpg?quality=96&as=32x32,48x47,72x71,108x106,160x158,240x237,360x355,480x473,540x532,640x631&from=bu&cs=640x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-226153295_11933",
+      "source": "club226153295",
+      "source_name": "ТУТАЕВ. ЦЕНТР НОВОСТЕЙ",
+      "published_at": "2026-08-17T07:30:00+00:00",
+      "text": "❗ПРИ ЗАКЛЮЧЕНИИ КОНТРАКТА ТЕПЕРЬ МОЖНО ПОЛУЧИТЬ 2 МИЛЛИОНА РУБЛЕЙ \n \nГубернатор Ярославской области Михаил Яковлевич Евраев сообщил о повышении размера единовременной выплаты для военнослужащих, заключающих контракт с Министерством обороны. Теперь бойцы, отправляющиеся в зону СВО из нашего региона, получат 2 миллиона рублей. \n \nЯрославская область продолжает развивать одну из самых сильных систем поддержки защитников и их семей. Это комплексная забота, которая включает: \n \n🛡 Меры поддержки семей: \n— Освобождение от платы за детские сады и питание в школах. \n— Отмена транспортного налога. \n— Первоочередное право на социальные услуги и широкий пакет льгот. \n \n🩺 Гарантии для бойцов: \n— Качественная медицинская реабилитация. \n— Серьезные выплаты в случае ранения. \n— Полное обеспечение всем необходимым и гуманитарная поддержка. \n \nПараллельно в регионе идет набор в войска беспилотных систем для тех, кто планирует служить по контракту. Узнать подробную информацию и получить помощь в решении организационных вопросов можно по номерам: 8-980-708-01-60, 8 (48533) 7-07-19. \n \n📍 Где заключить контракт в Тутаеве: \n• Военный комиссариат: ул. Луначарского, д. 129. \n• Через портал «Госуслуги». \n \n📩 Подробная информация на сайте: контракт76.рф \n \nВ единстве наша сила! Победа будет за нами! 💪 \n \n#контракт76",
+      "url": "https://vk.ru/wall-226153295_11933",
+      "is_pinned": false,
+      "metrics": {
+        "views": 7,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-85.userapi.com/s/v1/ig2/XRDSWYPd6h3rO_QXNCBwdXj8EZ1x8AgMz1c9ITEevqRjgvFwuoKEmKjx95hBtDbbd_bbrrF84kEcHs_3qzsV_j9E.jpg?quality=95&crop=0,0,1080,1080&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&from=bu&cs=1080x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-213385877_147",
+      "source": "bibltut",
+      "source_name": "Центральная библиотека г. Тутаев",
+      "published_at": "2026-08-17T07:19:56+00:00",
+      "text": "Дополнительный набор!\n\nПо вашим просьбам мы объявляем дополнительный набор в медиастудию. Участниками могут стать девчонки и мальчишки от 10 до 13 лет.\n\nЧто мы будем делать?\n- учиться снимать короткие видеоролики для социальных сетей\n- искать в Тутаеве интересные места и события, рассказывать о них\n- дружить, веселиться и придумывать разные события.\n\nЗанятия будут проходить по понедельникам в 15.30. Присоединяйтесь!\n\nЕсли вам уже больше 13 лет, знайте: в Центральной библиотеке уже действует медиастудия для подростков с 14 до 17 лет и к занятиям тоже можно присоединиться. Участники уже начали снимать свои фильмы по сценарию.\n\nЗанятия проводят специалисты АНО \"Про развитие\", победителя конкурса Фонда Тимченко \"Среда возможностей\" с проектом \"Лаборатория краеведения\". \n#СредаВозможностей \n#СредаВозможностей_ФТ #ФондТимченко \n#ТутаевМедиа #БиблиотекаТутаев #МЦГалактика #КраеведческаяЛаборатория #ПроРазвитие",
+      "url": "https://vk.ru/wall-213385877_147",
+      "is_pinned": false,
+      "metrics": {
+        "views": 5,
+        "likes": 1,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-23.userapi.com/s/v1/ig2/r6yohsF-JxZ2CME7IBzJYdzUXSe_MNWHtd3FRxKU6HdBJHJc_DKznYsX3ekC6X9xdNJX_qD4NmBVG7k9X_cticuI.jpg?quality=95&crop=0,0,2560,1811&as=32x23,48x34,72x51,108x76,160x113,240x170,360x255,480x340,540x382,640x453,720x509,1080x764,1280x905,1440x1019,2560x1811&from=bu&cs=2560x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-161095827_23146",
+      "source": "dzif76",
+      "source_name": "Министерство здравоохранения Ярославской области",
+      "published_at": "2026-08-17T07:19:30+00:00",
+      "text": "Защита региона — общее дело\n\nВ Ярославской области открыт набор в территориальный отряд «БАРС».\n\nДобровольцам предстоит охранять значимые объекты и инфраструктуру, а также выполнять задачи в пределах региона.\n\nКандидатам необходимо пройти отбор и специальную подготовку.\n\nПодробнее о требованиях и условиях участия можно узнать в военном комиссариате по месту жительства.\n\n📞 Телефон для справок: *176.",
+      "url": "https://vk.ru/wall-161095827_23146",
+      "is_pinned": false,
+      "metrics": {
+        "views": 101,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-80.userapi.com/s/v1/ig2/Gfp_MfNWJOfwtVJCQE-44ubS-0ZPwo6vIDf1kVGUecN5PAnDdeliLzVJgs2vpQcYlHcTHCW-5gR6Xcofy-70nEOj.jpg?quality=95&as=32x47,48x71,72x107,108x160,160x237,240x355,360x533,480x711,540x799,640x947,720x1066,1080x1599,1280x1895,1297x1920&from=bu&cs=1297x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-169508339_50626",
+      "source": "tutaevadm",
+      "source_name": "Администрация Тутаевского округа",
+      "published_at": "2026-08-17T07:19:25+00:00",
+      "text": "Защита региона — общее дело\n\nВ Ярославской области открыт набор в территориальный отряд «БАРС».\n\nДобровольцам предстоит охранять значимые объекты и инфраструктуру, а также выполнять задачи в пределах региона.\n\nКандидатам необходимо пройти отбор и специальную подготовку.\n\nПодробнее о требованиях и условиях участия можно узнать в военном комиссариате по месту жительства.\n\n📞 Телефон для справок: *176.",
+      "url": "https://vk.ru/wall-169508339_50626",
+      "is_pinned": false,
+      "metrics": {
+        "views": 58,
+        "likes": 2,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-80.userapi.com/s/v1/ig2/WlAmzpPFOH5VPYOgKkbE5UkWAKSYzJ6T3dqHi-MDjAy5ww9i9S08NjogLKK7yplTd89jsyZf2Y4fgcrOH7aIikqJ.jpg?quality=95&as=32x47,48x71,72x107,108x160,160x237,240x355,360x533,480x711,540x799,640x947,720x1066,1080x1599,1280x1895,1297x1920&from=bu&cs=1297x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-102907097_39995",
+      "source": "galaktikatutaev",
+      "source_name": "Молодежный центр «Галактика» | Тутаев",
+      "published_at": "2026-08-17T07:15:55+00:00",
+      "text": "Защита региона — общее дело\n\nВ Ярославской области открыт набор в территориальный отряд «БАРС».\n\nДобровольцам предстоит охранять значимые объекты и инфраструктуру, а также выполнять задачи в пределах региона.\n\nКандидатам необходимо пройти отбор и специальную подготовку.\n\nПодробнее о требованиях и условиях участия можно узнать в военном комиссариате по месту жительства.\n\n📞 Телефон для справок: *176.",
+      "url": "https://vk.ru/wall-102907097_39995",
+      "is_pinned": false,
+      "metrics": {
+        "views": 27,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-80.userapi.com/s/v1/ig2/z3FUp4QuCw1yK4pv4btLGXoccjwsqgtw9Hb-7KtWCobMjPDM0avsnEtgiXZk3_RcwkOzW_rRx6W8bG7VS2pT-CJd.jpg?quality=95&as=32x47,48x71,72x107,108x160,160x237,240x355,360x533,480x711,540x799,640x947,720x1066,1080x1599,1280x1895,1297x1920&from=bu&cs=1297x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-182866999_3877",
+      "source": "tutcrb",
+      "source_name": "Тутаевская ЦРБ",
+      "published_at": "2026-08-17T07:15:48+00:00",
+      "text": "Защита региона — общее дело\n\nВ Ярославской области открыт набор в территориальный отряд «БАРС».\n\nДобровольцам предстоит охранять значимые объекты и инфраструктуру, а также выполнять задачи в пределах региона.\n\nКандидатам необходимо пройти отбор и специальную подготовку.\n\nПодробнее о требованиях и условиях участия можно узнать в военном комиссариате по месту жительства.\n\n📞 Телефон для справок: *176.",
+      "url": "https://vk.ru/wall-182866999_3877",
+      "is_pinned": false,
+      "metrics": {
+        "views": 14,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-80.userapi.com/s/v1/ig2/PtDBrFx_IImofEkbtmGzk_75lmLjQ4LaDhs1S4uZbrRfkplNcoVDcISlmVH5qcd6eBB-wtROFBg9ys1dU-Z6_bnp.jpg?quality=95&as=32x47,48x71,72x107,108x160,160x237,240x355,360x533,480x711,540x799,640x947,720x1066,1080x1599,1280x1895,1297x1920&from=bu&cs=1297x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55741",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T07:10:28+00:00",
+      "text": "Костромские спасатели под Шарьей вырезали водителя из \"Лады\", столкнувшейся с \"Хондой\"\n\nВК-паблик \"Спасатели Костромы\" сообщает о спасательной операции, которую сотрудникам областной пожарно-спасательной службы пришлось проводить на трассе Р-243 в Шарьинском районе\nhttps://yar.mk.ru/social/2026/08/17/kostromskie-spasateli-pod-sharey-vyrezali-voditelya-iz-lady-stolknuvsheysya-s-khondoy.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55741",
+      "is_pinned": false,
+      "metrics": {
+        "views": null,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-55.userapi.com/s/v1/ig2/zPmA0Genjyz_upltBy8al-lwc1xFU5NmBFZ6XtKBSFqQwGT3B7lfAnZCd8n07_oJaM999jlvt0mZJyuFU2vITJ8J.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-114491512_147315",
+      "source": "v_konstantinovsky",
+      "source_name": "Вечерний Константиновский",
+      "published_at": "2026-08-17T07:10:14+00:00",
+      "text": "Всем добрый вечер! 🤜🏾🤛🏽☀️\nМы приезжие, не знаем, что тут и как…\nУвидели малыша - котика. \nУже не первый раз. Сначала у него из пасти текли слюни, пузырились. \nБрюхо раздуто. \nСейчас увидели повторно… ощущение, что с малышом что-то не так… ходит странно. \nМожет есть здесь волонтёры, кто занимается помощью животным… обратите пожалуйста внимание. Находится где уличная библиотека. И бывает там во дворах. ❤️",
+      "url": "https://vk.ru/wall-114491512_147315",
+      "is_pinned": false,
+      "metrics": {
+        "views": 84,
+        "likes": 1,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-77.userapi.com/s/v1/ig2/93I6ndg9utDI3edydjwwYZTSKvN-k1y7pKGKN_3MKR7MoDFvHykLl0FW8IhSiiIxGpCzdfvoyBN8UAYTxrWpzFw7.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x284,240x427,360x640,480x853,540x960,640x1138,720x1280,1080x1920,1280x2276,1440x2560&from=bu&cs=1440x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-87.userapi.com/s/v1/ig2/pSnqyreZosj77uAD_Db7pR_ogoZnUzPrg1hNq_vZUU9zmeUfWB6j2Y_yproTfYN5fJ8qjNy9nDuLvefk5S_U-mWx.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x284,240x427,360x640,480x853,540x960,640x1138,720x1280,1080x1920,1280x2276,1440x2560&from=bu&cs=1440x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-54.userapi.com/s/v1/ig2/pKNxHP1ePiSotLByuuFID3c0ZMbk6kJpCdCZLUmscpDQAZra4m-g2os3Mbif0ZgduJxA-5il8g4pI7-2t_i_6aXN.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x284,240x427,360x640,480x853,540x960,640x1138,720x1280,1080x1920,1280x2276,1440x2560&from=bu&cs=1440x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-4.userapi.com/s/v1/ig2/C6KmqQzhuBGw-HXwAXFZ1ef6f_MpbDgWrPz35cdwhD8vHbwROLFKPzP6NbkichWKGNSwo93zwrgWynLpm7KZcH9m.jpg?quality=95&as=32x57,48x85,72x128,108x192,160x284,240x427,360x640,480x853,540x960,640x1138,720x1280,1080x1920,1280x2276,1440x2560&from=bu&cs=1440x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-194763496_1032338",
+      "source": "76freeyaroslavl",
+      "source_name": "Свободный Ярославль 2.0",
+      "published_at": "2026-08-17T07:00:57+00:00",
+      "text": "В Ярославле курьер стал жертвой мошеннической схемы клиента\n\nВ Ярославле курьер рассказал о ситуации, из-за которой ему грозит блокировка в сервисе доставки и списание денег за посылку. По словам мужчины, клиент получил заказ, а затем сообщил в поддержку, что доставка якобы не состоялась. Своей историей курьер поделился в соцсетях.\n\nИнцидент произошел 12 августа в районе Липовой Горы. Как утверждает курьер, он забрал посылку и привез ее по указанному адресу. Перед передачей мужчина уточнил имя получателя и сверил данные с информацией на отправлении. После этого посылка была передана клиенту, а доставка завершена в приложении.\n\nОднако уже на следующий день, по словам курьера, сервис списал полученное им вознаграждение. В службе поддержки ему объяснили, что клиент пожаловался на неполученный заказ. Теперь мужчине, как он утверждает, может грозить дополнительное списание на стоимость посылки и блокировка в сервисе — от двух недель до бессрочной.\n\nКурьер считает, что столкнулся со схемой, при которой клиент получает заказ, а затем заявляет о его недоставке, рассчитывая вернуть деньги.\n\nСейчас мужчина ищет записи с камер видеонаблюдения, которые могли зафиксировать момент доставки. Он надеется доказать, что вошел в подъезд с посылкой, а вышел уже без нее. \n\nhttps://soroka-news.ru/v-yaroslavle-kurer-stal-zhertvoj-moshennicheskoj-shemy-klienta/",
+      "url": "https://vk.ru/wall-194763496_1032338",
+      "is_pinned": false,
+      "metrics": {
+        "views": 481,
+        "likes": 2,
+        "reposts": 1,
+        "comments": 1
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-28.userapi.com/s/v1/ig2/CbEdFsaPRl4csPKCzRnfKoMGDYcqUyblt-9b0aI13vrHBPo3SMJaNzxW-Joq_oIwkCbZfvdhlGNmrYhC7G_3BNd0.jpg?quality=95&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x426,720x480,1080x720,1280x853&from=bu&cs=1280x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-20.userapi.com/s/v1/ig2/8vExx2qCmuVac1aVJCDKR8Lp7QvPygrv6QMcNuWEOWPN3CFyz1mRscORkshoCNF6erJIc68-A2wn43-d7vg8_bZc.jpg?quality=95&as=32x63,48x94,72x142,108x212,160x315,240x472,360x708,480x944,540x1062,640x1259,720x1417,768x1511&from=bu&cs=768x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-77822465_349482",
+      "source": "tipitutaev",
+      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
+      "published_at": "2026-08-17T07:00:38+00:00",
+      "text": "🎉НОЧЬ КИНО - 2026 В КИНОТЕАТРЕ \"ЭКРАН\"❗ \n\nВсероссийская акция «Ночь кино» — одно из самых ожидаемых культурных событий года, объединяющее ценителей фильмов по всей России на бесплатных показах ярких отечественных новинок года. \n \n🇷🇺 Министерство культуры РФ совместно с Федеральным фондом социальной и экономической поддержки отечественной кинематографии, объявляют о проведении 11 Всероссийской акции \"Ночь кино\". Она состоится в ночь с 29 на 30 августа 2026 г. одновременно во всех регионах страны. \n \n💥Уважаемые наши зрители, приглашаем вас в кинотеатр \"Экран\" на традиционный показ четырех выдающихся отечественных картин: \n \n• «Буратино» (семейный, фэнтези) (6+) ; \n• «Чебурашка» (семейный, комедия, фэнтези) (6+) ; \n• «Малыш» (драма, военный) (16+); \n• «Ангелы Ладоги» (драма, история, военный) (16+) \n \nВсе желающие смогут посмотреть любимые отечественные фильмы совершенно БЕСПЛАТНО❗",
+      "url": "https://vk.ru/wall-77822465_349482",
+      "is_pinned": false,
+      "metrics": {
+        "views": 159,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-55.userapi.com/s/v1/ig2/1RFp-4mPc-KX4zL05n7g-9X66ZmO0wTW4Ryf7CypLXoFME-DBj6z3UVpN0vYWpLRH5OAPgzt8y4DiT1gSPGXxfM4.jpg?quality=95&crop=0,0,561,790&as=32x45,48x68,72x101,108x152,160x225,240x338,360x507,480x676,540x760,561x790&from=bu&cs=561x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-48950797_53154",
+      "source": "sorokalife",
+      "source_name": "СОРОКА — Новости Ярославля и области",
+      "published_at": "2026-08-17T07:00:05+00:00",
+      "text": "В Ярославле курьер стал жертвой мошеннической схемы клиента https://soroka-news.ru/v-yaroslavle-kurer-stal-zhertvoj-moshennicheskoj-shemy-klienta/",
+      "url": "https://vk.ru/wall-48950797_53154",
+      "is_pinned": false,
+      "metrics": {
+        "views": 86,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-18.userapi.com/s/v1/ig2/TZ1okCVbV4A0FtuhBzvAkMI9JCI2n90PHb0tRpLw4DgXXYs9lY0UH-GbK22zlCkes9CgRYbVWpmsLDtwhJM-SWWl.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1280x853,1440x960,1536x1024&from=bu&cs=1536x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-138682048_119274",
+      "source": "tutaevtoday",
+      "source_name": "ТУТАЕВ СЕГОДНЯ",
+      "published_at": "2026-08-17T07:00:02+00:00",
+      "text": "Многоэтажный скворечник обнаружен в Тутаеве. \n\nФото: Юрий Дашковский",
+      "url": "https://vk.ru/wall-138682048_119274",
+      "is_pinned": false,
+      "metrics": {
+        "views": 84,
+        "likes": 5,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-69.userapi.com/s/v1/ig2/2dCngL_g3UXDLQuUwsMLtC3eJPS1flwSgEtkn4ehpQIqYblXj-Bt-rTbUON9Vi5EwvVoRZtASp9naZE1MQP1Agwf.jpg?quality=95&crop=0,0,1080,1617&as=32x48,48x72,72x108,108x162,160x240,240x359,360x539,480x719,540x808,640x958,720x1078,1080x1617&from=bu&cs=1080x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-169508339_50625",
+      "source": "tutaevadm",
+      "source_name": "Администрация Тутаевского округа",
+      "published_at": "2026-08-17T07:00:01+00:00",
+      "text": "❗ПРИ ЗАКЛЮЧЕНИИ КОНТРАКТА ТЕПЕРЬ МОЖНО ПОЛУЧИТЬ 2 МИЛЛИОНА РУБЛЕЙ \n \nГубернатор Ярославской области Михаил Яковлевич Евраев сообщил о повышении размера единовременной выплаты для военнослужащих, заключающих контракт с Министерством обороны. Теперь бойцы, отправляющиеся в зону СВО из нашего региона, получат 2 миллиона рублей. \n \nЯрославская область продолжает развивать одну из самых сильных систем поддержки защитников и их семей. Это комплексная забота, которая включает: \n \n🛡 Меры поддержки семей: \n— Освобождение от платы за детские сады и питание в школах. \n— Отмена транспортного налога. \n— Первоочередное право на социальные услуги и широкий пакет льгот. \n \n🩺 Гарантии для бойцов: \n— Качественная медицинская реабилитация. \n— Серьезные выплаты в случае ранения. \n— Полное обеспечение всем необходимым и гуманитарная поддержка. \n \nПараллельно в регионе идет набор в войска беспилотных систем для тех, кто планирует служить по контракту. Узнать подробную информацию и получить помощь в решении организационных вопросов можно по номерам: 8-980-708-01-60, 8 (48533) 7-07-19. \n \n📍 Где заключить контракт в Тутаеве: \n• Военный комиссариат: ул. Луначарского, д. 129. \n• Через портал «Госуслуги». \n \n📩 Подробная информация на сайте: контракт76.рф \n \nВ единстве наша сила! Победа будет за нами! 💪 \n \n#контракт76",
+      "url": "https://vk.ru/wall-169508339_50625",
+      "is_pinned": false,
+      "metrics": {
+        "views": 67,
+        "likes": 2,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-85.userapi.com/s/v1/ig2/flqVEPqeQe2LWx86n3dbdcstTseGZEfHu_Zkx1lkHGBNSfV0n1QysuFPbSn33O9v1e8cq88MgNlnXIHvbucuHTpS.jpg?quality=95&crop=0,0,1080,1080&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080&from=bu&cs=1080x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-38242868_1911048",
+      "source": "tutaev",
+      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
+      "published_at": "2026-08-17T07:00:00+00:00",
+      "text": "",
+      "url": "https://vk.ru/wall-38242868_1911048",
+      "is_pinned": false,
+      "metrics": {
+        "views": 484,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-53.userapi.com/s/v1/ig2/ULL8iM5Xfjg9x31q64OVrIFDNka98ULXgHCemcwmFz8ch7S06k23Tru7sF-yG70PhDma9GYzZeG8A8kS73r1kMyu.jpg?quality=95&as=32x40,48x60,72x89,108x134,160x199,240x298,360x447,480x597,540x671,640x795,720x895,1080x1342,1280x1591&from=bu&cs=1280x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-195801765_61363",
+      "source": "club195801765",
+      "source_name": "Тутаев - это",
+      "published_at": "2026-08-17T06:58:54+00:00",
+      "text": "",
+      "url": "https://vk.ru/wall-195801765_61363",
+      "is_pinned": false,
+      "metrics": {
+        "views": 54,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [],
+      "repost": {
+        "id": "-221298529_3480",
+        "source": "club195801765",
+        "source_name": "Тутаев - это",
+        "published_at": "2026-08-06T07:22:25+00:00",
+        "text": "Зарница 2.0: режим боя активирован ⚡️\n\nНаша команда уже вовсю штампуют личные рекорды, а вчера вечером отгремели мощнейшие командные битвы! И это было нечто.\n\nБойцы прошли проверку по полной программе:\n🔴 Выживание в экстремальные условиях — там, где слабые сдаются\n🔴 РХБЗ — химия, защита, никаких поблажек\n🔴 Инженерное оборудование и маскировка позиций — позиции скрыты так, что не найдешь\n🔴 Тактическая медицина — спасали своих на скорость\n🔴 Огневая подготовка — точность, как у снайперов\n🔴 Тактическая подготовка — мозг и мышцы работали как единый механизм\n\nВпереди еще 2 дня жесточайших состязаний, адреналин зашкаливает. Финальный бой уже не за горами! 🪖\n\nСледите за нами, будет жарко 🔥\n\n#ДвижениеПервыхТутаев #ДвижениеПервых76 #Зарница2026 #Было_круто_Первые76",
+        "url": "https://vk.ru/wall-221298529_3480",
+        "is_pinned": false,
+        "metrics": {
+          "views": null,
+          "likes": null,
+          "reposts": null,
+          "comments": null
+        },
+        "attachments": [
+          {
+            "type": "photo",
+            "url": "https://sun9-80.userapi.com/s/v1/ig2/KGD2l0JVDwHCQkvS9lwyqCIP1BqDxZWo5WmLW3S2EBdlBXzJhr5FIbgIZo80zVWPZo0TWuMMNvW9kliTo09hrdDx.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,2560x1440&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-7.userapi.com/s/v1/ig2/P092S7Y0o0aK9yAsONRzgGGRyMEENmKEbEi2CAcMiq1XdgerY77u8pLHoMYJUTShZm6XZgZt210YLmrQ3lmVXW3q.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-49.userapi.com/s/v1/ig2/C0D4R6HjYkVq-0CJlvfYtKlFzEWNFl5rIPoC-01H16HyJLeCmzIT9NvfrYFZIDqjcll1nelFDRZ1_jpk8nnn7fzT.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,2560x1440&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-12.userapi.com/s/v1/ig2/TU_s9orB1snPfKi-dEgZbwARXTsIEGyRA0laAF5JLuiHqGwyL0lLLlAH6vq1KNKkIn4SuyjlTKcLBlJb5X3KeDzS.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,2560x1440&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-41.userapi.com/s/v1/ig2/2i2ImVENMgI53mlvfW2xsiin70vh3ahOhzi4LjvtzBphq9luY_i30V4IcsBk4JHchXZ0lR2fl1azUgBgfAHvTqLW.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-88.userapi.com/s/v1/ig2/0PRKKOoS965iCqP0kkR1Lu78-rawXKRe37w9tpLaWlvrUU4WKMU7R3CQbTdfMRdLB3r4ZcsmUIiwEvr-pK8X6M6a.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,2560x1440&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-74.userapi.com/s/v1/ig2/DUNAOaZ1_s8UeLKj9mEDkBTUJ2hqre-E-VvNm-u_y6-0WUy9woqtqNwJoYiccZOo5QXo6AZQjozsA_V3crvpiJ0b.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,2560x1440&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-50.userapi.com/s/v1/ig2/6ZzUkuIekIsDvmHvUJgDzqEyoBrHXQ_nhHzz4iv3j0SM_sP6xIu8Ryl6O98H2SD1652X160KEjZBQP0hFF1Lgzm5.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&cs=2560x0"
+          },
+          {
+            "type": "photo",
+            "url": "https://sun9-4.userapi.com/s/v1/ig2/3z0xddh1dMhtODR-7-xmlaUQzsNJTOGt1tybpIz2xbm4T8CanWELBFjtOOL81golj-T03P_Jq2j6SmMvFAA0-cDf.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&cs=2560x0"
+          }
+        ],
+        "repost": null
+      }
+    },
+    {
+      "id": "-150908127_55740",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T06:45:29+00:00",
+      "text": "В «Единой России» выступили за сохранение условий для поступающих в вузы\n\nВ партии считают, что усложнять ЕГЭ не следуетСистему поступления необходимо точечно настроить: прежде всего устранить перекосы при учёте результатов экзаменов и олимпиад для получения бюджетных мест\nhttps://yar.mk.ru/politics/2026/08/17/v-edinoy-rossii-vystupili-za-sokhranenie-usloviy-dlya-postupayushhikh-v-vuzy.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55740",
+      "is_pinned": false,
+      "metrics": {
+        "views": null,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-47.userapi.com/s/v1/ig2/TYtK8yezIQIb1nYfKl6Zaj42jkrQgvzj4E0Drv55qeVr4wIiBPsh98NdbRMNnzeaBXbQkFBgGdgI8_AGn2nPuCUC.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-38242868_1911042",
+      "source": "tutaev",
+      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
+      "published_at": "2026-08-17T06:41:00+00:00",
+      "text": "Доброго дня! В районе Додо найдены денежные средства. Оставили в аптеке \"Эконом\" (в здании Додо) Фармацефт отдаст тому, кто назовет сумму.\nАнонимно.",
+      "url": "https://vk.ru/wall-38242868_1911042",
+      "is_pinned": false,
+      "metrics": {
+        "views": 909,
+        "likes": 10,
+        "reposts": 1,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-35.userapi.com/s/v1/ig2/d6hCQoBZ_kS6Z5O-IMQC5vqjA39f8mJueRU4N7RvSjRY574NitkfAI8L-IRDnDqEdwzQt0b17GYb_w-Zp1XOvWHI.jpg?quality=95&crop=5,0,888,499&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x303,640x360,720x405,888x499&from=bu&cs=888x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55739",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T06:30:43+00:00",
+      "text": "Энергетик Олег Груздев завоевал золото на международном забеге\n\nСотрудник филиала «Россети Центр» — «Ярэнерго» Олег Груздев стал победителем на одном из крупнейших трейловых стартов страны — Golden Ring Ultra Trail\nhttps://yar.mk.ru/social/2026/08/17/energetik-oleg-gruzdev-zavoeval-zoloto-na-mezhdunarodnom-zabege.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55739",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-59.userapi.com/s/v1/ig2/TGeTyrhafcGFydUsiOy1FwQ7tKKv4gZQ_5hvgVKSMIaN3QlwEuz8TRqHyspY_sNZtOyYGIZj7_ztWtRWVJ1MUgR3.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-194763496_1032335",
+      "source": "76freeyaroslavl",
+      "source_name": "Свободный Ярославль 2.0",
+      "published_at": "2026-08-17T06:30:01+00:00",
+      "text": "ДТП с автобусом и легковушкой спровоцировало пробку на пересечении Мышкинского проезда и Магистральной улицы.\n\nПодпишись на [club194763496|Свободный Ярославль 2.0]",
+      "url": "https://vk.ru/wall-194763496_1032335",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1490,
+        "likes": 6,
+        "reposts": 5,
+        "comments": 3
+      },
+      "attachments": [
+        {
+          "type": "video",
+          "title": "Video by Свободный Ярославль 2.0",
+          "duration": 52,
+          "url": "https://vk.ru/video-194763496_456258732"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-38242868_1911038",
+      "source": "tutaev",
+      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
+      "published_at": "2026-08-17T06:24:52+00:00",
+      "text": "🐞17 августа, в г. Тутаев, с ⏰08:00 ч. приостановлена подача горячего водоснабжения на время производства работ по устранению дефекта на участке теплосети по следующим адресам👇:\n\n✅ул. Комсомольская д.: 83, 85, 87\n✅ул. Моторостроителей д.: 68, 72, 70, 64, 70б\n✅Детский сад \"Колокольчик\"",
+      "url": "https://vk.ru/wall-38242868_1911038",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1022,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-11.userapi.com/s/v1/ig2/r8kGYBjRXjI7oT7d8MPdmppvv_NoKBw-8HoKWDw4OfyTFSMt_6mwMEbwOjcgjW8vmj8c_MePNJ09KNCCZl4LZ9n4.jpg?quality=95&crop=0,0,1280,914&as=32x23,48x34,72x51,108x77,160x114,240x171,360x257,480x343,540x386,640x457,720x514,1080x771,1280x914&from=bu&cs=1280x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-194763496_1032332",
+      "source": "76freeyaroslavl",
+      "source_name": "Свободный Ярославль 2.0",
+      "published_at": "2026-08-17T06:04:18+00:00",
+      "text": "Магистральная встала в пробку. Выбирайте пути объезда\n\nПодпишись на [club194763496|Свободный Ярославль 2.0]",
+      "url": "https://vk.ru/wall-194763496_1032332",
+      "is_pinned": false,
+      "metrics": {
+        "views": 3780,
+        "likes": 10,
+        "reposts": 6,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-43.userapi.com/s/v1/ig2/_gbIYiuZggXfuQyR_NIPqq4WeqPOI28KQbac0IlDoBuaoNAm5NkV3RgdWVEdSrUSf8kbPnYuCrKmF4u47HtQYIAy.jpg?quality=95&as=32x41,48x62,72x92,108x139,160x206,240x308,360x462,480x617,540x694,640x822,720x925,1080x1387,1280x1644,1290x1657&from=bu&cs=1290x0"
+        },
+        {
+          "type": "photo",
+          "url": "https://sun9-59.userapi.com/s/v1/ig2/TdsAlGnVFa1CzkdVqXlcprg2NGSja42GU_twaVA86UB58V6ToJTtzxeVSaSDCgksCKxaJQsFO0NTNY94VdQmVKAm.jpg?quality=95&as=32x41,48x62,72x93,108x139,160x206,240x309,360x463,480x617,540x694,640x823,720x926,1080x1389,1280x1646,1290x1659&from=bu&cs=1290x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-38242868_1911035",
+      "source": "tutaev",
+      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
+      "published_at": "2026-08-17T06:00:01+00:00",
+      "text": "Админ,выложи,пожалуйста, повторно.\nУтерян смартфон Xiaomi Redmi 9 C,синий \nВ чёрном чехле-книжка.\nНашедшему,просьба связаться со мной. \n89301194817,или в личные сообщения.",
+      "url": "https://vk.ru/wall-38242868_1911035",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1427,
+        "likes": 7,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [],
+      "repost": null
+    },
+    {
+      "id": "-77822465_349480",
+      "source": "tipitutaev",
+      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
+      "published_at": "2026-08-17T06:00:01+00:00",
+      "text": "🌦 ПРОГНОЗ ПОГОДЫ НА НЕДЕЛЮ \n \nСегодня, 17 августа, ожидается переменчивая погода. Утром возможен небольшой дождь при температуре от +15 до +19°C, днём воздух прогреется до +21°C с прояснениями, а вечером и ночью станет пасмурно, опускаясь до +13°C. Ветер западный, умеренный. Световой день длится 15 часов 13 минут, магнитное поле спокойное. \n \nЗавтра, 18 августа, утром будет малооблачно (+13...+20°C), днём пасмурно с температурой до +22°C. Вечером сохранится пасмурная погода, а ночью возможен небольшой дождь при похолодании до +15°C. Ветер преимущественно западный и северо-восточный. Температура воды +17°C. \n \nВ среду, 19 августа, синоптики обещают дожди. Утром и днём будет идти небольшой дождь при температуре от +15 до +23°C. Ветер усилится до 8 м/с с юго-восточного направления. Ночью станет пасмурно и прохладнее, около +14°C. Магнитное поле неустойчивое. \n \nВ четверг, 20 августа, утром будет малооблачно (+13...+16°C), днём ожидается дождь при температуре +20°C. Вечером возможен небольшой дождь, ночью пасмурно и прохладно (+13...+14°C). Давление повысится до 749 мм рт. ст., магнитное поле успокоится. \n \nВ пятницу, 21 августа, утром будет пасмурно (+13...+16°C), днём возможен небольшой дождь при температуре +20...+21°C. Вечером и ночью станет малооблачно, температура опустится до +13°C. Ветер слабый, юго-западный. Температура воды +16°C. \n \nВ субботу, 22 августа, погода останется прохладной и влажной. Утром пасмурно (+13...+16°C), днём возможен небольшой дождь при температуре +18...+19°C. Вечером и ночью также ожидается дождь или пасмурная погода с температурой от +15 до +16°C. Магнитное поле спокойное. \n \nВ воскресенье, 23 августа, утром и днём возможен небольшой дождь при температуре от +15 до +20°C. Ветер западный, умеренный (до 5 м/с). Вечером станет малооблачно, а ночью облачно с прояснениями при похолодании до +12...+13°C. Температура воды +17°C. \n \n#погода #прогноз #август #дождь #температура #ТИПИЧНЫЙ_ТУТАЕВ",
+      "url": "https://vk.ru/wall-77822465_349480",
+      "is_pinned": false,
+      "metrics": {
+        "views": 317,
+        "likes": 3,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-76.userapi.com/s/v1/ig2/eqykJZuIC9uwHINQsGvqLlgMBp_yjQeVJbPOvYZ-KaywKUGxIu9SwewHztG_VQEbtcpg5aeJ_DiDm3im5K77a1gR.jpg?quality=95&crop=0,0,1080,1440&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440&from=bu&cs=1080x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-226153295_11928",
+      "source": "club226153295",
+      "source_name": "ТУТАЕВ. ЦЕНТР НОВОСТЕЙ",
+      "published_at": "2026-08-17T05:30:55+00:00",
+      "text": "Доброе утро!😻 Продуктивной недели!🙂",
+      "url": "https://vk.ru/wall-226153295_11928",
+      "is_pinned": false,
+      "metrics": {
+        "views": 69,
+        "likes": 1,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-87.userapi.com/s/v1/ig2/tANqWpLg3gv1R1T6bCCEFMd1Np0Q1BiM3CmBObE7ySlBcGW7yq9BgD93b5QTzxMr05kmphNK0w0irgCyiDF_vkcf.jpg?quality=95&crop=0,0,1070,1070&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1070x1070&from=bu&cs=1070x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-77822465_349478",
+      "source": "tipitutaev",
+      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
+      "published_at": "2026-08-17T05:30:00+00:00",
+      "text": "📅 17 АВГУСТА: ДЕНЬ СОЗДАНИЯ ВОИ И КЛЮЧЕВЫЕ СОБЫТИЯ \n \nСегодня отмечается День создания Всероссийского общества инвалидов (ВОИ). В этот день также празднуют необычные даты: День благодарности черным котам, День проснувшихся улиток, День лысых ежиков и День ванильного заварного крема. В США 17 августа — День признания бэби-бумеров. \n \nИменины отмечают Ян, Семен, Михаил, Максимилиан, Константин, Иван, Дмитрий, Денис, Андрей, Алексей, Ия, Ирина, Евдокия, Дарья и Арина. \n \n📜 Исторические события: \nВ 1771 году в Англии открыт фотосинтез. В 1806-м шлюп «Нева» под командованием Юрия Лисянского завершил первое русское кругосветное плавание, бросив якорь на Кронштадтском рейде. Император Александр I в 1812 году назначил Михаила Кутузова главнокомандующим всеми русскими армиями и ополчением. \n \nВ 1836-м по велению Николая I в Московском Кремле установлен Царь-колокол. В 1892 году заключена тайная военная конвенция России и Франции. Бриджет Дрисколл стала первой жертвой наезда автомобиля в 1896-м, а в 1898-м началось строительство Музея изящных искусств имени императора Александра III (ГМИИ имени Пушкина) в Москве. \n \nВ 1928 году в Москве открыт стадион «Динамо». В 1933-м испытана первая советская ракета на жидком топливе, а в 1939-м Фёдор Раскольников направил открытое письмо Сталину. Система Гражданской обороны создана в СССР в 1961 году. \n \nКосмос и техника: в 1970 году аппарат «Венера-7» первым успешно передал данные с поверхности Венеры. В 1977-м советский атомный ледокол «Арктика» первым из надводных кораблей достиг Северного полюса. \n \nПолитика и общество: в 1984 году жена Андрея Сахарова Е. Боннэр приговорена к 5 годам ссылки в Горьком. В 1988-м создано Всероссийское общество инвалидов. На секретном совещании в Москве в 1991 году принято решение о начале действий ГКЧП 18 августа, а в 1998-м в России объявлен дефолт («Чёрный понедельник»). \n \n🎂 Родились в этот день: \nОксана Домнина (1984) — российская фигуристка, призер Олимпийских игр. Роберт де Ниро (1943) — американский актер и режиссер, обладатель «Оскара». Муслим Магомаев (1942) — советский и азербайджанский певец, Народный артист СССР. Николай Губенко (1941) — российский актер, режиссер и общественный деятель. Олег Табаков (1935) — советский и российский актер, Народный артист СССР. \n \nТакже в этот день родились: Михаил Ботвинник (1911), 6-й чемпион мира по шахматам; Матвей Захаров (1898), Маршал Советского Союза; Адриан Фоккер (1887), нидерландский физик; Елизавета Водовозова (1844), русская детская писательница; Антон Дельвиг (1798), русский поэт; Пьер Ферма (1601), французский математик. \n \n🕊 Умерли в этот день: \nВалентин Плучек (2002) — советский и российский театральный режиссер, Народный артист СССР. Вера Марецкая (1978) — советская актриса, Народная артистка СССР. Александр Вампилов (1972) — советский драматург. \n \nВ более ранние годы ушли из жизни: Александр Бутлеров (1886), создатель теории химического строения; Фридрих II Великий (1786), король Пруссии; Василий Тредиаковский (1768), русский писатель и поэт; Степан Апраксин (1758), генерал-фельдмаршал. \n \n#17августа #ВОИ #история #фактыдня #культура #наука #память #ТИПИЧНЫЙ_ТУТАЕВ",
+      "url": "https://vk.ru/wall-77822465_349478",
+      "is_pinned": false,
+      "metrics": {
+        "views": 450,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-86.userapi.com/s/v1/ig2/5p94OO_C2ZnpCUheicRT_saMZrlBZ1O4e72GDyZnMfTFAsPeraSv5EA7g21K9Cxy7bGt1uZ97irV3ZgnilLC7VTL.jpg?quality=95&crop=0,0,1080,1440&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440&from=bu&cs=1080x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-194763496_1032326",
+      "source": "76freeyaroslavl",
+      "source_name": "Свободный Ярославль 2.0",
+      "published_at": "2026-08-17T05:07:26+00:00",
+      "text": "Уже 5 суток нет электроэнергии на Юршинском острове в Рыбинском водохранилище. «Россети» бездействуют: на звонки оператор отвечает дежурными фразами, обещая устранить неполадки то в 11:00, то в 17:00, то в 23:00 — и так уже 5 суток.\n\nНа острове нет магазинов: еда в холодильниках испортилась, нет возможности что‑либо приготовить и вскипятить воду. Обращения на горячую линию «Россетей» не дают результата, на электронные письма и другие обращения ответа нет! Власти, ау! 🤬\n\nОт подписчика",
+      "url": "https://vk.ru/wall-194763496_1032326",
+      "is_pinned": false,
+      "metrics": {
+        "views": 2785,
+        "likes": 19,
+        "reposts": 2,
+        "comments": 0
+      },
+      "attachments": [],
+      "repost": null
+    },
+    {
+      "id": "-235752596_241",
+      "source": "bibltut",
+      "source_name": "Центральная библиотека г. Тутаев",
+      "published_at": "2026-08-17T05:01:00+00:00",
+      "text": "🤫 Секретный архив [https://vk.ru/namotorah|Игрового клуба на Моторах]. Дело №09-26\n\nМы готовили это в строжайшем секрете. В сентябре наш клуб презентует абсолютно новую настольную игру, которая откроет двери для раскрытия самого загадочного преступления этого года!\n\nЭто масштабное расследование, в котором может принять участие большая компания до 12 человек одновременно.\n\nУ нас есть десятки улик и единственный свидетель - призрак погибшего. Он точно знает три вещи:\n\n🎯 Мотив: Зачем преступник это сделал?\n\n📍 Место: Где именно оборвалась жизнь жертвы?\n\n🗡️ Способ: Какое орудие использовал убийца?\n\nОн готов всё рассказать, но не может издать ни звука. У него нет голоса, тела и возможности написать записку. Всё, что у него осталось - старый почтовый ящик и странные, пугающие картинки-ассоциации.\n\nСможете ли вы стать единой следственной группой, расшифровать послания с того света и поймать убийцу?\n\nВключайте уведомления группы! Название этой мистической новинки мы раскроем уже на днях. Количество мест на сентябрьские премьеры будет строго ограничено.\n\n#ИгровойклубнаМоторах",
+      "url": "https://vk.ru/wall-235752596_241",
+      "is_pinned": false,
+      "metrics": {
+        "views": 85,
+        "likes": 6,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-65.userapi.com/s/v1/ig2/Fi5ncQ_C1m6jCnw4ICtqUu8QCWiZrxyE4dxtEDBfaGvPE8ETUoqi9gkPRrHvq1MEcrPy-w-eHd7GngwwszCeYKvp.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-77822465_349474",
+      "source": "tipitutaev",
+      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
+      "published_at": "2026-08-17T05:00:01+00:00",
+      "text": "🛍 ДЕНЬ СЕКОНД-ХЕНДА И КОМИССИОННЫХ МАГАЗИНОВ \n \n17 августа отмечается День комиссионного магазина (Thrift Shop Day) или День секонд-хенда. Комиссионный магазин принимает вещи, бывшие в употреблении, подержанные или даже новые, если они стали ненужными владельцу. Перед продажей персонал проверяет состояние товара; репутационные заведения отказываются принимать предметы откровенно низкого качества. Название «комиссионный» происходит от того факта, что магазин получает процент с каждой успешной сделки. \n \nВладелец вещи сохраняет за собой права собственности до момента продажи. Получив чек после сдачи товара, человек может в любой момент передумать и забрать свою вещь обратно. Ассортимент таких магазинов очень широк: от бытовой техники, мебели и книг до одежды, обуви и посуды. Часто профиль бывает смешанным, что позволяет найти редкие коллекционные предметы или товары из-за рубежа, которые сложно достать в обычных торговых сетях. \n \nПосетители приходят сюда по разным причинам. Для одних это способ сэкономить на покупке качественных вещей, для других — возможность избавиться от ненужного хлама и освободить пространство в доме. Многие воспринимают поход в комиссионку как ритуал: они ждут новых поставок и с удовольствием тратят время на поиск уникальных находок. В узких кругах такие магазины становятся своего рода клубом по интересам, где персонал знает предпочтения постоянных клиентов, благодаря чему товары быстро находят новых хозяев. \n \nПонятие «секонд-хенд» (от англ. «вторая рука») закрепилось в постсоветском пространстве после распада СССР и свободного доступа западной культуры. Изначально так называли любые комиссионные магазины, но со временем термин стал ассоцироваться преимущественно с точками по продаже одежды и обуви. \n \nОтмечайте праздник визитом в такой магазин. Возможно, вы избавитесь от накопившихся ненужных вещей или найдете оригинальную покупку, которую давно искали. 🧥📦 \n \n#ДеньСекондХенда #КомиссионныйМагазин #ВтораяЖизньВещей #ЭкоЛайфстайл #Шопинг #БюджетныеПокупки #ТИПИЧНЫЙ_ТУТАЕВ",
+      "url": "https://vk.ru/wall-77822465_349474",
+      "is_pinned": false,
+      "metrics": {
+        "views": 474,
+        "likes": 0,
+        "reposts": 1,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-33.userapi.com/s/v1/ig2/sjCFLBnHZ-BFTh4Vhs4ybofeJp3mBzpzy5TLRc9J5ZCb0_EFLLy8i10Zv8haGtm9JIQpeHvmuOuPU5KP1GtDxBir.jpg?quality=95&crop=0,0,622,350&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,622x350&from=bu&cs=622x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-38242868_1911028",
+      "source": "tutaev",
+      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
+      "published_at": "2026-08-17T05:00:00+00:00",
+      "text": "Праздники 17 августа\n\nДень создания Всероссийского общества инвалидов (ВОИ)    \n\nАвдотья Малиновка      \n\nДень благодарности черным котам    \n\nДень проснувшихся улиток    \n\nДень лысых ежиков    \n\nДень ванильного заварного крема    \n\nИменины отмечают Ян, Семен, Михаил, Максимилиан, Константин, Иван, Дмитрий, Денис, Андрей, Алексей, Ия, Ирина, Евдокия, Дарья, Арина.",
+      "url": "https://vk.ru/wall-38242868_1911028",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1703,
+        "likes": 1,
+        "reposts": 1,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-43.userapi.com/s/v1/ig2/BqVeSsd5WNIGzVQIMQNcW2NKNqADmqIszQS-DuPVn92jV2AsGdpuisTNV6NZbDeZ6RMIpW6BfQ9sdMANuLMPQcuc.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x271,480x361,500x376&from=bu&cs=500x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-169508339_50616",
+      "source": "tutaevadm",
+      "source_name": "Администрация Тутаевского округа",
+      "published_at": "2026-08-17T05:00:00+00:00",
+      "text": "Доброе утро!😻 Продуктивной недели!🙂",
+      "url": "https://vk.ru/wall-169508339_50616",
+      "is_pinned": false,
+      "metrics": {
+        "views": 266,
+        "likes": 3,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-87.userapi.com/s/v1/ig2/gconPmD_xO0oyOq_jz2ONfqqta6JBoEFzgqkVNG6xIKiJCIfllqfJwysoGyxuu-L3tdOudnzmwuP5iWyd71X9ky9.jpg?quality=95&crop=0,0,1070,1070&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1070x1070&from=bu&cs=1070x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55738",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:50:16+00:00",
+      "text": "Пожарные Ярославля рассказали подробности о взрыве самогонного аппарата\n\nПресс-служба МЧС дала подробные объяснения о причине взрыва самогонного аппарата и сложностях тушения пожара в доме на улице Громова.\nhttps://yar.mk.ru/incident/2026/08/17/pozharnye-yaroslavlya-rasskazali-podrobnosti-o-vzryve-samogonnogo-apparata.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55738",
+      "is_pinned": false,
+      "metrics": {
+        "views": 5,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-21.userapi.com/s/v1/ig2/VsFsI_tqaHeZp4LMpYkxGUmd1a9eK4xPklNg7tkuT6_vgUB6aaxdYDKi-pRRC1fnghznSiMGpg9AUActvNCIT9Kg.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55737",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:45:15+00:00",
+      "text": "В Рыбинске малолетний питбайкер сбил малолетнего велосипедиста\n\nВ Рыбинске 15-летний питбайкер на перекрестке улиц Трактора и Папанина наехал на 11-летнего велосипедиста. Об этом сообщает УМВД России по Ярославской области\nhttps://yar.mk.ru/incident/2026/08/17/v-rybinske-maloletniy-pitbayker-sbil-maloletnego-velosipedista.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55737",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-25.userapi.com/s/v1/ig2/bz2GKcofeeHQIBgrFDe-nFFDlT30Qf--bSd54kl4IuZQU5n56cyEOdGDzA4RkwurJiwqynLdnDAVeDYJYq8sJZx3.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55736",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:40:14+00:00",
+      "text": "В Рыбинске собаки умерли после прививки\n\nЖительница Рыбинска в соцсетях поделилась страшным горем. У нее умерли 2 из 4-х щенков помета.  Она отнесла малышей в ветклинику, где им сделали плановые прививки от нескольких заболеваний сразу. После прививки двое из четырех щенков скончались.\nhttps://yar.mk.ru/incident/2026/08/17/v-rybinske-sobaki-umerli-posle-privivki.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55736",
+      "is_pinned": false,
+      "metrics": {
+        "views": 9,
+        "likes": 1,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-12.userapi.com/s/v1/ig2/68D83T2a3GbhQBTtTcTMI-hUPmGHOJvhzYHqMfPDHVIZh20zx-6cY10yw15s-nXCLvu5rdXha3lhvZLvA7RKhvQO.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480&from=bu&cs=720x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55735",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:35:15+00:00",
+      "text": "В Ярославле 22-летний гопник избил 37-летнего мужчину\n\nВ Ярославле 22-летний мужчина  напал на ярославца на остановке общественного транспорта на улице Волгоградской. И нанес своей жертве множественные травмы головы. В отношении агрессора возбуждено уголовное дело.\nhttps://yar.mk.ru/incident/2026/08/17/v-yaroslavle-22letniy-gopnik-izbil-37letnego-muzhchinu.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55735",
+      "is_pinned": false,
+      "metrics": {
+        "views": 4,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-12.userapi.com/s/v1/ig2/MqnbXjN8DgkIWIyGrJXlantH-9N3ZlwBCv6k-nbszykNt-bcFe0KyBKHOGGTF8yEwxYoHHFUkEmGioUFuTUX9sSe.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480&from=bu&cs=720x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-182866999_3876",
+      "source": "tutcrb",
+      "source_name": "Тутаевская ЦРБ",
+      "published_at": "2026-08-17T04:33:06+00:00",
+      "text": "Актуальная информация о количестве явок в подразделениях Тутаевской ЦРБ на 17 августа 2026 года \n \nОткрыто явок к специалистам: 880\nСвободно явок: 178\n \nЗаписывайтесь на приём удобным способом: \n📞 по единому номеру 122 \n🌐 через портал «Интермед76» \n💻 на Едином портале госуслуг \n🤖 через чат‑бот в МАХ \n🏥 при личном обращении в регистратуру",
+      "url": "https://vk.ru/wall-182866999_3876",
+      "is_pinned": false,
+      "metrics": {
+        "views": 92,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55734",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:30:31+00:00",
+      "text": "В Ярославле на проезде Ушакова рухнуло еще одно старое дерево\n\nВ Ярославле на Суздалке рядом с жилыми домами упало еще одно старое дерево. Об этом сообщают местные жители.\nhttps://yar.mk.ru/incident/2026/08/17/v-yaroslavle-na-proezde-ushakova-rukhnulo-eshhe-odno-staroe-derevo.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55734",
+      "is_pinned": false,
+      "metrics": {
+        "views": 4,
+        "likes": 1,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-53.userapi.com/s/v1/ig2/2YVcESlR3EGSVEVa0gxH3_sE7kYKdU8Z5f7KEBRtiNEMsu-edexgU5iZEWGkAVMBISQR7SZTKKDjT-3x14qdjULv.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480&from=bu&cs=720x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55733",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:15:16+00:00",
+      "text": "Ярославцам рассказали, как проверить арбуз на нитраты\n\nРаспознать опасную химию можно с помощью воды\nhttps://yar.mk.ru/social/2026/08/17/yaroslavcam-rasskazali-kak-proverit-arbuz-na-nitraty.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55733",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-18.userapi.com/s/v1/ig2/XhIIAJgzNB6Alrur4KTFKKsz8EELmWN1YG_plmKRXbyHR0G9dV2PKBnKCiQ1EbjETN-Et8acGC-ElMIBAovvd9wx.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-77822465_349472",
+      "source": "tipitutaev",
+      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
+      "published_at": "2026-08-17T04:15:00+00:00",
+      "text": "УТРЕННЯЯ ПЛАНЕРКА КОММУНАЛЬЩИКОВ",
+      "url": "https://vk.ru/wall-77822465_349472",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1202,
+        "likes": 24,
+        "reposts": 1,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-73.userapi.com/s/v1/ig2/LJsHsL_5byUn6ZURa6BzB1Q-ziM8kSauqZam05uCj263_ILfoJ4MyZQojNY4vRKfpipxyfx0lXGzBmOuIh6iKJQ8.jpg?quality=95&crop=0,0,1280,960&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960&from=bu&cs=1280x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-38242868_1911024",
+      "source": "tutaev",
+      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
+      "published_at": "2026-08-17T04:11:00+00:00",
+      "text": "Здраствуйте на левом берегу бегает собака уже третью неделю, звоним во все инстанции и толку ноль. Одни отговорки😭😡. Эта собака покусала много кого и мер нет никаких. Как и куда ещё обращаться.анонимно  можно. Админу добра и с праздником 😉",
+      "url": "https://vk.ru/wall-38242868_1911024",
+      "is_pinned": false,
+      "metrics": {
+        "views": 4949,
+        "likes": 20,
+        "reposts": 4,
+        "comments": 5
+      },
+      "attachments": [],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55732",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:10:20+00:00",
+      "text": "В Ярославле пьяная драка закончилась уголовным делом\n\nНа остановке улица Волгоградская жестко избили 37-летнего мужчину\nhttps://yar.mk.ru/incident/2026/08/17/v-yaroslavle-pyanaya-draka-zakonchilas-ugolovnym-delom.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55732",
+      "is_pinned": false,
+      "metrics": {
+        "views": 4,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-44.userapi.com/s/v1/ig2/bGupdsKrZiIbCNNB80VNOlchR5JYnv7Oz8a9MiIaCh5U08g0hY0y4hAX8sX0UT2QWkd_ChFHsnFUy0V8_iBF3_6f.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1020x680&from=bu&cs=1020x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55731",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:05:23+00:00",
+      "text": "Ярославцам опять пообещали грозу и сильный ветер\n\nНепогода, накрывшая область с вечера выходного дня, сохранится и в понедельник до обеда\nhttps://yar.mk.ru/social/2026/08/17/yaroslavcam-opyat-poobeshhali-grozu-i-silnyy-veter.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55731",
+      "is_pinned": false,
+      "metrics": {
+        "views": 2,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-53.userapi.com/s/v1/ig2/GhNUgzgjKDsDGlc3jwn8q2aYCqqIhrz81Jz78IasC9Wh_tXnX7bAPNoLhZ5tNk02lBJA3z2gtPxCZWNRyHzdMjTs.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480&from=bu&cs=720x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-150908127_55730",
+      "source": "yarmkru",
+      "source_name": "МК в Ярославле",
+      "published_at": "2026-08-17T04:00:40+00:00",
+      "text": "Ярославцы рассказали о пожаре в заброшенном здании\n\nПолыхнул дом за Волгой\nhttps://yar.mk.ru/incident/2026/08/17/yaroslavcy-rasskazali-o-pozhare-v-zabroshennom-zdanii.html\n#Ярославль",
+      "url": "https://vk.ru/wall-150908127_55730",
+      "is_pinned": false,
+      "metrics": {
+        "views": 1,
+        "likes": 0,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-85.userapi.com/s/v1/ig2/4-Huw_yutxNbdFaaocjRvveV9IwUXdeOpAVJTuugJUv26NKk4Dk11-F62LCaoNMa5GRljRyD2hU7vDaGy5zkoCuA.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1020x680&from=bu&cs=1020x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-77822465_349471",
+      "source": "tipitutaev",
+      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
+      "published_at": "2026-08-17T04:00:01+00:00",
+      "text": "🌦 ПОГОДА НА 17 АВГУСТА \n \nУтром ожидается небольшой дождь при температуре от +15 до +19°. Ощущается как +17°. Ветер западный, 3-4 м/с. Давление 740 мм рт. ст., влажность 87%. \n \nДнём облачно с прояснениями, воздух прогреется до +19…+21°. Ощущаемая температура +20°. Ветер западный, 4 м/с. Влажность снизится до 61%, давление останется на уровне 740 мм рт. ст. \n \nВечером пасмурно, столбики термометров покажут от +16 до +20°. Ощущается как +17°. Ветер западный, 3 м/с. Влажность 67%, давление 740 мм рт. ст. \n \nНочью сохранится пасмурная погода при температуре +13…+15°. Ощущаемая температура +13°. Ветер западный, 3 м/с. Влажность вырастет до 85%, давление 740 мм рт. ст. \n \n🌅 Восход в 04:49, закат в 20:02. Световой день длится 15 часов 13 минут. Луна растущая. УФ-индекс средний (4). Магнитное поле спокойное. \n \n#Погода #Прогноз #Август #ТИПИЧНЫЙ_ТУТАЕВ",
+      "url": "https://vk.ru/wall-77822465_349471",
+      "is_pinned": false,
+      "metrics": {
+        "views": 592,
+        "likes": 1,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-51.userapi.com/s/v1/ig2/DTsZt9u49nz2LmlTBZZLnLpUugLw4UCMuj0BBxBQorV_eR8JYnV1KmY5X3fHwcYy3oF2nZQ_Kls8dO2CbVAe199b.jpg?quality=95&crop=0,0,1080,1440&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440&from=bu&cs=1080x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-38242868_1911022",
+      "source": "tutaev",
+      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
+      "published_at": "2026-08-17T04:00:00+00:00",
+      "text": "Доброго утречка, друзья!\nОтличного настроения 🌞🌞🌞",
+      "url": "https://vk.ru/wall-38242868_1911022",
+      "is_pinned": false,
+      "metrics": {
+        "views": 2004,
+        "likes": 11,
+        "reposts": 1,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-50.userapi.com/s/v1/ig2/h98PWND6hm01nmQQB_zobp82cF6zbHPvAbxMWP-68vEkOkEk0e6MDktemQCuj8AVm1sz8tfyWaT8piRjjoAhnNYs.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,960x1280&from=bu&cs=960x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-114491512_147311",
+      "source": "v_konstantinovsky",
+      "source_name": "Вечерний Константиновский",
+      "published_at": "2026-08-17T04:00:00+00:00",
+      "text": "",
+      "url": "https://vk.ru/wall-114491512_147311",
+      "is_pinned": false,
+      "metrics": {
+        "views": 370,
+        "likes": 3,
+        "reposts": 0,
+        "comments": 0
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-41.userapi.com/s/v1/ig2/AS1qaD0xQW0gdNQnfXy8WRcq3f7WP-BL9XqFMEEHXYzFJiMK6s6Ngtn9RDiVgf8KF_SO67TrVmEPDdF7Rm9C8DY8.jpg?quality=95&crop=0,0,767,1151&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,767x1151&from=bu&cs=767x0"
+        }
+      ],
+      "repost": null
+    },
+    {
+      "id": "-138682048_119271",
+      "source": "tutaevtoday",
+      "source_name": "ТУТАЕВ СЕГОДНЯ",
+      "published_at": "2026-08-17T04:00:00+00:00",
+      "text": "Доброе утро, Тутаев!",
+      "url": "https://vk.ru/wall-138682048_119271",
+      "is_pinned": false,
+      "metrics": {
+        "views": 564,
+        "likes": 20,
+        "reposts": 0,
+        "comments": 3
+      },
+      "attachments": [
+        {
+          "type": "photo",
+          "url": "https://sun9-46.userapi.com/s/v1/ig2/hlBR6TH5rM3R1D3dT9A3TBHymWt3GhngaxxNXaSFY5D7gqicYy--_jAWxBkGk6Vs5SrU_yAVedyCDgF2YD0foO0o.jpg?quality=95&crop=0,0,1920,2560&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1920x0"
+        }
+      ],
+      "repost": null
+    },
     {
       "id": "-48950797_53153",
       "source": "sorokalife",
@@ -15,7 +1191,7 @@
       "url": "https://vk.ru/wall-48950797_53153",
       "is_pinned": false,
       "metrics": {
-        "views": 20,
+        "views": 289,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -37,9 +1213,9 @@
       "url": "https://vk.ru/wall-77822465_349468",
       "is_pinned": false,
       "metrics": {
-        "views": 83,
-        "likes": 0,
-        "reposts": 0,
+        "views": 662,
+        "likes": 5,
+        "reposts": 1,
         "comments": 0
       },
       "attachments": [
@@ -59,8 +1235,8 @@
       "url": "https://vk.ru/wall-38242868_1911005",
       "is_pinned": false,
       "metrics": {
-        "views": 1552,
-        "likes": 4,
+        "views": 3334,
+        "likes": 6,
         "reposts": 0,
         "comments": 0
       },
@@ -81,10 +1257,10 @@
       "url": "https://vk.ru/wall-38242868_1911004",
       "is_pinned": false,
       "metrics": {
-        "views": 2667,
-        "likes": 49,
-        "reposts": 6,
-        "comments": 1
+        "views": 6799,
+        "likes": 120,
+        "reposts": 19,
+        "comments": 3
       },
       "attachments": [
         {
@@ -107,10 +1283,10 @@
       "url": "https://vk.ru/wall-38242868_1911003",
       "is_pinned": false,
       "metrics": {
-        "views": 6282,
-        "likes": 23,
-        "reposts": 2,
-        "comments": 3
+        "views": 15494,
+        "likes": 70,
+        "reposts": 5,
+        "comments": 4
       },
       "attachments": [
         {
@@ -133,8 +1309,8 @@
       "url": "https://vk.ru/wall-38242868_1910999",
       "is_pinned": false,
       "metrics": {
-        "views": 2429,
-        "likes": 10,
+        "views": 5447,
+        "likes": 22,
         "reposts": 1,
         "comments": 0
       },
@@ -163,7 +1339,7 @@
       "url": "https://vk.ru/wall-38242868_1910997",
       "is_pinned": false,
       "metrics": {
-        "views": 1622,
+        "views": 3012,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -189,10 +1365,10 @@
       "url": "https://vk.ru/wall-38242868_1910996",
       "is_pinned": false,
       "metrics": {
-        "views": 2202,
-        "likes": 1,
+        "views": 4257,
+        "likes": 5,
         "reposts": 0,
-        "comments": 0
+        "comments": 1
       },
       "attachments": [],
       "repost": null
@@ -206,7 +1382,7 @@
       "url": "https://vk.ru/wall-195801765_61360",
       "is_pinned": false,
       "metrics": {
-        "views": 196,
+        "views": 344,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -274,10 +1450,10 @@
       "url": "https://vk.ru/wall-38242868_1910988",
       "is_pinned": false,
       "metrics": {
-        "views": 2408,
-        "likes": 4,
+        "views": 4332,
+        "likes": 11,
         "reposts": 0,
-        "comments": 0
+        "comments": 1
       },
       "attachments": [
         {
@@ -296,9 +1472,9 @@
       "url": "https://vk.ru/wall-194763496_1032271",
       "is_pinned": false,
       "metrics": {
-        "views": 2538,
-        "likes": 11,
-        "reposts": 5,
+        "views": 6025,
+        "likes": 17,
+        "reposts": 9,
         "comments": 1
       },
       "attachments": [
@@ -318,9 +1494,9 @@
       "url": "https://vk.ru/wall-38242868_1910979",
       "is_pinned": false,
       "metrics": {
-        "views": 3144,
-        "likes": 41,
-        "reposts": 5,
+        "views": 5125,
+        "likes": 56,
+        "reposts": 6,
         "comments": 3
       },
       "attachments": [
@@ -340,7 +1516,7 @@
       "url": "https://vk.ru/wall-195801765_61357",
       "is_pinned": false,
       "metrics": {
-        "views": 589,
+        "views": 1038,
         "likes": 1,
         "reposts": 1,
         "comments": 0
@@ -357,9 +1533,9 @@
       "url": "https://vk.ru/wall-194763496_1032260",
       "is_pinned": false,
       "metrics": {
-        "views": 7947,
-        "likes": 36,
-        "reposts": 3,
+        "views": 13332,
+        "likes": 45,
+        "reposts": 5,
         "comments": 14
       },
       "attachments": [],
@@ -374,7 +1550,7 @@
       "url": "https://vk.ru/wall-226153295_11926",
       "is_pinned": false,
       "metrics": {
-        "views": 110,
+        "views": 149,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -396,10 +1572,10 @@
       "url": "https://vk.ru/wall-38242868_1910960",
       "is_pinned": false,
       "metrics": {
-        "views": 6122,
-        "likes": 41,
-        "reposts": 8,
-        "comments": 7
+        "views": 8457,
+        "likes": 54,
+        "reposts": 10,
+        "comments": 8
       },
       "attachments": [
         {
@@ -426,10 +1602,10 @@
       "url": "https://vk.ru/wall-194763496_1032250",
       "is_pinned": false,
       "metrics": {
-        "views": 3540,
-        "likes": 7,
+        "views": 4725,
+        "likes": 8,
         "reposts": 1,
-        "comments": 4
+        "comments": 5
       },
       "attachments": [
         {
@@ -452,8 +1628,8 @@
       "url": "https://vk.ru/wall-38242868_1910958",
       "is_pinned": false,
       "metrics": {
-        "views": 4284,
-        "likes": 10,
+        "views": 5593,
+        "likes": 11,
         "reposts": 0,
         "comments": 0
       },
@@ -469,7 +1645,7 @@
       "url": "https://vk.ru/wall-48950797_53152",
       "is_pinned": false,
       "metrics": {
-        "views": 316,
+        "views": 390,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -491,7 +1667,7 @@
       "url": "https://vk.ru/wall-195801765_61356",
       "is_pinned": false,
       "metrics": {
-        "views": 639,
+        "views": 854,
         "likes": 0,
         "reposts": 0,
         "comments": 1
@@ -517,8 +1693,8 @@
       "url": "https://vk.ru/wall-77822465_349454",
       "is_pinned": false,
       "metrics": {
-        "views": 856,
-        "likes": 4,
+        "views": 1192,
+        "likes": 6,
         "reposts": 0,
         "comments": 0
       },
@@ -541,7 +1717,7 @@
       "url": "https://vk.ru/wall-38242868_1910949",
       "is_pinned": false,
       "metrics": {
-        "views": 5033,
+        "views": 6195,
         "likes": 1,
         "reposts": 0,
         "comments": 1
@@ -558,9 +1734,9 @@
       "url": "https://vk.ru/wall-194763496_1032242",
       "is_pinned": false,
       "metrics": {
-        "views": 6111,
-        "likes": 31,
-        "reposts": 17,
+        "views": 8323,
+        "likes": 37,
+        "reposts": 19,
         "comments": 1
       },
       "attachments": [
@@ -600,8 +1776,8 @@
       "url": "https://vk.ru/wall-38242868_1910943",
       "is_pinned": false,
       "metrics": {
-        "views": 5627,
-        "likes": 21,
+        "views": 6807,
+        "likes": 23,
         "reposts": 0,
         "comments": 0
       },
@@ -622,9 +1798,9 @@
       "url": "https://vk.ru/wall-194763496_1032240",
       "is_pinned": false,
       "metrics": {
-        "views": 5748,
+        "views": 7659,
         "likes": 23,
-        "reposts": 13,
+        "reposts": 14,
         "comments": 0
       },
       "attachments": [
@@ -644,8 +1820,8 @@
       "url": "https://vk.ru/wall-77822465_349448",
       "is_pinned": false,
       "metrics": {
-        "views": 1031,
-        "likes": 13,
+        "views": 1402,
+        "likes": 16,
         "reposts": 2,
         "comments": 0
       },
@@ -666,10 +1842,10 @@
       "url": "https://vk.ru/wall-38242868_1910927",
       "is_pinned": false,
       "metrics": {
-        "views": 9618,
-        "likes": 40,
+        "views": 11661,
+        "likes": 49,
         "reposts": 2,
-        "comments": 7
+        "comments": 9
       },
       "attachments": [
         {
@@ -688,8 +1864,8 @@
       "url": "https://vk.ru/wall-169508339_50614",
       "is_pinned": false,
       "metrics": {
-        "views": 290,
-        "likes": 1,
+        "views": 404,
+        "likes": 3,
         "reposts": 0,
         "comments": 0
       },
@@ -712,8 +1888,8 @@
       "url": "https://vk.ru/wall-138682048_119266",
       "is_pinned": false,
       "metrics": {
-        "views": 1135,
-        "likes": 4,
+        "views": 1461,
+        "likes": 5,
         "reposts": 2,
         "comments": 1
       },
@@ -734,7 +1910,7 @@
       "url": "https://vk.ru/wall-226153295_11925",
       "is_pinned": false,
       "metrics": {
-        "views": 93,
+        "views": 111,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -758,7 +1934,7 @@
       "url": "https://vk.ru/wall-48950797_53151",
       "is_pinned": false,
       "metrics": {
-        "views": 296,
+        "views": 352,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -780,7 +1956,7 @@
       "url": "https://vk.ru/wall689542040_174812",
       "is_pinned": false,
       "metrics": {
-        "views": 1352,
+        "views": 1676,
         "likes": 10,
         "reposts": 0,
         "comments": 1
@@ -804,10 +1980,10 @@
       "url": "https://vk.ru/wall-194763496_1032234",
       "is_pinned": false,
       "metrics": {
-        "views": 3521,
-        "likes": 18,
+        "views": 4248,
+        "likes": 20,
         "reposts": 9,
-        "comments": 0
+        "comments": 1
       },
       "attachments": [
         {
@@ -828,10 +2004,10 @@
       "url": "https://vk.ru/wall-38242868_1910916",
       "is_pinned": false,
       "metrics": {
-        "views": 9288,
-        "likes": 78,
+        "views": 10670,
+        "likes": 86,
         "reposts": 6,
-        "comments": 5
+        "comments": 6
       },
       "attachments": [
         {
@@ -850,10 +2026,10 @@
       "url": "https://vk.ru/wall-38242868_1910914",
       "is_pinned": false,
       "metrics": {
-        "views": 4090,
+        "views": 4811,
         "likes": 4,
         "reposts": 2,
-        "comments": 15
+        "comments": 16
       },
       "attachments": [
         {
@@ -872,10 +2048,10 @@
       "url": "https://vk.ru/wall-194763496_1032228",
       "is_pinned": false,
       "metrics": {
-        "views": 3950,
-        "likes": 19,
+        "views": 4659,
+        "likes": 20,
         "reposts": 13,
-        "comments": 0
+        "comments": 1
       },
       "attachments": [
         {
@@ -896,9 +2072,9 @@
       "url": "https://vk.ru/wall-195801765_61351",
       "is_pinned": false,
       "metrics": {
-        "views": 2644,
-        "likes": 24,
-        "reposts": 3,
+        "views": 3214,
+        "likes": 27,
+        "reposts": 4,
         "comments": 2
       },
       "attachments": [
@@ -926,10 +2102,10 @@
       "url": "https://vk.ru/wall-38242868_1910907",
       "is_pinned": false,
       "metrics": {
-        "views": 12207,
-        "likes": 117,
-        "reposts": 18,
-        "comments": 2
+        "views": 13923,
+        "likes": 133,
+        "reposts": 20,
+        "comments": 3
       },
       "attachments": [],
       "repost": null
@@ -943,7 +2119,7 @@
       "url": "https://vk.ru/wall-182866999_3875",
       "is_pinned": false,
       "metrics": {
-        "views": 101,
+        "views": 137,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -965,7 +2141,7 @@
       "url": "https://vk.ru/wall-48950797_53150",
       "is_pinned": false,
       "metrics": {
-        "views": 294,
+        "views": 310,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -987,8 +2163,8 @@
       "url": "https://vk.ru/wall-134631646_13851",
       "is_pinned": false,
       "metrics": {
-        "views": 488,
-        "likes": 11,
+        "views": 605,
+        "likes": 13,
         "reposts": 1,
         "comments": 0
       },
@@ -1041,7 +2217,7 @@
       "url": "https://vk.ru/wall-226153295_11924",
       "is_pinned": false,
       "metrics": {
-        "views": 130,
+        "views": 149,
         "likes": 1,
         "reposts": 0,
         "comments": 0
@@ -1067,7 +2243,7 @@
       "url": "https://vk.ru/wall-102907097_39994",
       "is_pinned": false,
       "metrics": {
-        "views": 252,
+        "views": 277,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -1089,8 +2265,8 @@
       "url": "https://vk.ru/wall-38242868_1910901",
       "is_pinned": false,
       "metrics": {
-        "views": 4368,
-        "likes": 4,
+        "views": 4997,
+        "likes": 5,
         "reposts": 1,
         "comments": 0
       },
@@ -1111,8 +2287,8 @@
       "url": "https://vk.ru/wall-77822465_349433",
       "is_pinned": false,
       "metrics": {
-        "views": 1417,
-        "likes": 9,
+        "views": 1718,
+        "likes": 11,
         "reposts": 0,
         "comments": 0
       },
@@ -1133,8 +2309,8 @@
       "url": "https://vk.ru/wall-169508339_50613",
       "is_pinned": false,
       "metrics": {
-        "views": 637,
-        "likes": 3,
+        "views": 798,
+        "likes": 6,
         "reposts": 0,
         "comments": 0
       },
@@ -1159,8 +2335,8 @@
       "url": "https://vk.ru/wall-195801765_61350",
       "is_pinned": false,
       "metrics": {
-        "views": 1875,
-        "likes": 1,
+        "views": 2087,
+        "likes": 2,
         "reposts": 0,
         "comments": 0
       },
@@ -1185,7 +2361,7 @@
       "url": "https://vk.ru/wall-194763496_1032218",
       "is_pinned": false,
       "metrics": {
-        "views": 8882,
+        "views": 10016,
         "likes": 18,
         "reposts": 4,
         "comments": 0
@@ -1202,9 +2378,9 @@
       "url": "https://vk.ru/wall-38242868_1910896",
       "is_pinned": false,
       "metrics": {
-        "views": 8430,
+        "views": 9200,
         "likes": 15,
-        "reposts": 5,
+        "reposts": 6,
         "comments": 5
       },
       "attachments": [],
@@ -1219,7 +2395,7 @@
       "url": "https://vk.ru/wall-38242868_1910894",
       "is_pinned": false,
       "metrics": {
-        "views": 5663,
+        "views": 6285,
         "likes": 4,
         "reposts": 0,
         "comments": 0
@@ -1236,7 +2412,7 @@
       "url": "https://vk.ru/wall-195801765_61348",
       "is_pinned": false,
       "metrics": {
-        "views": 1564,
+        "views": 1774,
         "likes": 4,
         "reposts": 1,
         "comments": 1
@@ -1266,10 +2442,10 @@
       "url": "https://vk.ru/wall-194763496_1032214",
       "is_pinned": false,
       "metrics": {
-        "views": 6247,
-        "likes": 19,
-        "reposts": 2,
-        "comments": 3
+        "views": 7226,
+        "likes": 21,
+        "reposts": 3,
+        "comments": 5
       },
       "attachments": [
         {
@@ -1288,9 +2464,9 @@
       "url": "https://vk.ru/wall-38242868_1910881",
       "is_pinned": false,
       "metrics": {
-        "views": 6493,
-        "likes": 9,
-        "reposts": 19,
+        "views": 7232,
+        "likes": 11,
+        "reposts": 20,
         "comments": 1
       },
       "attachments": [
@@ -1310,8 +2486,8 @@
       "url": "https://vk.ru/wall-77822465_349420",
       "is_pinned": false,
       "metrics": {
-        "views": 6185,
-        "likes": 63,
+        "views": 6915,
+        "likes": 74,
         "reposts": 6,
         "comments": 12
       },
@@ -1327,10 +2503,10 @@
       "url": "https://vk.ru/wall689542040_174807",
       "is_pinned": false,
       "metrics": {
-        "views": 1544,
+        "views": 1783,
         "likes": 14,
-        "reposts": 6,
-        "comments": 3
+        "reposts": 7,
+        "comments": 5
       },
       "attachments": [
         {
@@ -1385,8 +2561,8 @@
       "url": "https://vk.ru/wall-226153295_11923",
       "is_pinned": false,
       "metrics": {
-        "views": 274,
-        "likes": 6,
+        "views": 309,
+        "likes": 7,
         "reposts": 0,
         "comments": 0
       },
@@ -1439,9 +2615,9 @@
       "url": "https://vk.ru/wall-127341155_7346",
       "is_pinned": false,
       "metrics": {
-        "views": 29,
-        "likes": 19,
-        "reposts": 1,
+        "views": 35,
+        "likes": 22,
+        "reposts": 2,
         "comments": 0
       },
       "attachments": [
@@ -1463,7 +2639,7 @@
       "url": "https://vk.ru/wall-38242868_1910872",
       "is_pinned": false,
       "metrics": {
-        "views": 4743,
+        "views": 5220,
         "likes": 6,
         "reposts": 3,
         "comments": 0
@@ -1485,10 +2661,10 @@
       "url": "https://vk.ru/wall-77822465_349419",
       "is_pinned": false,
       "metrics": {
-        "views": 9846,
-        "likes": 93,
-        "reposts": 49,
-        "comments": 12
+        "views": 10975,
+        "likes": 102,
+        "reposts": 55,
+        "comments": 16
       },
       "attachments": [
         {
@@ -1507,8 +2683,8 @@
       "url": "https://vk.ru/wall-169508339_50612",
       "is_pinned": false,
       "metrics": {
-        "views": 807,
-        "likes": 5,
+        "views": 943,
+        "likes": 8,
         "reposts": 0,
         "comments": 0
       },
@@ -1561,10 +2737,10 @@
       "url": "https://vk.ru/wall-38242868_1910871",
       "is_pinned": false,
       "metrics": {
-        "views": 5540,
-        "likes": 5,
+        "views": 6033,
+        "likes": 6,
         "reposts": 3,
-        "comments": 10
+        "comments": 11
       },
       "attachments": [
         {
@@ -1583,8 +2759,8 @@
       "url": "https://vk.ru/wall-194763496_1032207",
       "is_pinned": false,
       "metrics": {
-        "views": 17057,
-        "likes": 32,
+        "views": 18779,
+        "likes": 38,
         "reposts": 14,
         "comments": 0
       },
@@ -1600,8 +2776,8 @@
       "url": "https://vk.ru/wall-77822465_349417",
       "is_pinned": false,
       "metrics": {
-        "views": 1909,
-        "likes": 7,
+        "views": 2184,
+        "likes": 8,
         "reposts": 2,
         "comments": 0
       },
@@ -1622,7 +2798,7 @@
       "url": "https://vk.ru/wall-226153295_11922",
       "is_pinned": false,
       "metrics": {
-        "views": 130,
+        "views": 148,
         "likes": 0,
         "reposts": 0,
         "comments": 0
@@ -1644,8 +2820,8 @@
       "url": "https://vk.ru/wall-169508339_50611",
       "is_pinned": false,
       "metrics": {
-        "views": 324,
-        "likes": 1,
+        "views": 375,
+        "likes": 3,
         "reposts": 0,
         "comments": 0
       },
@@ -1666,9 +2842,9 @@
       "url": "https://vk.ru/wall-195801765_61345",
       "is_pinned": false,
       "metrics": {
-        "views": 1006,
-        "likes": 3,
-        "reposts": 0,
+        "views": 1131,
+        "likes": 4,
+        "reposts": 1,
         "comments": 0
       },
       "attachments": [
@@ -1688,15 +2864,15 @@
       "url": "https://vk.ru/wall-138682048_119259",
       "is_pinned": false,
       "metrics": {
-        "views": 2459,
+        "views": 2721,
         "likes": 8,
-        "reposts": 6,
+        "reposts": 7,
         "comments": 1
       },
       "attachments": [
         {
           "type": "photo",
-          "url": "https://sun9-19.userapi.com/s/v1/ig2/xPHzb4toUp2h4C5negRAlxwzLx03jntM5erdH2EPRO_GgIwOWklXi0TI_urMpyI-UYwTMpW1jibjBHooEdBUsxWn.jpg?quality=95&crop=0,0,2560,1804&as=32x23,48x34,72x51,108x76,160x113,240x169,360x254,480x338,540x381,640x451,720x507,1080x761,1280x902,1440x1015,2560x1804&from=bu&cs=2560x0"
+          "url": "https://sun9-19.userapi.com/s/v1/ig2/A1HbdPXdE2jra0oUjVB_fSe_wlnLdTSeV8LU42Ap28vixh9ivdFX-un2JX_GFQGHTJ-RN70EpjD8I73B9OvwjJJs.jpg?quality=95&as=32x23,48x34,72x51,108x76,160x113,240x169,360x254,480x338,540x381,640x451,720x507,1080x761,1280x902,1440x1015,2560x1804&from=bu&cs=2560x0"
         }
       ],
       "repost": null
@@ -1710,8 +2886,8 @@
       "url": "https://vk.ru/wall-38242868_1910861",
       "is_pinned": false,
       "metrics": {
-        "views": 8722,
-        "likes": 26,
+        "views": 9657,
+        "likes": 28,
         "reposts": 17,
         "comments": 0
       },
@@ -1732,8 +2908,8 @@
       "url": "https://vk.ru/wall-77822465_349414",
       "is_pinned": false,
       "metrics": {
-        "views": 1620,
-        "likes": 10,
+        "views": 1792,
+        "likes": 11,
         "reposts": 0,
         "comments": 5
       },
@@ -1749,689 +2925,6 @@
         {
           "type": "photo",
           "url": "https://sun9-33.userapi.com/s/v1/ig2/rUiSJW-qiyVvcxNQnFi7YzOwbYoxe7d1wJ-jMCTefQEufX_JYpiC4N00OigdnRUkTUVScSdeIayVVcOq8Tz5Zfws.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&cs=2560x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-114491512_147303",
-      "source": "v_konstantinovsky",
-      "source_name": "Вечерний Константиновский",
-      "published_at": "2026-08-16T07:43:19+00:00",
-      "text": "Чей потеряшка?\n\nhttps://vk.ru/olga_chudnay",
-      "url": "https://vk.ru/wall-114491512_147303",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1291,
-        "likes": 18,
-        "reposts": 2,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-71.userapi.com/s/v1/ig2/-GISZyM9YH7kSDTMCKU348SqolRpYZNO78DATtZVK8b9dn6tmVYGiy8VLObXVIk0-msmmQzQw0npw1DSmUQLy06u.jpg?quality=95&crop=0,0,2560,1920&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,2560x1920&from=bu&cs=2560x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-114491512_147302",
-      "source": "v_konstantinovsky",
-      "source_name": "Вечерний Константиновский",
-      "published_at": "2026-08-16T07:43:00+00:00",
-      "text": "Волонтёр и многодетная мама из Тутаева Лариса Никитина получила нагрудный знак \"Народный фронт. Всё для Победы!\"\n\nНаграду, созданную по поручению президента, вручил руководитель Исполкома Народного фронта Михаил Кузнецов. Всего НФ собрал в Москве 35 героев тыла, которые поддерживают наших бойцов.\n\nС начала СВО Лариса Никитина сшила для парней уже более 10 тысяч разных вещей от нательного белья до зимних курток. Главные помощники – муж и дети. А с закупкой материалов всегда готовы выручить такие же неравнодушные земляки.",
-      "url": "https://vk.ru/wall-114491512_147302",
-      "is_pinned": false,
-      "metrics": {
-        "views": 2820,
-        "likes": 31,
-        "reposts": 1,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-78.userapi.com/s/v1/ig2/z3N5KmcPp8rpTuKdrjQsDCH56pw7Du4drTIuL5Jn8pOz3b9jL5S4nSf3-apOizLFgAxAm_gxap1YTCTuY-izT58Q.jpg?quality=95&crop=0,0,2560,1706&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x426,720x480,1080x720,1280x853,1440x960,2560x1706&from=bu&cs=2560x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "689542040_174803",
-      "source": "evraevmikhail",
-      "source_name": "Mikhail Evraev",
-      "published_at": "2026-08-16T07:37:17+00:00",
-      "text": "Боец с позывным «Даос» – старший мастер на заводе и доброволец мобильной огневой группы «БАРС». Сегодня вместе с другими бойцами он защищает небо над Ярославской областью.\n \nДля него решение пойти в «БАРС» было осознанным. В семье не одно поколение мужчин прошло свой боевой путь: прадеды, дед-фронтовик, один из предков был полным георгиевским кавалером. Сам Даос служил в Чечне, занимался разминированием проходов в Абхазии и на Дагестанском хребте. Поэтому военный опыт для него – часть семейной истории.\n \nПеред заступлением на позиции бойцы проходят подготовку на полигоне с опытными инструкторами. Служба идет только на территории Ярославской области по графику «два месяца здесь – два дома». При этом добровольцы сохраняют основное место работы и заработок, а также получают ежемесячные выплаты до 150 тысяч рублей.\n \nДома Даоса ждут жена и дети. И своим примером он показывает им, что значит ответственность за свою семью и свою страну.\n \nСпасибо всем добровольцам «БАРСа» за службу, мужество и готовность встать на защиту нашего региона!\n#Гордостьрегиона",
-      "url": "https://vk.ru/wall689542040_174803",
-      "is_pinned": false,
-      "metrics": {
-        "views": 2280,
-        "likes": 30,
-        "reposts": 6,
-        "comments": 2
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-24.userapi.com/s/v1/ig2/NLWTgNDg6CV0DC4jJ1Ceup7ORW5Yz-y_6RpVQt-9Sgqgt35UKGfEHcRRiQ1JXASno8tkGn6uy-Eg16CSOxNmTdIQ.jpg?quality=95&crop=0,0,1920,1440&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,1920x1440&from=bu&cs=1920x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-38242868_1910850",
-      "source": "tutaev",
-      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
-      "published_at": "2026-08-16T07:00:01+00:00",
-      "text": "С Днём молодежи🎉",
-      "url": "https://vk.ru/wall-38242868_1910850",
-      "is_pinned": false,
-      "metrics": {
-        "views": 5789,
-        "likes": 11,
-        "reposts": 17,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-22.userapi.com/s/v1/ig2/blbY2JHn-ncjAeNOwn82ztLpAoU9kkKC-QWByD5ciUumyR7vDUJhcDVytc2Xlh6OSzRNA37C61WhS0dwhBWx7ReQ.jpg?quality=95&as=32x23,48x34,72x51,108x76,160x113,240x169,360x254,480x339,540x381,640x452&from=bu&cs=640x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-77822465_349412",
-      "source": "tipitutaev",
-      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
-      "published_at": "2026-08-16T07:00:01+00:00",
-      "text": "🔞Осторожно: вас пытается соблазнить зрелый арбуз! \n \nЛюбовно-овощной маркетинг😆",
-      "url": "https://vk.ru/wall-77822465_349412",
-      "is_pinned": false,
-      "metrics": {
-        "views": 2287,
-        "likes": 6,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-33.userapi.com/s/v1/ig2/C4j6CAkSsJH4j3MtqVb7TYqnQIdXe5aoSzbFFGncUoHJL-8Y2C8mHE5pogfL2Io5Lt8ZkkrHoQMcy5VR754rI1NO.jpg?quality=95&crop=0,0,640,853&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853&from=bu&cs=640x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-169508339_50610",
-      "source": "tutaevadm",
-      "source_name": "Администрация Тутаевского округа",
-      "published_at": "2026-08-16T07:00:01+00:00",
-      "text": "С добрым утром, жители!⭐",
-      "url": "https://vk.ru/wall-169508339_50610",
-      "is_pinned": false,
-      "metrics": {
-        "views": 336,
-        "likes": 3,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-72.userapi.com/s/v1/ig2/dnlWMPi7R3XmYeRWmUqIeiO_V6P-S5Qo6UvbfSIkzHr_KlyKvHrfKDx0J8HKg0MvykAP70aykPOum7u87b51Iwcu.jpg?quality=95&crop=0,0,1070,1070&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1070x1070&from=bu&cs=1070x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-226153295_11921",
-      "source": "club226153295",
-      "source_name": "ТУТАЕВ. ЦЕНТР НОВОСТЕЙ",
-      "published_at": "2026-08-16T07:00:01+00:00",
-      "text": "С добрым утром, жители!⭐",
-      "url": "https://vk.ru/wall-226153295_11921",
-      "is_pinned": false,
-      "metrics": {
-        "views": 117,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-72.userapi.com/s/v1/ig2/EWSVueO82ACGrLv2N1x4rH-vbpgzDtYZxJXBEC4EjP6-DbrEh-dO7IIqH5CKkMVs7R3-ObSe1tLW8sDDXt_K3jeJ.jpg?quality=95&crop=0,0,1070,1070&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1070x1070&from=bu&cs=1070x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-138682048_119254",
-      "source": "tutaevtoday",
-      "source_name": "ТУТАЕВ СЕГОДНЯ",
-      "published_at": "2026-08-16T07:00:00+00:00",
-      "text": "🔔 18 августа во всех школах и колледжах Ярославской области пройдут антитеррористические учения.\n\nОб этом сообщили в региональном Министерстве образования. Мероприятия проводятся ежегодно в преддверии Дня знаний.\n\nЕсли увидите у учебных заведений людей в форме - не беспокойтесь, это плановая тренировка.\n\n📸 Фото из архива группы.",
-      "url": "https://vk.ru/wall-138682048_119254",
-      "is_pinned": false,
-      "metrics": {
-        "views": 5082,
-        "likes": 23,
-        "reposts": 2,
-        "comments": 3
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-86.userapi.com/s/v1/ig2/69dXzVqA23lJ-rQjME-YcVp6BBaWIjCzmq_MuWAPwn7ccT4AKhKwl_mmLMhCC7mKieozaftRcvlfZpkloT5sHeOq.jpg?quality=95&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1386x1040&from=bu&cs=1386x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-48950797_53148",
-      "source": "sorokalife",
-      "source_name": "СОРОКА — Новости Ярославля и области",
-      "published_at": "2026-08-16T06:56:37+00:00",
-      "text": "Более 100 школ региона получат новое оборудование https://soroka-news.ru/bolee-100-shkol-regiona-poluchat-novoe-oborudovanie/",
-      "url": "https://vk.ru/wall-48950797_53148",
-      "is_pinned": false,
-      "metrics": {
-        "views": 274,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-81.userapi.com/s/v1/ig2/hqisXmddlM1L8UPBSnFA3e5RbPdLvggDVYFvUiH2a8g4Bbt_hz1Csp-U8ptPuGjePGSFc6oDgzvRaj0VKs15zjiJ.jpg?quality=96&as=32x24,48x36,72x54,108x81,160x120,240x180,360x270,480x360,540x405,640x480,720x540,1080x810,1280x960,1440x1080,1632x1224&from=bu&cs=1632x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-194763496_1032182",
-      "source": "76freeyaroslavl",
-      "source_name": "Свободный Ярославль 2.0",
-      "published_at": "2026-08-16T06:53:50+00:00",
-      "text": "Жительница Ярославской области сообщила о гибели щенков после вакцинации\n\nПрививки малышам, с ее слов, делали в государственной ветклинике отечественной вакциной.\n\nЖительница Рыбинска в соцсетях рассказала о печальной ситуации. После плановой вакцинации у нее погибли двое щенков. Хозяйка связывает это с введенным препаратом. Сейчас она ищет других собратьев по несчастью, чьи питомцы пострадали от этой партии вакцины.\n\n«Ищу владельцев животных, пострадавших после вакцины,, сделанной в начале августа. У меня погибло двое щенков, под вопросом ставится бешенство, вскрытие будет только на следующей неделе. Привиты были 11 августа, за сутки 14 августа, после симптомов: обильное слюнотечение, выгрызание лапы, высокая температура и т.д. У кого-то могла быть рвота и диарея. Судьба оставшихся в живых двух щенков нам ещё неизвестна, на сегодня 15 августа никаких симптомов не наблюдается», — рассказала автор поста в соцсетях.\n\nОна просит всех пострадавших от вакцины связаться с ней.\n\n«По моему мнению, данная ситуация не должна быть оставлена безнаказанной. Пост выставлен для того, чтобы найти больше людей, чьи животные пострадали, и всем вместе приложить максимум усилий для того, чтобы наказать всех виновных, привлечь к ответственности», — пишет хозяйка погибших щенков.\n\nВ комментариях уже нашлись те, чьи питомцы также могли стать жертвой вакцины. Название её до результатов исследования и официального заключения о причинах смерти щенков мы публиковать не можем.\n\nhttps://soroka-news.ru/zhitelnicza-yaroslavskoj-oblasti-soobshhila-o-gibeli-shhenkov-posle-vakczinaczii/",
-      "url": "https://vk.ru/wall-194763496_1032182",
-      "is_pinned": false,
-      "metrics": {
-        "views": 7334,
-        "likes": 41,
-        "reposts": 9,
-        "comments": 1
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-24.userapi.com/s/v1/ig2/klEt8Hnc3Z9XkOkpt0aIIQRomqkRlCblynmznMGhhg-dS4dhEo1L-ZYRv8frJ2YOBhsV2lSMAhk_5XBHdTQvSOYF.jpg?quality=95&as=32x22,48x33,72x49,108x74,160x109,240x164,360x246,480x328,540x369,640x437,720x492,1080x737,1280x874&from=bu&cs=1280x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-195801765_61343",
-      "source": "club195801765",
-      "source_name": "Тутаев - это",
-      "published_at": "2026-08-16T06:53:48+00:00",
-      "text": "В Подмосковье атакованы крупнейшие склады, в тч Wildberries\n\nВозместим из бюджета",
-      "url": "https://vk.ru/wall-195801765_61343",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1387,
-        "likes": 2,
-        "reposts": 7,
-        "comments": 1
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-55.userapi.com/s/v1/ig2/jd5M_7GZYOmt9tjV4AFxUN6o1amOAjKCGcDLi5cT9DQNiXNjuyCk-xuZNYUz4ixKQ-uwJxcYQAJb7sALiEjc_G1j.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,960x1280&from=bu&cs=960x0"
-        },
-        {
-          "type": "photo",
-          "url": "https://sun9-2.userapi.com/s/v1/ig2/lHUtQwddfawKPHp_pfOvxiAgqvOWSC0yDn-EzuclpPg2QNmEUZDEO8MRMDXM5fL-vLXV-oE2b4N7_EnaXShw8bKI.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,960x1280&from=bu&cs=960x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-48950797_53147",
-      "source": "sorokalife",
-      "source_name": "СОРОКА — Новости Ярославля и области",
-      "published_at": "2026-08-16T06:19:21+00:00",
-      "text": "Жительница Ярославской области сообщила о гибели щенков после вакцинации https://soroka-news.ru/zhitelnicza-yaroslavskoj-oblasti-soobshhila-o-gibeli-shhenkov-posle-vakczinaczii/",
-      "url": "https://vk.ru/wall-48950797_53147",
-      "is_pinned": false,
-      "metrics": {
-        "views": 308,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-53.userapi.com/s/v1/ig2/LnnEMZWBcnUEdQvjmIYyKAC_Q2hFp61QTazGLEdRmCDf59YQzmgbOqsAxTkm5ioE7NEjHy3MDvLruxN9djg-kqR5.jpg?quality=96&as=32x22,48x33,72x49,108x74,160x109,240x164,360x246,480x328,540x369,640x437,720x492,1080x737,1280x874&from=bu&cs=1280x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-38242868_1910841",
-      "source": "tutaev",
-      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
-      "published_at": "2026-08-16T06:00:01+00:00",
-      "text": "Праздники 16 августа\n\n✅День Воздушного Флота     \n✅День памяти Элвиса Пресли  \n✅День Джокера  \n✅День основания Международной академии астронавтики   \n✅Международный день бездомных животных. \n✅Антон Вихровей    \n✅День чуда-своими-руками   \n✅День рома   \n✅Всемирный день вертолёта\n✅День рассказывания анекдотов  \n✅День американских горок   \n✅День малинового варенья  \n✅Именины отмечают Ян, Николай, Кузьма, Иван, Вячеслав, Антон, Саломея.",
-      "url": "https://vk.ru/wall-38242868_1910841",
-      "is_pinned": false,
-      "metrics": {
-        "views": 5250,
-        "likes": 11,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-24.userapi.com/s/v1/ig2/BdpDlErMp826tzBDTGOxU8ZJnp7m1OjsOgv-vo70u9RxpRO0Eej8BV7z-xzuv7ixV8p3qWBmEFIh7b_cUUkeOlOo.jpg?quality=95&as=32x20,48x30,72x45,108x67,160x100,240x150,360x225,480x300,540x337,640x400,650x406&from=bu&cs=650x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-77822465_349405",
-      "source": "tipitutaev",
-      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
-      "published_at": "2026-08-16T06:00:00+00:00",
-      "text": "СЕГОДНЯ В ЦЕНТРАЛЬНОМ ПАРКЕ ПРОЙДЕТ МЕРОПРИЯТИЕ ДЛЯ ТУТАЕВСКОЙ МОЛОДЕЖИ! \n \n#Тутаев #Молодежь #ЦентральныйПарк #Мероприятие #Отдых #ТИПИЧНЫЙ_ТУТАЕВ",
-      "url": "https://vk.ru/wall-77822465_349405",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1614,
-        "likes": 7,
-        "reposts": 3,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-5.userapi.com/s/v1/ig2/lu61XhBPKcKRnCFRG-_OT1iz-8hcMm3LGk5MKslZ4txWHnxvsak7gwj-BdkD9DMpkRRLZg8TAr8r7-TYPhHUMXDi.jpg?quality=95&crop=0,0,640,452&as=32x23,48x34,72x51,108x76,160x113,240x169,360x254,480x339,540x381,640x452&from=bu&cs=640x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-194763496_1032176",
-      "source": "76freeyaroslavl",
-      "source_name": "Свободный Ярославль 2.0",
-      "published_at": "2026-08-16T06:00:00+00:00",
-      "text": "Новые правила перевозок? 👀\n\nВ сети активно обсуждают проект Минтранса: планируют отслеживать перемещения россиян в реальном времени.\n\nЧто хотят сделать:⤵️\n\n🔹 Перевозчики и билетные сервисы должны будут передавать данные о каждой поездке почти мгновенно: за 15 минут — для самолётов и поездов, за 30 минут — для автобусов и водного транспорта.\n🔹 В базу попадут не только ФИО и паспортные данные, но и номер телефона, email, логин, хеш пароля, IP‑адрес, а при оплате картой — последние 4 цифры номера карты, банк и сумма билета.\n🔹 Данные хотят хранить 7 лет, доступ к ним получат МВД, ФСБ и Минтранс.\n\nПри этом инициатива пока на стадии общественного обсуждения — это ещё не закон. Но вопросов у людей уже много: и про техническую реализацию, и про безопасность персональных данных.\n\n🤔 А что думаете вы? Считаете такие меры нужными ради безопасности — или это слишком серьёзное вмешательство в приватность? Пишите в комментариях — обсудим вместе. 💬\n\n#транспорт #новости #безопасность #персональныеданные\n\nПодпишись на [club194763496|Свободный Ярославль 2.0]",
-      "url": "https://vk.ru/wall-194763496_1032176",
-      "is_pinned": false,
-      "metrics": {
-        "views": 6960,
-        "likes": 15,
-        "reposts": 8,
-        "comments": 6
-      },
-      "attachments": [],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55728",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T05:00:34+00:00",
-      "text": "Боб Хартли приступил к тренировкам с ярославскими юниорами\n\nБывший главный тренер «Локомотива», Боб Хартли, находится в Ярославле с рабочим визитом. Об этом сообщает пресс-служба клуба.\nhttps://yar.mk.ru/sport/2026/08/16/bob-khartli-pristupil-k-trenirovkam-s-yaroslavskimi-yuniorami.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55728",
-      "is_pinned": false,
-      "metrics": {
-        "views": 8,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-9.userapi.com/s/v1/ig2/v1MlO3OS5yruYGwHtJU0Rbxr8t1a35wsPxmPjz9jFZSP8gk2p8lnUC2475qidXseH4qsm6tM5gK7UuWsPYsAw7X9.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-38242868_1910829",
-      "source": "tutaev",
-      "source_name": "ТУТАЕВ | ПОДСЛУШАНО",
-      "published_at": "2026-08-16T05:00:00+00:00",
-      "text": "Доброе утро ☀ 🌝⏰",
-      "url": "https://vk.ru/wall-38242868_1910829",
-      "is_pinned": false,
-      "metrics": {
-        "views": 5116,
-        "likes": 17,
-        "reposts": 3,
-        "comments": 1
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-34.userapi.com/s/v1/ig2/izeGWIE4cqj6NUOpx67Q7NgC5bvFD-QOrZW3F8WIUvZbjw5diX2HcTSt7l1L_Ak_KT8gAUeZ8nI2E8W5FddcYoct.jpg?quality=95&as=32x45,48x67,72x100,108x150,160x223,240x334,360x501,480x668,540x752,640x891,720x1003,1080x1504&from=bu&cs=1080x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-77822465_349401",
-      "source": "tipitutaev",
-      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
-      "published_at": "2026-08-16T05:00:00+00:00",
-      "text": "✈ ДЕНЬ ВОЗДУШНОГО ФЛОТА РОССИИ \n \nПрофессиональный праздник всех, кто связан с небом: пилотов, авиаторов, инженеров, диспетчеров и бортпроводников отмечается в третье воскресенье августа. Дата установлена Постановлением Президиума Верховного Совета РФ № 3564-1 от 28 сентября 1992 года. В этот день традиционно проходят показательные выступления пилотажных групп, вертолетов и парашютные прыжки, часто совмещая их с Днем Военно-воздушных сил России. \n \n📜 История праздника имеет двух «отцов-основателей». 12 августа 1912 года Николай II повелел создать первую в стране часть военно-воздушных сил при Главном управлении Генштаба. Позже, в 1933 году, Иосиф Сталин закрепил традицию празднования Дня воздушного флота СССР Постановлением Совета Народных Комиссаров № 859. Первое торжество состоялось 18 августа того же года на Центральном аэродроме имени М.В. Фрунзе в Москве, где присутствовало советское правительство во главе со Сталиным. \n \n📅 Долгие годы праздник отмечался 18 августа, но Указом Президиума Верховного Совета СССР от 1 октября 1980 года № 3018-Х дата была перенесена на третье воскресенье августа. Эта традиция сохранилась и в России после 1992 года. Также в 1988 году День Аэрофлота был официально объединен с Днем воздушного флота СССР. \n \n🛫 Развитие авиации началось в начале XX века: в 1908 году возник первый Всероссийский аэроклуб, а вскоре состоялись полеты самолетов конструкции Александра Кудашева, Игоря Сикорского и Якова Гаккеля. Под руководством Сикорского были созданы первые многомоторные машины «Русский витязь» и «Илья Муромец». Серьезный импульс развитию дали Первая мировая и Гражданская войны: в 1918 году создан ЦАГИ, в 1920-х — Институт инженеров Красного Воздушного Флота (ныне Военно-воздушная инженерная академия им. профессора Н.Е. Жуковского) и конструкторские бюро под руководством А. Туполева, Н. Поликарпова, Д. Григоровича и К. Калинина. \n \n🏭 Для контроля воздушных линий в 1923 году учрежден Совет по гражданской авиации и общество «Добролет», переименованное в 1932 году в «Аэрофлот». В 1930-е годы активно строились заводы, расширялась сеть аэроклубов и создавались новые учебные заведения. Советские летчики устанавливали мировые рекорды и сражались в небе Испании и Китая. \n \n🛡 Во время Великой Отечественной войны авиация внесла огромный вклад в победу. В послевоенное время развивались реактивные и сверхзвуковые самолеты, вертолетостроение, строились новые аэровокзалы. Сегодня воздушный флот — ключевой фактор экономического развития России, обеспечивающий связь между регионами, снабжение труднодоступных территорий и деловую активность. \n \n🚀 Современный парк судов удовлетворяет спрос на перевозки, география полетов расширяется, внедряются инновационные материалы и электроника. Авиация — результат самоотверженной работы миллионов людей. С праздником всех, кто связал свою судьбу с небом: гражданских и военных летчиков, наземный персонал, конструкторов и ветеранов! \n \n#ДеньВоздушногоФлота #Авиация #Праздник #ИсторияАвиации #Летчики #Россия #ТИПИЧНЫЙ_ТУТАЕВ",
-      "url": "https://vk.ru/wall-77822465_349401",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1233,
-        "likes": 3,
-        "reposts": 0,
-        "comments": 2
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-43.userapi.com/s/v1/ig2/_S2GtJRBNeM9vOtuX2ynYYBqTYwHOz69v8i0IHVO6oN4oJNpeO4iWgRl_mcvhn0nuh1XXtrpH8qcsp9k2GOMUFiT.jpg?quality=95&crop=0,0,1000,667&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1000x667&from=bu&cs=1000x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-194763496_1032174",
-      "source": "76freeyaroslavl",
-      "source_name": "Свободный Ярославль 2.0",
-      "published_at": "2026-08-16T05:00:00+00:00",
-      "text": "☕ Доброе утро! Воскресенье, 16 августа. \n\nПусть день начнётся с лёгкой улыбки и ощущения, что всё идёт как надо.\n\nПодпишись на [club194763496|Свободный Ярославль 2.0]",
-      "url": "https://vk.ru/wall-194763496_1032174",
-      "is_pinned": false,
-      "metrics": {
-        "views": 2238,
-        "likes": 24,
-        "reposts": 3,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "video",
-          "title": "Video by Свободный Ярославль 2.0",
-          "duration": 13,
-          "url": "https://vk.ru/video-194763496_456258720"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55727",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:55:06+00:00",
-      "text": "В Борисоглебском округе неизвестные выбросили венки от мемориала участникам ВОВ\n\nЖители поселка Красный Октябрь Борисоглебского округа внезапно обнаружили, что на минувшей неделе у мемориала воинам Великой Отечественной войны пропали все венки и горшки с живыми цветами.\nhttps://yar.mk.ru/incident/2026/08/16/v-borisoglebskom-okruge-neizvestnye-vybrosili-venki-ot-memoriala-uchastnikam-vov.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55727",
-      "is_pinned": false,
-      "metrics": {
-        "views": 14,
-        "likes": 1,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-38.userapi.com/s/v1/ig2/ulPSv4syGbSiIMeTgLKg10SM-I0TWNdjNgBLPF3uG4V_gZ8l9aDxoXbgueNOSK7qIDN9kia3ozakJWjUYOLabDnH.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480&from=bu&cs=720x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55726",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:50:07+00:00",
-      "text": "В Брейтовском районе пенсионерка погибла в пожаре собственного дома\n\nВ Брейтовском муниципальном районе во время пожара в частном доме погибла женщина в возрасте 62х лет. Об этом сообщает пресс-служба СУ СК по Ярославской области.\nhttps://yar.mk.ru/social/2026/08/16/v-breytovskom-rayone-pensionerka-pogibla-v-pozhare-sobstvennogo-doma.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55726",
-      "is_pinned": false,
-      "metrics": {
-        "views": 3,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-57.userapi.com/s/v1/ig2/L85i53KZISDIiHOBEcUXf4CzwJ-j7feHzeCwHHCPDsCDDXFDoMdggx1_8dWtYJ_LNjA9p9M_jEE5Qw5dOk3jkn-e.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55725",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:45:12+00:00",
-      "text": "В Рыбинске пенсионер на «Киа» насмерть сбил ровесницу на велосипеде\n\nПолиция устанавливает обстоятельства ДТП в Рыбинском районе, в результате которого погибла велосипедистка. Об этом сообщает пресс-служба УМВД.\nhttps://yar.mk.ru/incident/2026/08/16/v-rybinske-pensioner-na-kia-nasmert-sbil-rovesnicu-na-velosipede.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55725",
-      "is_pinned": false,
-      "metrics": {
-        "views": 3,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-1.userapi.com/s/v1/ig2/aeHeo5x63XcVsje9sUPwqI_xcDkzAqf0MmrZ-2UKQZej6n6zoz4dVrz8avYzr3tjk3v7mUIAsG4UrSDN_7ttzu_E.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480&from=bu&cs=720x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55724",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:30:13+00:00",
-      "text": "В Ярославской области  немного потеплеет\n\nВ Ярославской области синоптики обещают потепление и общее улучшение погоды. Об этом сообщается в сводке МЧС.\nhttps://yar.mk.ru/social/2026/08/16/v-yaroslavskoy-oblasti-nemnogo-potepleet.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55724",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-39.userapi.com/s/v1/ig2/n7DaAj3WatK60O5Di29TUhZG0m_JRoDxUmAEE4IX94REa601RDo4CicTFS-q8fy_zSkHnuK-hCfp5TQRi6zZkJ7x.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1020x680&from=bu&cs=1020x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-77822465_349398",
-      "source": "tipitutaev",
-      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
-      "published_at": "2026-08-16T04:30:00+00:00",
-      "text": "🍓 ДЕНЬ МАЛИНОВОГО ВАРЕНЬЯ 🍓 \n \nПраздник появился в 2015 году благодаря сообществу сервиса Daily-menu.ru. Дата выбрана не случайно: на Руси этот день называли Малинником и посвящали ягоде, которую любили все — от мала до велика, вне зависимости от статуса. \n \nМалину всегда ценили за вкус и лечебные свойства. Ее использовали как еду и лекарство от простуды для укрепления иммунитета. Сегодня ягода по-прежнему популярна в кулинарии: из нее делают пироги, желе, джемы, кисели и конфитюры. Заготавливают ее сушкой, заморозкой или варкой компотов и варенья. \n \nСам рецепт варенья прост: малину засыпают сахаром, варят около 20 минут и закатывают в банки. В этом лакомстве много пользы. Оно богато натуральной салициловой кислотой (основой многих жаропонижающих средств), витаминами А, Е, РР и В2, которые отвечают за тонус кожи и ровный цвет лица. Также в варенье много меди, работающей как антидепрессант, и железа, улучшающего кроветворение. В отличие от аспирина, малина не провоцирует гастрит и язву. \n \nВ русской культуре малина встречается чаще других растений (кроме березы) в пословицах, сказках и песнях. Она ассоциируется с чем-то приятным и желанным. Варенье к чаю — это классика, что подтверждает поговорка «Не жизнь, а малина!». \n \nПриглашаем присоединиться к чествованию этой ягоды. Попробуйте приготовить варенье или другие блюда из малины. Это отличный повод собраться с друзьями и близкими на семейные посиделки с вкусным угощением. \n \n📅 Напоминание: 19 июля отмечается еще один праздник — День пирожков с малиновым вареньем. \n \n#ДеньМалиновогоВаренья #Малина #ЛетниеПраздники #Кулинария #ПолезныеРецепты #РусскаяКухня #ТИПИЧНЫЙ_ТУТАЕВ",
-      "url": "https://vk.ru/wall-77822465_349398",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1196,
-        "likes": 2,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-66.userapi.com/s/v1/ig2/LXXXA1viNbj27yHK7KEye8gg3OKGbfz9jZJv0wwF73U3vmS2FRsqjgYzOeg-5Hnse0t8nUotdirwwJr9ukfKqAyi.jpg?quality=95&crop=0,0,1920,1080&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x304,640x360,720x405,1080x607,1280x720,1440x810,1920x1080&from=bu&cs=1920x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-48950797_53146",
-      "source": "sorokalife",
-      "source_name": "СОРОКА — Новости Ярославля и области",
-      "published_at": "2026-08-16T04:20:58+00:00",
-      "text": "Мужчина погиб после столкновения трех машин под Переславлем https://soroka-news.ru/muzhchina-pogib-posle-stolknoveniya-treh-mashin-pod-pereslavlem/",
-      "url": "https://vk.ru/wall-48950797_53146",
-      "is_pinned": false,
-      "metrics": {
-        "views": 370,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-72.userapi.com/s/v1/ig2/RdIOeM1juLCFg2wmHkCLRhsNR0PN0lO6PJo2Kssl9ElDjpojs4PVpk4LsAYCYzQXDWQBwPXmntRqD-WxCDykg_Q3.jpg?quality=96&as=32x25,48x38,72x56,108x85,160x126,240x188,360x282,480x377,540x424,640x502,720x565,1080x847,1280x1004,1440x1130,1536x1205&from=bu&cs=1536x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55723",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:20:15+00:00",
-      "text": "В Брагино детская площадка скоро появится еще в одном дворе\n\nВо дворе двух домов по проспекту Дзержинского подрядчик начал работу с обустройства тротуаров и подходов к подъезду\nhttps://yar.mk.ru/social/2026/08/16/v-bragino-detskaya-ploshhadka-skoro-poyavitsya-eshhe-v-odnom-dvore.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55723",
-      "is_pinned": false,
-      "metrics": {
-        "views": 3,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-40.userapi.com/s/v1/ig2/x0AzV2x0HT3ZF-7Hbr-bbzOPDT1Xk_3xLbVfdnLRYaNKliYwmsTQpIWarOsdYniBz3a11ChlchcN0-9AB_goWmo1.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55722",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:15:11+00:00",
-      "text": "В Рыбинске делают парковку на улице Чкалова\n\nРаботы должны быть завершены уже к 1 сентября\nhttps://yar.mk.ru/social/2026/08/16/v-rybinske-delayut-parkovku-na-ulice-chkalova.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55722",
-      "is_pinned": false,
-      "metrics": {
-        "views": 5,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-59.userapi.com/s/v1/ig2/IKdb4itTJUiO5hz17gE-e86WScQ8Y4CpvIeUYpHkCuoafLXrl2VSbMKD2Xksum2YSGiecYrIIpLRzfvCp5lfCi2W.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480&from=bu&cs=720x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55721",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:10:10+00:00",
-      "text": "В Ярославской области перед судом предстанет мужчина, угнавший «Урал»\n\nТехнику прихватил 22-летний житель Вологодской области, работавший в бригаде лесозаготовки\nhttps://yar.mk.ru/incident/2026/08/16/v-yaroslavskoy-oblasti-pered-sudom-predstanet-muzhchina-ugnavshiy-ural.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55721",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-44.userapi.com/s/v1/ig2/VWoQc_u64RWr7xMDy9f8mLNMCcSZXw6aypuGQgwRmB_MdLX3oS-tgiHEmsYE1T9_9djaEXOlAcuHu6xhetbME9pk.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1020x680&from=bu&cs=1020x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55720",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:05:06+00:00",
-      "text": "В брагинской многоэтажке взорвался самогонный аппарат\n\nПроизошло ЧП на улице Громова\nhttps://yar.mk.ru/incident/2026/08/16/v-braginskoy-mnogoetazhke-vzorvalsya-samogonnyy-apparat.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55720",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-65.userapi.com/s/v1/ig2/Dm8wPKbgMMh-YBpd3z-axrRYXMR61laIBhUqjwRNKiBJ1HHC4Cny6kR148d7KWdfWzUxvge21rV_K244vodD5YUs.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-150908127_55719",
-      "source": "yarmkru",
-      "source_name": "МК в Ярославле",
-      "published_at": "2026-08-16T04:00:10+00:00",
-      "text": "В Ярославской области случилось жесткое лобовое ДТП\n\nПроизошла авария около четырех дня на 34-м километре трассы Нагорье – Берендеево\nhttps://yar.mk.ru/incident/2026/08/16/v-yaroslavskoy-oblasti-sluchilos-zhestkoe-lobovoe-dtp.html\n#Ярославль",
-      "url": "https://vk.ru/wall-150908127_55719",
-      "is_pinned": false,
-      "metrics": {
-        "views": 2,
-        "likes": 0,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-26.userapi.com/s/v1/ig2/kK-9HwQOhLZ6-xkvH4k5WTq9ewXssp5fWmckWnxHKRLJBOyQWYfxQW4BsHVrjNhll8-0NFtdajngBNWpFOkwwIsG.jpg?quality=96&as=32x21,48x32,72x48,108x72,160x107,240x160,360x240,480x320,540x360,640x427,720x480,1080x720,1200x800&from=bu&cs=1200x0"
-        }
-      ],
-      "repost": null
-    },
-    {
-      "id": "-77822465_349397",
-      "source": "tipitutaev",
-      "source_name": "ТИПИЧНЫЙ ТУТАЕВ",
-      "published_at": "2026-08-16T04:00:00+00:00",
-      "text": "🌦 ПОГОДА НА 16 АВГУСТА \n \nУтром воздух прогреется до +9…+18°C. Погода будет облачной с прояснениями. Давление составит 744 мм рт. ст., влажность — 71%. Ветер западный, скоростью 4,4 м/с. Ощущается температура как +11°C. \n \nДнём столбики термометров поднимутся до +18…+20°C. Прогнозируется небольшой дождь. Давление снизится до 743 мм рт. ст., влажность вырастет до 61%. Ветер северо-западный, 4,1 м/с. Ощущается как +17°C. \n \nВечером температура опустится до +16…+18°C. Сохранится небольшой дождь. Давление — 743 мм рт. ст., влажность высокая — 82%. Ветер юго-западный, слабый, 1,8 м/с. Ощущается как +17°C. \n \nНочью будет прохладнее: +14…+16°C. Продолжится небольшой дождь. Давление упадет до 741 мм рт. ст., влажность достигнет 89%. Ветер северо-восточный, 1,9 м/с. Ощущается как +13°C. \n \n🌅 Восход: 04:47 \n🌇 Закат: 20:05 \n☀ Световой день: 15 ч 18 мин \n🌒 Луна: растущая \n☢ УФ-индекс: 4 (средний) \n🧲 Магнитное поле: спокойное \n \n#погода #прогноз #август #дождь #ТИПИЧНЫЙ_ТУТАЕВ",
-      "url": "https://vk.ru/wall-77822465_349397",
-      "is_pinned": false,
-      "metrics": {
-        "views": 1226,
-        "likes": 3,
-        "reposts": 0,
-        "comments": 0
-      },
-      "attachments": [
-        {
-          "type": "photo",
-          "url": "https://sun9-51.userapi.com/s/v1/ig2/ATgJwIKxyqascdHA7IBUafG8RG5ZgCaTZIuQJcCkojWBYadXWwanM0rEDKBzOh2hMkrn8-lgrIOXkdCajm2-UbCk.jpg?quality=95&crop=0,0,1080,1440&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440&from=bu&cs=1080x0"
         }
       ],
       "repost": null
