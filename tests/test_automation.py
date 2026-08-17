@@ -1,10 +1,13 @@
+import io
 import json
 import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from unittest.mock import patch
 
 import comments
+import publisher
 import weather
 
 
@@ -56,11 +59,28 @@ class CommentTests(unittest.TestCase):
             },
             -70948047,
             100,
+            "Заголовок поста",
             {7: {"first_name": "Иван", "last_name": "Иванов"}},
         )
         self.assertEqual(item["author"], "Иван Иванов")
         self.assertEqual(item["attachments"], ["photo"])
         self.assertTrue(item["url"].endswith("?reply=42"))
+
+
+class PublisherRetryTests(unittest.TestCase):
+    @patch("publisher.time.sleep")
+    @patch("publisher.urlopen")
+    def test_retries_vk_internal_error(self, mock_urlopen, mock_sleep):
+        mock_urlopen.side_effect = [
+            io.StringIO('{"error":{"error_code":10,"error_msg":"try later"}}'),
+            io.StringIO('{"response":{"id":70948047}}'),
+        ]
+
+        response = publisher.api_call("groups.getById", "token", group_ids="vtutaeve")
+
+        self.assertEqual(response, {"id": 70948047})
+        self.assertEqual(mock_urlopen.call_count, 2)
+        mock_sleep.assert_called_once_with(2)
 
 
 if __name__ == "__main__":
