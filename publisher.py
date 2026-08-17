@@ -10,6 +10,7 @@ import os
 import secrets
 import sys
 import tempfile
+import time
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -19,6 +20,12 @@ from urllib.request import Request, urlopen
 API_BASE = "https://api.vk.com/method"
 API_VERSION = "5.199"
 GROUP_DOMAIN = "vtutaeve"
+API_RETRY_ATTEMPTS = 4
+API_RETRY_DELAYS = (2, 5, 10)
+
+
+def retry_delay(attempt: int) -> int:
+    return API_RETRY_DELAYS[attempt - 1]
 
 
 def api_call(method: str, token: str, **params: object) -> object:
@@ -28,19 +35,30 @@ def api_call(method: str, token: str, **params: object) -> object:
         data=urlencode(payload).encode("utf-8"),
         headers={"User-Agent": "vk-news-collector-publisher/1.1"},
     )
-    try:
-        with urlopen(request, timeout=60) as response:
-            document = json.load(response)
-    except (HTTPError, URLError, TimeoutError) as exc:
-        raise RuntimeError(f"VK request failed: {exc}") from exc
+    for attempt in range(1, API_RETRY_ATTEMPTS + 1):
+        try:
+            with urlopen(request, timeout=60) as response:
+                document = json.load(response)
+        except (HTTPError, URLError, TimeoutError) as exc:
+            if attempt == API_RETRY_ATTEMPTS:
+                raise RuntimeError(f"VK request failed: {exc}") from exc
+            time.sleep(retry_delay(attempt))
+            continue
 
-    if "error" in document:
+        if "error" not in document:
+            return document.get("response")
+
         error = document["error"]
+        error_code = error.get("error_code")
+        if error_code == 10 and attempt < API_RETRY_ATTEMPTS:
+            time.sleep(retry_delay(attempt))
+            continue
         raise RuntimeError(
-            f"VK API error {error.get('error_code')}: "
+            f"VK API error {error_code}: "
             f"{error.get('error_msg', 'unknown error')}"
         )
-    return document.get("response")
+
+    raise RuntimeError("VK request retry loop ended unexpectedly")
 
 
 def extract_group(response: object) -> dict:
@@ -294,6 +312,7 @@ def publish(
         "owner_id": -group_id,
         "from_group": 1,
         "message": message.strip(),
+        "random_id": secrets.randbelow(2**63 - 1) + 1,
     }
     if publish_date is not None:
         params["publish_date"] = publish_date
