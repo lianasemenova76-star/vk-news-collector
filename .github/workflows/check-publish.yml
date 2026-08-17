@@ -28,3 +28,5 @@ jobs:
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
         run: python publisher.py --check
+
+# Manual access check requested on 2026-08-17.
