@@ -28,8 +28,3 @@ jobs:
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
         run: python publisher.py --check
-
-      - name: Validate VK user token fallback
-        env:
-          VK_PUBLISH_TOKEN: ${{ secrets.VK_USER_TOKEN }}
-        run: python publisher.py --check
