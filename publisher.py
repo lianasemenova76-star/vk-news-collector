@@ -132,19 +132,25 @@ def source_wall_photos(token: str, source_post: str) -> list[str]:
         raise RuntimeError(f"VK source post was not found: {source_post}")
     result: list[str] = []
     for item in posts[0].get("attachments", []):
-        if item.get("type") != "photo":
+        item_type = item.get("type")
+        if item_type == "photo":
+            media = item.get("photo") or {}
+            prefix = "photo"
+        elif item_type == "video":
+            media = item.get("video") or {}
+            prefix = "video"
+        else:
             continue
-        photo = item.get("photo") or {}
-        owner_id = photo.get("owner_id")
-        photo_id = photo.get("id")
-        if owner_id is None or photo_id is None:
+        owner_id = media.get("owner_id")
+        media_id = media.get("id")
+        if owner_id is None or media_id is None:
             continue
-        attachment = f"photo{owner_id}_{photo_id}"
-        if photo.get("access_key"):
-            attachment += f"_{photo['access_key']}"
+        attachment = f"{prefix}{owner_id}_{media_id}"
+        if media.get("access_key"):
+            attachment += f"_{media['access_key']}"
         result.append(attachment)
     if not result:
-        raise RuntimeError(f"VK source post has no photos: {source_post}")
+        raise RuntimeError(f"VK source post has no supported media: {source_post}")
     return result
 
 
