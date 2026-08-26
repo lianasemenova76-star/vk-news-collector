@@ -41,6 +41,9 @@ jobs:
           COUNT=$(jq '.posts | length' publish-request.json)
           test "$COUNT" -gt 0
           for i in $(seq 0 $((COUNT-1))); do
+            if ! jq -e "(.posts[$i].targets // [\"vk\"]) | index(\"vk\") != null" publish-request.json >/dev/null; then
+              continue
+            fi
             MESSAGE=$(jq -r ".posts[$i].message" publish-request.json)
             PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
             IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
