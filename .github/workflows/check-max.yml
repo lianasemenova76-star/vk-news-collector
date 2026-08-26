@@ -45,6 +45,7 @@ jobs:
       - name: Check token, channel and permissions
         env:
           MAX_BOT_TOKEN: ${{ secrets.MAX_BOT_TOKEN }}
+          MAX_CHAT_ID: "-71487490488555"
         run: python max_diagnostic.py
 
       - name: Test guarded MAX publisher
