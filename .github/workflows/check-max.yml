@@ -24,6 +24,22 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Trust certificates required by MAX
+        run: |
+          cert_dir="/usr/local/share/ca-certificates/russian-trusted"
+          sudo mkdir -p "$cert_dir"
+          curl --fail --silent --show-error \
+            https://gu-st.ru/content/lending/russian_trusted_root_ca_pem.crt \
+            -o /tmp/russian_trusted_root_ca_pem.crt
+          curl --fail --silent --show-error \
+            https://gu-st.ru/content/lending/russian_trusted_sub_ca_pem.crt \
+            -o /tmp/russian_trusted_sub_ca_pem.crt
+          curl --fail --silent --show-error \
+            https://gu-st.ru/content/lending/russian_trusted_sub_ca_2024_pem.crt \
+            -o /tmp/russian_trusted_sub_ca_2024_pem.crt
+          sudo cp /tmp/russian_trusted_*.crt "$cert_dir/"
+          sudo update-ca-certificates
+
       - name: Check token, channel and permissions
         env:
           MAX_BOT_TOKEN: ${{ secrets.MAX_BOT_TOKEN }}
