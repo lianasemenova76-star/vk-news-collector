@@ -1,0 +1,119 @@
+name: Publish approved MAX posts
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "publish-request.json"
+
+permissions:
+  contents: read
+  statuses: write
+
+concurrency:
+  group: max-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Trust certificates required by MAX
+        run: |
+          cert_dir="/usr/local/share/ca-certificates/russian-trusted"
+          sudo mkdir -p "$cert_dir"
+          for cert in \
+            russian_trusted_root_ca_pem.crt \
+            russian_trusted_sub_ca_pem.crt \
+            russian_trusted_sub_ca_2024_pem.crt; do
+            curl --fail --silent --show-error \
+              "https://gu-st.ru/content/lending/$cert" \
+              -o "/tmp/$cert"
+            sudo cp "/tmp/$cert" "$cert_dir/"
+          done
+          sudo update-ca-certificates
+
+      - name: Validate request and publish selected posts
+        env:
+          MAX_BOT_TOKEN: ${{ secrets.MAX_BOT_TOKEN }}
+          MAX_CHAT_ID: "-71487490488555"
+          VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          jq -e '.confirmed == true' publish-request.json
+          REQUEST_ID=$(jq -r '.request_id // empty' publish-request.json)
+          test -n "$REQUEST_ID"
+          COUNT=$(jq '.posts | length' publish-request.json)
+          test "$COUNT" -gt 0
+
+          for i in $(seq 0 $((COUNT-1))); do
+            if ! jq -e ".posts[$i].targets // [\"vk\"] | index(\"max\") != null" publish-request.json >/dev/null; then
+              continue
+            fi
+
+            CONTEXT="max-publish/$REQUEST_ID/$i"
+            gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/status" > "$RUNNER_TEMP/statuses.json"
+            if jq -e --arg context "$CONTEXT" \
+              '.statuses[] | select(.context == $context and .state == "success")' \
+              "$RUNNER_TEMP/statuses.json" >/dev/null; then
+              echo "Skipping already published MAX post $i"
+              continue
+            fi
+
+            MESSAGE=$(jq -r ".posts[$i].message" publish-request.json)
+            PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
+            IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
+            IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" publish-request.json)
+            SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" publish-request.json)
+            test -n "$MESSAGE"
+
+            if [ -n "$PUBLISH_DATE" ]; then
+              [[ "$PUBLISH_DATE" =~ ^[0-9]+$ ]]
+              NOW=$(date +%s)
+              WAIT_SECONDS=$((PUBLISH_DATE-NOW))
+              if [ "$WAIT_SECONDS" -gt 20700 ]; then
+                echo "MAX post $i is more than 5h45m away; split this request into a later approved batch" >&2
+                exit 2
+              fi
+              if [ "$WAIT_SECONDS" -gt 0 ]; then sleep "$WAIT_SECONDS"; fi
+            fi
+
+            ARGS=(--message "$MESSAGE")
+            if [ -n "$IMAGE_URL" ]; then
+              [[ "$IMAGE_URL" == https://* ]]
+              ARGS+=(--image-url "$IMAGE_URL")
+            elif [ -n "$IMAGE_PATH" ]; then
+              [[ "$IMAGE_PATH" == media/* ]]
+              test -f "$IMAGE_PATH"
+              ARGS+=(--image "$IMAGE_PATH")
+            elif [ -n "$SOURCE_POST" ]; then
+              [[ "$SOURCE_POST" =~ ^-?[0-9]+_[0-9]+$ ]]
+              ARGS+=(--source-post "$SOURCE_POST")
+            fi
+
+            set +e
+            OUTPUT=$(CONFIRM_PUBLISH=YES python max_publisher.py "${ARGS[@]}" 2>&1)
+            RESULT=$?
+            set -e
+            printf '%s\n' "$OUTPUT"
+            if [ "$RESULT" -eq 0 ]; then
+              MESSAGE_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin).get("message_id") or "unknown")')
+              gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+                -f state=success -f context="$CONTEXT" \
+                -f description="MAX post $MESSAGE_ID published"
+            else
+              DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
+              gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+                -f state=error -f context="$CONTEXT" -f description="$DESCRIPTION"
+              exit "$RESULT"
+            fi
+          done
