@@ -7,6 +7,8 @@ on:
       - main
     paths:
       - "max_diagnostic.py"
+      - "max_publisher.py"
+      - "tests/test_max_publisher.py"
       - ".github/workflows/check-max.yml"
 
 permissions:
@@ -44,3 +46,6 @@ jobs:
         env:
           MAX_BOT_TOKEN: ${{ secrets.MAX_BOT_TOKEN }}
         run: python max_diagnostic.py
+
+      - name: Test guarded MAX publisher
+        run: python -m unittest tests.test_max_publisher -v
