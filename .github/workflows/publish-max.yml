@@ -97,7 +97,7 @@ jobs:
               ARGS+=(--image "$IMAGE_PATH")
             elif [ -n "$SOURCE_POST" ]; then
               [[ "$SOURCE_POST" =~ ^-?[0-9]+_[0-9]+$ ]]
-              ARGS+=(--source-post "$SOURCE_POST")
+              ARGS+=("--source-post=$SOURCE_POST")
             fi
 
             set +e
