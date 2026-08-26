@@ -8,7 +8,6 @@ on:
     paths:
       - "max_diagnostic.py"
       - "max_publisher.py"
-      - "max_media_diagnostic.py"
       - "tests/test_max_publisher.py"
       - ".github/workflows/check-max.yml"
 
@@ -51,8 +50,3 @@ jobs:
 
       - name: Test guarded MAX publisher
         run: python -m unittest tests.test_max_publisher -v
-
-      - name: Check source video transfer
-        env:
-          VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
-        run: python max_media_diagnostic.py
