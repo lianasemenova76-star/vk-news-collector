@@ -59,9 +59,15 @@ def main() -> int:
     try:
         bot = api_get("/me", token)
         updates = api_get("/updates", token, limit=100, timeout=0)
-        chat_ids = sorted(collect_chat_ids(updates))
+        chat_ids = collect_chat_ids(updates)
+        configured_chat_id = os.environ.get("MAX_CHAT_ID")
+        if configured_chat_id:
+            try:
+                chat_ids.add(int(configured_chat_id))
+            except ValueError as exc:
+                raise RuntimeError("MAX_CHAT_ID must be an integer") from exc
         channels: list[dict[str, object]] = []
-        for chat_id in chat_ids:
+        for chat_id in sorted(chat_ids):
             chat = api_get(f"/chats/{chat_id}", token)
             if not isinstance(chat, dict) or chat.get("type") != "channel":
                 continue
