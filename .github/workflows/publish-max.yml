@@ -13,7 +13,7 @@ permissions:
 
 concurrency:
   group: max-publish
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   publish:
