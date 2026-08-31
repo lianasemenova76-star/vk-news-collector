@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "publish-request.json"
+      - "horoscope-request.json"
 
 permissions:
   contents: read
@@ -21,6 +22,8 @@ jobs:
     steps:
       - name: Download repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,21 +40,26 @@ jobs:
           VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          jq -e '.confirmed == true' publish-request.json
-          COUNT=$(jq '.posts | length' publish-request.json)
+          REQUEST_FILE="publish-request.json"
+          if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qx "horoscope-request.json"; then
+            REQUEST_FILE="horoscope-request.json"
+          fi
+          echo "Using request file: $REQUEST_FILE"
+          jq -e '.confirmed == true' "$REQUEST_FILE"
+          COUNT=$(jq '.posts | length' "$REQUEST_FILE")
           test "$COUNT" -gt 0
           for i in $(seq 0 $((COUNT-1))); do
-            if ! jq -e "(.posts[$i].targets // [\"vk\"]) | index(\"vk\") != null" publish-request.json >/dev/null; then
+            if ! jq -e "(.posts[$i].targets // [\"vk\"]) | index(\"vk\") != null" "$REQUEST_FILE" >/dev/null; then
               continue
             fi
-            MESSAGE=$(jq -r ".posts[$i].message" publish-request.json)
-            PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" publish-request.json)
-            IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
-            IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" publish-request.json)
-            SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" publish-request.json)
-            EDIT_POST_ID=$(jq -r ".posts[$i].edit_post_id // empty" publish-request.json)
-            STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" publish-request.json)
-            STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" publish-request.json)
+            MESSAGE=$(jq -r ".posts[$i].message" "$REQUEST_FILE")
+            PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" "$REQUEST_FILE")
+            IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" "$REQUEST_FILE")
+            IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" "$REQUEST_FILE")
+            SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" "$REQUEST_FILE")
+            EDIT_POST_ID=$(jq -r ".posts[$i].edit_post_id // empty" "$REQUEST_FILE")
+            STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" "$REQUEST_FILE")
+            STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" "$REQUEST_FILE")
             test -n "$MESSAGE"
             ARGS=(--message "$MESSAGE")
             if [ -n "$PUBLISH_DATE" ]; then ARGS+=(--publish-date "$PUBLISH_DATE"); fi
