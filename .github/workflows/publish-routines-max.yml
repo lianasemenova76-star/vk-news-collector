@@ -1,0 +1,105 @@
+name: Publish routine MAX posts
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "routine-max-trigger.json"
+  schedule:
+    - cron: "0 3 * * *"
+    - cron: "0 4 * * *"
+    - cron: "0 5 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: max-routines
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Trust certificates required by MAX
+        run: |
+          cert_dir="/usr/local/share/ca-certificates/russian-trusted"
+          sudo mkdir -p "$cert_dir"
+          for cert in \
+            russian_trusted_root_ca_pem.crt \
+            russian_trusted_sub_ca_pem.crt \
+            russian_trusted_sub_ca_2024_pem.crt; do
+            curl --fail --silent --show-error \
+              "https://gu-st.ru/content/lending/$cert" \
+              -o "/tmp/$cert"
+            sudo cp "/tmp/$cert" "$cert_dir/"
+          done
+          sudo update-ca-certificates
+
+      - name: Publish routine posts due now
+        env:
+          MAX_BOT_TOKEN: ${{ secrets.MAX_BOT_TOKEN }}
+          MAX_CHAT_ID: "-71487490488555"
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          set -euo pipefail
+          FILES=(good-morning-request.json horoscope-request.json)
+
+          publish_message() {
+            local message="$1"
+            CONFIRM_PUBLISH=YES python max_publisher.py --message "$message"
+          }
+
+          if [ "$EVENT_NAME" = "push" ]; then
+            for file in "${FILES[@]}"; do
+              test -f "$file" || continue
+              jq -e '.confirmed == true' "$file" >/dev/null
+              COUNT=$(jq '.posts | length' "$file")
+              for i in $(seq 0 $((COUNT-1))); do
+                PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" "$file")
+                if [ -z "$PUBLISH_DATE" ]; then
+                  MESSAGE=$(jq -r ".posts[$i].message" "$file")
+                  test -n "$MESSAGE"
+                  echo "Publishing immediate MAX routine from $file post $i"
+                  publish_message "$MESSAGE"
+                fi
+              done
+            done
+            exit 0
+          fi
+
+          case "$EVENT_SCHEDULE" in
+            "0 3 * * *") EXPECTED_UTC_HOUR="03" ;;
+            "0 4 * * *") EXPECTED_UTC_HOUR="04" ;;
+            "0 5 * * *") EXPECTED_UTC_HOUR="05" ;;
+            *) echo "Unknown schedule: $EVENT_SCHEDULE"; exit 1 ;;
+          esac
+
+          TODAY_MSK=$(TZ=Europe/Moscow date +%Y-%m-%d)
+          for file in "${FILES[@]}"; do
+            test -f "$file" || continue
+            jq -e '.confirmed == true' "$file" >/dev/null
+            COUNT=$(jq '.posts | length' "$file")
+            for i in $(seq 0 $((COUNT-1))); do
+              PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" "$file")
+              [ -n "$PUBLISH_DATE" ] || continue
+              POST_DATE_MSK=$(TZ=Europe/Moscow date -d "@$PUBLISH_DATE" +%Y-%m-%d)
+              POST_UTC_HOUR=$(TZ=UTC date -d "@$PUBLISH_DATE" +%H)
+              if [ "$POST_DATE_MSK" = "$TODAY_MSK" ] && [ "$POST_UTC_HOUR" = "$EXPECTED_UTC_HOUR" ]; then
+                MESSAGE=$(jq -r ".posts[$i].message" "$file")
+                test -n "$MESSAGE"
+                echo "Publishing scheduled MAX routine from $file post $i"
+                publish_message "$MESSAGE"
+              fi
+            done
+          done
