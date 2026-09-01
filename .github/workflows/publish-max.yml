@@ -55,9 +55,9 @@ jobs:
           COUNT=$(jq '.posts | length' publish-request.json)
           test "$COUNT" -gt 0
 
-          curl --fail --silent --show-error \\
-            -H "Authorization: $MAX_BOT_TOKEN" \\
-            "https://platform-api2.max.ru/chats/$MAX_CHAT_ID" \\
+          curl --fail --silent --show-error \
+            -H "Authorization: $MAX_BOT_TOKEN" \
+            "https://platform-api2.max.ru/chats/$MAX_CHAT_ID" \
             > "$RUNNER_TEMP/max-chat.json"
           jq -e '
             .type == "channel" and
@@ -65,9 +65,9 @@ jobs:
             .title == "Тутаев | Главные новости округа"
           ' "$RUNNER_TEMP/max-chat.json" >/dev/null
 
-          curl --fail --silent --show-error \\
-            -H "Authorization: $MAX_BOT_TOKEN" \\
-            "https://platform-api2.max.ru/messages?chat_id=$MAX_CHAT_ID&count=100" \\
+          curl --fail --silent --show-error \
+            -H "Authorization: $MAX_BOT_TOKEN" \
+            "https://platform-api2.max.ru/messages?chat_id=$MAX_CHAT_ID&count=100" \
             > "$RUNNER_TEMP/max-messages.json"
 
           for i in $(seq 0 $((COUNT-1))); do
@@ -91,8 +91,8 @@ jobs:
             SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" publish-request.json)
             test -n "$MESSAGE"
 
-            if jq -e --arg message "$MESSAGE" \\
-              '.messages[]? | select(.body.text == $message)' \\
+            if jq -e --arg message "$MESSAGE" \
+              '.messages[]? | select(.body.text == $message)' \
               "$RUNNER_TEMP/max-messages.json" >/dev/null; then
               echo "Skipping text already present in MAX channel: post $i"
               continue
