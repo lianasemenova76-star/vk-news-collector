@@ -1,6 +1,6 @@
 {
   "confirmed": true,
-  "approved_at": "2026-09-03T04:57:00Z",
+  "approved_at": "2026-09-03T04:59:00Z",
   "request_id": "news-2026-09-03-morning-vk",
   "posts": [
     {
@@ -8,7 +8,7 @@
       "targets": [
         "vk"
       ],
-      "publish_date": 1788402300,
+      "publish_date": 1788411900,
       "source_post": "-182866999_3938"
     },
     {
@@ -16,7 +16,7 @@
       "targets": [
         "vk"
       ],
-      "publish_date": 1788404100,
+      "publish_date": 1788413700,
       "source_post": "-170153522_5947"
     },
     {
@@ -24,7 +24,7 @@
       "targets": [
         "vk"
       ],
-      "publish_date": 1788405900,
+      "publish_date": 1788415500,
       "source_post": "-77822465_350973"
     },
     {
@@ -32,7 +32,7 @@
       "targets": [
         "vk"
       ],
-      "publish_date": 1788407700,
+      "publish_date": 1788417300,
       "source_post": "-38242868_1915590"
     },
     {
@@ -40,7 +40,7 @@
       "targets": [
         "vk"
       ],
-      "publish_date": 1788409500
+      "publish_date": 1788419100
     }
   ]
 }
