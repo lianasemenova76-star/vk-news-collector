@@ -68,13 +68,11 @@
       }
 
       try {
-        const encodedVerifier = btoa(unescape(encodeURIComponent(codeVerifier)))
-          .replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
         const body = new URLSearchParams({
           grant_type: 'authorization_code',
           redirect_uri: REDIRECT_URL,
           client_id: String(APP_ID),
-          code_verifier: encodedVerifier,
+          code_verifier: codeVerifier,
           code,
           state,
           device_id: deviceId
