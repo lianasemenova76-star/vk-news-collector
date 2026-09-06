@@ -7,6 +7,7 @@ on:
     paths:
       - "publish-request.json"
       - "horoscope-request.json"
+      - "good-morning-request.json"
 
 permissions:
   contents: read
@@ -41,8 +42,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           REQUEST_FILE="publish-request.json"
-          if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qx "horoscope-request.json"; then
+          CHANGED_FILES=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}")
+          if printf '%s\n' "$CHANGED_FILES" | grep -qx "horoscope-request.json"; then
             REQUEST_FILE="horoscope-request.json"
+          elif printf '%s\n' "$CHANGED_FILES" | grep -qx "good-morning-request.json"; then
+            REQUEST_FILE="good-morning-request.json"
           fi
           echo "Using request file: $REQUEST_FILE"
           jq -e '.confirmed == true' "$REQUEST_FILE"
