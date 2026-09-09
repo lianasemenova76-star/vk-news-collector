@@ -61,6 +61,7 @@ jobs:
             IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" "$REQUEST_FILE")
             IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" "$REQUEST_FILE")
             SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" "$REQUEST_FILE")
+            SOURCE_LIMIT=$(jq -r ".posts[$i].source_limit // empty" "$REQUEST_FILE")
             EDIT_POST_ID=$(jq -r ".posts[$i].edit_post_id // empty" "$REQUEST_FILE")
             STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" "$REQUEST_FILE")
             STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" "$REQUEST_FILE")
@@ -80,6 +81,10 @@ jobs:
             if [ -n "$SOURCE_POST" ]; then
               [[ "$SOURCE_POST" =~ ^-?[0-9]+_[0-9]+$ ]]
               ARGS+=(--source-post="$SOURCE_POST")
+              if [ -n "$SOURCE_LIMIT" ]; then
+                [[ "$SOURCE_LIMIT" =~ ^[1-9][0-9]*$ ]]
+                ARGS+=(--source-limit "$SOURCE_LIMIT")
+              fi
             fi
             if [ -n "$STORY_TITLE" ]; then
               ARGS+=(--duplicate-to-story --story-title "$STORY_TITLE")
