@@ -299,6 +299,7 @@ def publish(
     photo_token: str | None = None,
     source_post: str | None = None,
     source_token: str | None = None,
+    source_limit: int | None = None,
 ) -> None:
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Publishing is blocked: CONFIRM_PUBLISH must be YES")
@@ -329,6 +330,10 @@ def publish(
         params["attachments"] = attachment
     elif source_post is not None:
         attachments = source_wall_photos(source_token or token, source_post)
+        if source_limit is not None:
+            if source_limit < 1:
+                raise RuntimeError("source_limit must be at least 1")
+            attachments = attachments[:source_limit]
         attachment = ",".join(attachments)
         params["attachments"] = attachment
 
@@ -375,6 +380,7 @@ def main() -> int:
     parser.add_argument("--story-text")
     parser.add_argument("--edit-post-id", type=int)
     parser.add_argument("--source-post")
+    parser.add_argument("--source-limit", type=int)
     args = parser.parse_args()
 
     token = os.environ.get("VK_PUBLISH_TOKEN")
@@ -398,6 +404,7 @@ def main() -> int:
                 os.environ.get("VK_USER_TOKEN"),
                 args.source_post,
                 os.environ.get("VK_SERVICE_TOKEN"),
+                args.source_limit,
             )
         else:
             parser.error("use --check or --message")
