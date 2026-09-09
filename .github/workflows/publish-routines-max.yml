@@ -7,9 +7,10 @@ on:
     paths:
       - "routine-max-trigger.json"
   schedule:
-    - cron: "0 3 * * *"
-    - cron: "0 4 * * *"
-    - cron: "0 5 * * *"
+    # Start 20 minutes early and wait for the exact publication time.
+    # GitHub often delays workflows scheduled at the start of an hour.
+    - cron: "40 2 * * *"
+    - cron: "40 3 * * *"
 
 permissions:
   contents: read
@@ -79,11 +80,18 @@ jobs:
           fi
 
           case "$EVENT_SCHEDULE" in
-            "0 3 * * *") EXPECTED_UTC_HOUR="03" ;;
-            "0 4 * * *") EXPECTED_UTC_HOUR="04" ;;
-            "0 5 * * *") EXPECTED_UTC_HOUR="05" ;;
+            "40 2 * * *") EXPECTED_UTC_HOUR="03" ;;
+            "40 3 * * *") EXPECTED_UTC_HOUR="04" ;;
             *) echo "Unknown schedule: $EVENT_SCHEDULE"; exit 1 ;;
           esac
+
+          TARGET_EPOCH=$(date -u -d "$(date -u +%Y-%m-%d) ${EXPECTED_UTC_HOUR}:00:00 UTC" +%s)
+          NOW_EPOCH=$(date -u +%s)
+          if [ "$NOW_EPOCH" -lt "$TARGET_EPOCH" ]; then
+            WAIT_SECONDS=$((TARGET_EPOCH - NOW_EPOCH))
+            echo "Waiting ${WAIT_SECONDS}s for the exact publication time"
+            sleep "$WAIT_SECONDS"
+          fi
 
           TODAY_MSK=$(TZ=Europe/Moscow date +%Y-%m-%d)
           for file in "${FILES[@]}"; do
