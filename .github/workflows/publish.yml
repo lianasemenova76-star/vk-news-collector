@@ -50,17 +50,6 @@ jobs:
           fi
           echo "Using request file: $REQUEST_FILE"
           jq -e '.confirmed == true' "$REQUEST_FILE"
-          REQUEST_ID=$(jq -r '.request_id // empty' "$REQUEST_FILE")
-          if [ "$REQUEST_FILE" = "publish-request.json" ] && [ "$REQUEST_ID" = "cancel-routine-posts-2026-09-10" ]; then
-            for POST_ID in 414558 414559 414560 414565 414566 414567; do
-              OUTPUT=$(CONFIRM_PUBLISH=YES python publisher.py --delete-post-id "$POST_ID")
-              printf '%s\n' "$OUTPUT"
-              gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
-                -f state=success -f context="vk-cancel/post-$POST_ID" \
-                -f description="routine post $POST_ID cancelled"
-            done
-            exit 0
-          fi
           COUNT=$(jq '.posts | length' "$REQUEST_FILE")
           test "$COUNT" -gt 0
           for i in $(seq 0 $((COUNT-1))); do
