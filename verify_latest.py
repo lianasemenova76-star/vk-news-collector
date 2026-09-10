@@ -18,7 +18,8 @@ if not prefix:
     raise RuntimeError("expected_prefix is empty")
 
 token = (
-    os.environ.get("VK_PUBLISH_TOKEN")
+    os.environ.get("VK_SERVICE_TOKEN")
+    or os.environ.get("VK_PUBLISH_TOKEN")
     or os.environ.get("VK_ANALYTICS_TOKEN")
     or os.environ.get("VK_USER_TOKEN")
 )
