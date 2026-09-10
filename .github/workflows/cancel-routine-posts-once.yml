@@ -24,7 +24,7 @@ jobs:
 
       - name: Delete only the six approved postponed posts
         env:
-          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_USER_TOKEN }}
         run: |
           CONFIRM_PUBLISH=YES python publisher.py --delete-post-id 414558
           CONFIRM_PUBLISH=YES python publisher.py --delete-post-id 414559
