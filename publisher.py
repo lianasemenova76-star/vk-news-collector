@@ -369,6 +369,21 @@ def publish(
     }, ensure_ascii=False, indent=2))
 
 
+
+def delete_post(token: str, post_id: int) -> None:
+    if os.environ.get("CONFIRM_PUBLISH") != "YES":
+        raise RuntimeError("Deletion is blocked: CONFIRM_PUBLISH must be YES")
+    group = resolve_group(token)
+    group_id = int(group["id"])
+    response = api_call("wall.delete", token, owner_id=-group_id, post_id=post_id)
+    if response != 1:
+        raise RuntimeError(f"VK did not confirm deletion of post {post_id}")
+    print(json.dumps({
+        "status": "deleted",
+        "post_id": post_id,
+        "url": f"https://vk.ru/wall-{group_id}_{post_id}",
+    }, ensure_ascii=False, indent=2))
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
@@ -379,6 +394,7 @@ def main() -> int:
     parser.add_argument("--story-title")
     parser.add_argument("--story-text")
     parser.add_argument("--edit-post-id", type=int)
+    parser.add_argument("--delete-post-id", type=int)
     parser.add_argument("--source-post")
     parser.add_argument("--source-limit", type=int)
     args = parser.parse_args()
@@ -391,6 +407,8 @@ def main() -> int:
     try:
         if args.check:
             check_token(token)
+        elif args.delete_post_id is not None:
+            delete_post(token, args.delete_post_id)
         elif args.message is not None:
             publish(
                 token,
@@ -407,7 +425,7 @@ def main() -> int:
                 args.source_limit,
             )
         else:
-            parser.error("use --check or --message")
+            parser.error("use --check, --message, or --delete-post-id")
     except Exception as exc:
         print(str(exc), file=sys.stderr)
         return 2
