@@ -1,13 +1,7 @@
 {
-  "confirmed": true,
-  "approved_at": "2026-09-10T10:15:00Z",
-  "request_id": "cancel-routine-posts-2026-09-10",
-  "posts": [
-    {
-      "targets": [
-        "vk"
-      ],
-      "message": "Approved cancellation of scheduled good morning and horoscope posts"
-    }
-  ]
+  "confirmed": false,
+  "approved_at": "2026-09-10T10:30:00Z",
+  "request_id": "inactive-after-max-routine-disable-2026-09-10",
+  "posts": [],
+  "note": "MAX good morning and horoscope routines disabled. VK routine requests remain unchanged."
 }
