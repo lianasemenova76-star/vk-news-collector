@@ -370,7 +370,12 @@ def publish(
 
 
 
+ROUTINE_POST_IDS_TO_CANCEL = {414558, 414559, 414560, 414565, 414566, 414567}
+
+
 def delete_post(token: str, post_id: int) -> None:
+    if post_id not in ROUTINE_POST_IDS_TO_CANCEL:
+        raise RuntimeError(f"Post {post_id} is not an approved routine cancellation target")
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Deletion is blocked: CONFIRM_PUBLISH must be YES")
     group = resolve_group(token)
