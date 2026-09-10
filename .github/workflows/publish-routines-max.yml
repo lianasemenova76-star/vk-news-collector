@@ -1,26 +1,18 @@
-name: Publish routine MAX posts
+name: Cancel routine posts
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - "routine-max-trigger.json"
-  schedule:
-    # Start 20 minutes early and wait for the exact publication time.
-    # GitHub often delays workflows scheduled at the start of an hour.
-    - cron: "40 2 * * *"
-    - cron: "40 3 * * *"
 
 permissions:
   contents: read
 
-concurrency:
-  group: max-routines
-  cancel-in-progress: false
-
 jobs:
-  publish:
+  cancel:
     runs-on: ubuntu-latest
     steps:
       - name: Download repository
@@ -31,83 +23,66 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Trust certificates required by MAX
-        run: |
-          cert_dir="/usr/local/share/ca-certificates/russian-trusted"
-          sudo mkdir -p "$cert_dir"
-          for cert in \
-            russian_trusted_root_ca_pem.crt \
-            russian_trusted_sub_ca_pem.crt \
-            russian_trusted_sub_ca_2024_pem.crt; do
-            curl --fail --silent --show-error \
-              "https://gu-st.ru/content/lending/$cert" \
-              -o "/tmp/$cert"
-            sudo cp "/tmp/$cert" "$cert_dir/"
-          done
-          sudo update-ca-certificates
-
-      - name: Publish routine posts due now
+      - name: Cancel postponed good morning and horoscope posts
         env:
-          MAX_BOT_TOKEN: ${{ secrets.MAX_BOT_TOKEN }}
-          MAX_CHAT_ID: "-71487490488555"
-          EVENT_NAME: ${{ github.event_name }}
-          EVENT_SCHEDULE: ${{ github.event.schedule }}
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
         run: |
-          set -euo pipefail
-          FILES=(good-morning-request.json horoscope-request.json)
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
 
-          publish_message() {
-            local message="$1"
-            CONFIRM_PUBLISH=YES python max_publisher.py --message "$message"
-          }
+          request = json.load(open("routine-max-trigger.json", encoding="utf-8"))
+          if request.get("enabled", True):
+              raise SystemExit("Cancellation request is not enabled")
 
-          if [ "$EVENT_NAME" = "push" ]; then
-            for file in "${FILES[@]}"; do
-              test -f "$file" || continue
-              jq -e '.confirmed == true' "$file" >/dev/null
-              COUNT=$(jq '.posts | length' "$file")
-              for i in $(seq 0 $((COUNT-1))); do
-                PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" "$file")
-                if [ -z "$PUBLISH_DATE" ]; then
-                  MESSAGE=$(jq -r ".posts[$i].message" "$file")
-                  test -n "$MESSAGE"
-                  echo "Publishing immediate MAX routine from $file post $i"
-                  publish_message "$MESSAGE"
-                fi
-              done
-            done
-            exit 0
-          fi
+          token = os.environ["VK_PUBLISH_TOKEN"]
+          api_version = "5.199"
+          owner_id = -70948047
 
-          case "$EVENT_SCHEDULE" in
-            "40 2 * * *") EXPECTED_UTC_HOUR="03" ;;
-            "40 3 * * *") EXPECTED_UTC_HOUR="04" ;;
-            *) echo "Unknown schedule: $EVENT_SCHEDULE"; exit 1 ;;
-          esac
+          def api(method, **params):
+              payload = {"access_token": token, "v": api_version, **params}
+              req = Request(
+                  f"https://api.vk.com/method/{method}",
+                  data=urlencode(payload).encode("utf-8"),
+                  headers={"User-Agent": "vk-news-collector-cancel/1.0"},
+              )
+              with urlopen(req, timeout=60) as response:
+                  document = json.load(response)
+              if "error" in document:
+                  error = document["error"]
+                  raise RuntimeError(
+                      f"VK API error {error.get('error_code')}: "
+                      f"{error.get('error_msg', 'unknown error')}"
+                  )
+              return document.get("response")
 
-          TARGET_EPOCH=$(date -u -d "$(date -u +%Y-%m-%d) ${EXPECTED_UTC_HOUR}:00:00 UTC" +%s)
-          NOW_EPOCH=$(date -u +%s)
-          if [ "$NOW_EPOCH" -lt "$TARGET_EPOCH" ]; then
-            WAIT_SECONDS=$((TARGET_EPOCH - NOW_EPOCH))
-            echo "Waiting ${WAIT_SECONDS}s for the exact publication time"
-            sleep "$WAIT_SECONDS"
-          fi
+          response = api("wall.get", owner_id=owner_id, filter="postponed", count=100)
+          items = response.get("items", []) if isinstance(response, dict) else []
+          prefixes = ("🔵 ДОБРОЕ УТРО, ТУТАЕВ!", "ГОРОСКОП НА ")
+          deleted = []
+          kept = []
 
-          TODAY_MSK=$(TZ=Europe/Moscow date +%Y-%m-%d)
-          for file in "${FILES[@]}"; do
-            test -f "$file" || continue
-            jq -e '.confirmed == true' "$file" >/dev/null
-            COUNT=$(jq '.posts | length' "$file")
-            for i in $(seq 0 $((COUNT-1))); do
-              PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" "$file")
-              [ -n "$PUBLISH_DATE" ] || continue
-              POST_DATE_MSK=$(TZ=Europe/Moscow date -d "@$PUBLISH_DATE" +%Y-%m-%d)
-              POST_UTC_HOUR=$(TZ=UTC date -d "@$PUBLISH_DATE" +%H)
-              if [ "$POST_DATE_MSK" = "$TODAY_MSK" ] && [ "$POST_UTC_HOUR" = "$EXPECTED_UTC_HOUR" ]; then
-                MESSAGE=$(jq -r ".posts[$i].message" "$file")
-                test -n "$MESSAGE"
-                echo "Publishing scheduled MAX routine from $file post $i"
-                publish_message "$MESSAGE"
-              fi
-            done
-          done
+          for post in items:
+              text = (post.get("text") or "").strip()
+              if text.startswith(prefixes):
+                  api("wall.delete", owner_id=owner_id, post_id=post["id"])
+                  deleted.append({
+                      "post_id": post["id"],
+                      "publish_date": post.get("date"),
+                      "title": text.splitlines()[0],
+                  })
+                  time.sleep(0.3)
+              else:
+                  kept.append(post.get("id"))
+
+          print(json.dumps({
+              "status": "cancelled",
+              "deleted_count": len(deleted),
+              "deleted": deleted,
+              "other_postponed_posts_kept": kept,
+              "max_schedule_enabled": False,
+          }, ensure_ascii=False, indent=2))
+          PY
