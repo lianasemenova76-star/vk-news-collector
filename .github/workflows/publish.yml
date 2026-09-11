@@ -58,6 +58,7 @@ jobs:
             fi
             MESSAGE=$(jq -r ".posts[$i].message" "$REQUEST_FILE")
             PUBLISH_DATE=$(jq -r ".posts[$i].publish_date // empty" "$REQUEST_FILE")
+            WAIT_UNTIL_PUBLISH=$(jq -r ".posts[$i].wait_until_publish // false" "$REQUEST_FILE")
             IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" "$REQUEST_FILE")
             IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" "$REQUEST_FILE")
             SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" "$REQUEST_FILE")
@@ -66,6 +67,13 @@ jobs:
             STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" "$REQUEST_FILE")
             STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" "$REQUEST_FILE")
             test -n "$MESSAGE"
+            if [ "$WAIT_UNTIL_PUBLISH" = "true" ] && [ -n "$PUBLISH_DATE" ]; then
+              [[ "$PUBLISH_DATE" =~ ^[0-9]+$ ]]
+              NOW=$(date +%s)
+              WAIT_SECONDS=$((PUBLISH_DATE-NOW))
+              if [ "$WAIT_SECONDS" -gt 0 ]; then sleep "$WAIT_SECONDS"; fi
+              PUBLISH_DATE=""
+            fi
             ARGS=(--message "$MESSAGE")
             if [ -n "$PUBLISH_DATE" ]; then ARGS+=(--publish-date "$PUBLISH_DATE"); fi
             if [ -n "$EDIT_POST_ID" ]; then ARGS+=(--edit-post-id "$EDIT_POST_ID"); fi
