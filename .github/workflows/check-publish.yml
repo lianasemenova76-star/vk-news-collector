@@ -23,6 +23,7 @@ jobs:
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
           VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
         run: |
           python - <<'PY'
           import json
@@ -48,7 +49,7 @@ jobs:
                   return json.load(response)
 
           results = {}
-          for name in ("VK_PUBLISH_TOKEN", "VK_SERVICE_TOKEN"):
+          for name in ("VK_PUBLISH_TOKEN", "VK_SERVICE_TOKEN", "VK_USER_TOKEN"):
               token = os.environ.get(name, "")
               if not token:
                   results[name] = {"present": False}
@@ -57,6 +58,7 @@ jobs:
               for method, params in (
                   ("groups.getById", {"group_ids": "vtutaeve"}),
                   ("groups.getTokenPermissions", {}),
+                  ("photos.getWallUploadServer", {"group_id": 70948047}),
               ):
                   try:
                       document = call(method, token, **params)
@@ -71,6 +73,8 @@ jobs:
                           response = document.get("response")
                           if method == "groups.getTokenPermissions":
                               item[method] = {"ok": True, "permissions": response}
+                          elif method == "photos.getWallUploadServer":
+                              item[method] = {"ok": bool(isinstance(response, dict) and response.get("upload_url"))}
                           else:
                               item[method] = {"ok": True}
                   except Exception as exc:
@@ -79,7 +83,7 @@ jobs:
 
           print(json.dumps(results, ensure_ascii=False))
           if not any(
-              value.get("groups.getTokenPermissions", {}).get("ok")
+              value.get("photos.getWallUploadServer", {}).get("ok")
               for value in results.values()
               if isinstance(value, dict)
           ):
