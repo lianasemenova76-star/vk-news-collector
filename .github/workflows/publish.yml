@@ -38,9 +38,17 @@ jobs:
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
           VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          VK_USER_REFRESH_TOKEN: ${{ secrets.VK_USER_REFRESH_TOKEN }}
+          VK_USER_DEVICE_ID: ${{ secrets.VK_USER_DEVICE_ID }}
           VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
           GH_TOKEN: ${{ github.token }}
         run: |
+          if [ -n "$VK_USER_REFRESH_TOKEN" ] && [ -n "$VK_USER_DEVICE_ID" ]; then
+            FRESH_VK_TOKEN=$(python -c 'import os; from analytics import refresh_user_token; print(refresh_user_token(os.environ["VK_USER_REFRESH_TOKEN"], os.environ["VK_USER_DEVICE_ID"]))')
+            echo "::add-mask::$FRESH_VK_TOKEN"
+            export VK_PUBLISH_TOKEN="$FRESH_VK_TOKEN"
+            export VK_USER_TOKEN="$FRESH_VK_TOKEN"
+          fi
           REQUEST_FILE="publish-request.json"
           CHANGED_FILES=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}")
           if printf '%s\n' "$CHANGED_FILES" | grep -qx "horoscope-request.json"; then
