@@ -19,14 +19,69 @@ jobs:
       - name: Download repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Validate VK publishing token
+      - name: Diagnose stored VK tokens without publishing
         env:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
-        run: python publisher.py --check
+          VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.parse
+          import urllib.request
 
-# Manual token check trigger: 2026-09-06T05:17:13.689Z
+          API = "https://api.vk.com/method"
+          VERSION = "5.199"
+
+          def call(method, token, **params):
+              payload = urllib.parse.urlencode({
+                  "access_token": token,
+                  "v": VERSION,
+                  **params,
+              }).encode()
+              request = urllib.request.Request(
+                  f"{API}/{method}",
+                  data=payload,
+                  headers={"User-Agent": "vk-token-type-diagnostic/1.0"},
+              )
+              with urllib.request.urlopen(request, timeout=45) as response:
+                  return json.load(response)
+
+          results = {}
+          for name in ("VK_PUBLISH_TOKEN", "VK_SERVICE_TOKEN"):
+              token = os.environ.get(name, "")
+              if not token:
+                  results[name] = {"present": False}
+                  continue
+              item = {"present": True}
+              for method, params in (
+                  ("groups.getById", {"group_ids": "vtutaeve"}),
+                  ("groups.getTokenPermissions", {}),
+              ):
+                  try:
+                      document = call(method, token, **params)
+                      if "error" in document:
+                          error = document["error"]
+                          item[method] = {
+                              "ok": False,
+                              "code": error.get("error_code"),
+                              "message": error.get("error_msg"),
+                          }
+                      else:
+                          response = document.get("response")
+                          if method == "groups.getTokenPermissions":
+                              item[method] = {"ok": True, "permissions": response}
+                          else:
+                              item[method] = {"ok": True}
+                  except Exception as exc:
+                      item[method] = {"ok": False, "transport": type(exc).__name__}
+              results[name] = item
+
+          print(json.dumps(results, ensure_ascii=False))
+          if not any(
+              value.get("groups.getTokenPermissions", {}).get("ok")
+              for value in results.values()
+              if isinstance(value, dict)
+          ):
+              raise SystemExit(2)
+          PY
