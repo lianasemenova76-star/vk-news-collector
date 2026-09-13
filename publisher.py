@@ -54,7 +54,7 @@ def api_call(method: str, token: str, **params: object) -> object:
             time.sleep(retry_delay(attempt))
             continue
         raise RuntimeError(
-            f"VK API error {error_code}: "
+            f"VK API {method} error {error_code}: "
             f"{error.get('error_msg', 'unknown error')}"
         )
 
