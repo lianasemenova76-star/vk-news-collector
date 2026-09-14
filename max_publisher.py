@@ -134,9 +134,12 @@ def upload_image(token: str, image_path: Path) -> str:
     except HTTPError as exc:
         error_body = exc.read().decode("utf-8", errors="replace")[:1000]
         raise RuntimeError(f"MAX image upload returned HTTP {exc.code}: {error_body}") from exc
-    token_value = uploaded.get("token") if isinstance(uploaded, dict) else None
+    token_value = find_first(uploaded, "token")
     if not token_value:
-        raise RuntimeError("MAX did not return a token after image upload")
+        raise RuntimeError(
+            "MAX did not return a token after image upload: "
+            + json.dumps(uploaded, ensure_ascii=False)[:500]
+        )
     return str(token_value)
 
 
