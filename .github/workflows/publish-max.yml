@@ -112,7 +112,9 @@ jobs:
             ARGS=(--message "$MESSAGE")
             if [ -n "$IMAGE_URL" ]; then
               [[ "$IMAGE_URL" == https://* ]]
-              ARGS+=(--image-url "$IMAGE_URL")
+              DOWNLOADED_IMAGE="$RUNNER_TEMP/max-image-$i.jpg"
+              python -c 'import sys; from urllib.request import Request, urlopen; r=Request(sys.argv[1], headers={"User-Agent":"Mozilla/5.0","Referer":"https://vk.com/"}); open(sys.argv[2],"wb").write(urlopen(r, timeout=120).read())' "$IMAGE_URL" "$DOWNLOADED_IMAGE"
+              ARGS+=(--image "$DOWNLOADED_IMAGE")
             elif [ -n "$IMAGE_PATH" ]; then
               [[ "$IMAGE_PATH" == media/* ]]
               test -f "$IMAGE_PATH"
