@@ -344,7 +344,12 @@ def publish(
             raise RuntimeError("VK did not confirm wall.edit")
         post_id = edit_post_id
     else:
-        response = api_call("wall.post", token, **params)
+        try:
+            response = api_call("wall.post", token, **params)
+        except RuntimeError as exc:
+            if "VK API wall.post error 10:" not in str(exc) or not photo_token or photo_token == token:
+                raise
+            response = api_call("wall.post", photo_token, **params)
         post_id = response.get("post_id") if isinstance(response, dict) else None
         if not post_id:
             raise RuntimeError("VK did not return post_id after wall.post")
