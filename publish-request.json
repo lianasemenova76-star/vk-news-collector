@@ -1,7 +1,7 @@
 {
   "confirmed": true,
-  "approved_at": "2026-09-17T05:24:00Z",
-  "request_id": "vk-news-20260917-every-20-minutes-with-photos",
+  "approved_at": "2026-09-17T05:27:00Z",
+  "request_id": "vk-news-20260917-every-20-minutes-with-photos-retry",
   "posts": [
     {
       "targets": [
