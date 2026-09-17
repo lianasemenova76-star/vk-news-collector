@@ -150,7 +150,7 @@ def source_wall_photos(token: str, source_post: str) -> list[str]:
             attachment += f"_{media['access_key']}"
         result.append(attachment)
     if not result:
-        raise RuntimeError(f"VK source post has no supported media: {source_post}")
+        return []
     return result
 
 
