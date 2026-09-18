@@ -62,7 +62,7 @@ jobs:
           jq -e '
             .type == "channel" and
             .status == "active" and
-            .title == "Тутаев | Главные новости округа"
+            (.title == "Тутаев | Главные новости округа" or .title == "Мой Тутаев")
           ' "$RUNNER_TEMP/max-chat.json" >/dev/null
 
           curl --fail --silent --show-error \
