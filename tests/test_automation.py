@@ -7,6 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import comments
+import collector
 import publisher
 import weather
 
@@ -65,6 +66,36 @@ class CommentTests(unittest.TestCase):
         self.assertEqual(item["author"], "Иван Иванов")
         self.assertEqual(item["attachments"], ["photo"])
         self.assertTrue(item["url"].endswith("?reply=42"))
+
+
+class CollectorFilterTests(unittest.TestCase):
+    def test_blocks_tmz_abbreviation(self):
+        post = {
+            "source_name": "Городское сообщество",
+            "text": "На ТМЗ подвели итоги конкурса",
+            "repost": None,
+        }
+        self.assertTrue(collector.is_blocked_topic(post))
+
+    def test_blocks_full_motor_plant_name_in_repost(self):
+        post = {
+            "source_name": "Городское сообщество",
+            "text": "Новости предприятий",
+            "repost": {
+                "source_name": "Предприятие",
+                "text": "Сотрудники Тутаевского моторного завода получили награды",
+                "repost": None,
+            },
+        }
+        self.assertTrue(collector.is_blocked_topic(post))
+
+    def test_keeps_unrelated_tutaev_news(self):
+        post = {
+            "source_name": "Администрация Тутаевского округа",
+            "text": "В Тутаеве отремонтировали дорогу",
+            "repost": None,
+        }
+        self.assertFalse(collector.is_blocked_topic(post))
 
 
 class PublisherRetryTests(unittest.TestCase):
