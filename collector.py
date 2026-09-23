@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 from http.client import IncompleteRead
 import os
+import re
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -20,6 +21,13 @@ API_VERSION = "5.199"
 ROOT = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
 ARCHIVE_DIR = DATA_DIR / "archive"
+BLOCKED_TOPIC_PATTERNS = (
+    re.compile(r"\bтмз\b", re.IGNORECASE),
+    re.compile(
+        r"тутаевск\w*\s+моторн\w*\s+завод\w*",
+        re.IGNORECASE,
+    ),
+)
 
 
 def api_call(token: str, domain: str, offset: int = 0) -> dict:
@@ -130,6 +138,18 @@ def post_url(owner_id: int, post_id: int) -> str:
     return f"https://vk.ru/wall{owner_id}_{post_id}"
 
 
+def is_blocked_topic(post: dict) -> bool:
+    searchable_text = "\n".join(
+        part
+        for part in (post.get("source_name"), post.get("text"))
+        if isinstance(part, str)
+    )
+    if any(pattern.search(searchable_text) for pattern in BLOCKED_TOPIC_PATTERNS):
+        return True
+    repost = post.get("repost")
+    return isinstance(repost, dict) and is_blocked_topic(repost)
+
+
 def parse_post(post: dict, source: dict) -> dict:
     owner_id = post["owner_id"]
     post_id = post["id"]
@@ -184,7 +204,11 @@ def collect_source(token: str, source: dict, cutoff_timestamp: int) -> list[dict
         offset += len(items)
         time.sleep(0.4)
 
-    unique = {post["id"]: post for post in collected}
+    unique = {
+        post["id"]: post
+        for post in collected
+        if not is_blocked_topic(post)
+    }
     return sorted(unique.values(), key=lambda post: post["published_at"], reverse=True)
 
 
