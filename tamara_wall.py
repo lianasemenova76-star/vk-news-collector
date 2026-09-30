@@ -9,14 +9,19 @@ import urllib.request
 TARGET = "tamara_vkurse"
 TOKEN = os.environ.get("VK_USER_TOKEN", "").strip()
 MODE = os.environ.get("MODE", "inspect")
-if not TOKEN and MODE != "inspect":
-    sys.exit("Missing secret VK_USER_TOKEN")
+if MODE in ("delete", "publish_test"):
+    TOKEN = os.environ.get("VK_TAMARA_TOKEN", "").strip()
+    if not TOKEN:
+        sys.exit("Missing secret VK_TAMARA_TOKEN")
+if MODE == "delete" and not os.environ.get("VK_SERVICE_TOKEN", "").strip():
+    sys.exit("Missing secret VK_SERVICE_TOKEN")
 if MODE not in ("inspect", "delete", "publish_test"):
     sys.exit("Invalid mode")
 
 def api(method, **params):
+    request_token = os.environ.get("VK_SERVICE_TOKEN", "").strip() if MODE == "delete" and method == "wall.get" else TOKEN
     body = urllib.parse.urlencode(
-        dict(params, access_token=TOKEN, v="5.199")
+        dict(params, access_token=request_token, v="5.199")
     ).encode()
     for attempt in range(1 if MODE == "inspect" else 5):
         time.sleep(0.4)
