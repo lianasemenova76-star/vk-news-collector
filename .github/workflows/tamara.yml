@@ -29,12 +29,12 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-      - name: Use existing user token for Tamara only
+      - name: Check or clear Tamara using its dedicated access
         env:
           VK_TAMARA_TOKEN: ${{ secrets.VK_TAMARA_TOKEN }}
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
           VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
-          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          VK_USER_TOKEN: ${{ secrets.VK_TAMARA_USER_TOKEN }}
           MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'inspect' }}
         run: python3 tamara_wall.py
       - name: Record result for assistant
