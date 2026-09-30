@@ -9,7 +9,7 @@ import urllib.request
 TARGET = "tamara_vkurse"
 TOKEN = os.environ.get("VK_USER_TOKEN", "").strip()
 MODE = os.environ.get("MODE", "inspect")
-if not TOKEN:
+if not TOKEN and MODE != "inspect":
     sys.exit("Missing secret VK_USER_TOKEN")
 if MODE not in ("inspect", "delete", "publish_test"):
     sys.exit("Invalid mode")
@@ -18,7 +18,7 @@ def api(method, **params):
     body = urllib.parse.urlencode(
         dict(params, access_token=TOKEN, v="5.199")
     ).encode()
-    for attempt in range(5):
+    for attempt in range(1 if MODE == "inspect" else 5):
         time.sleep(0.4)
         try:
             req = urllib.request.Request(
@@ -35,17 +35,42 @@ def api(method, **params):
         error = data.get("error")
         if error:
             code = error.get("error_code")
-            if code in (6, 10) and attempt < 4:
+            if MODE != "inspect" and code in (6, 10) and attempt < 4:
                 time.sleep(2 ** attempt)
                 continue
             raise RuntimeError(
-                f"VK API {method}: error {code}. Check token permissions and type."
+                f"VK API {method}: error {code}: {error.get('error_msg', 'unknown error')}"
             )
         if "response" not in data:
             raise RuntimeError("Unexpected VK response")
         return data["response"]
 
 def main():
+    global TOKEN
+    if MODE == "inspect":
+        successes = []
+        for name in ("VK_PUBLISH_TOKEN", "VK_USER_TOKEN", "VK_SERVICE_TOKEN"):
+            TOKEN = os.environ.get(name, "").strip()
+            if not TOKEN:
+                print(f"{name}: missing", flush=True)
+                continue
+            for method, params in (
+                ("groups.getById", {"group_ids": TARGET}),
+                ("wall.get", {"owner_id": -206233289, "filter": "all", "count": 1}),
+            ):
+                try:
+                    result = api(method, **params)
+                    if method == "wall.get":
+                        print(f"{name}: wall.get OK; posts={result.get('count')}", flush=True)
+                        successes.append(name)
+                    else:
+                        print(f"{name}: groups.getById OK", flush=True)
+                except Exception as exc:
+                    print(f"{name}: {str(exc).replace(TOKEN, '[REDACTED]')}", flush=True)
+        print("Inspection only: nothing published or deleted.", flush=True)
+        if not successes:
+            raise RuntimeError("None of the existing tokens could read Tamara's wall")
+        return
     result = api("groups.getById", group_ids=TARGET)
     groups = result.get("groups", []) if isinstance(result, dict) else result
     if len(groups) != 1:
