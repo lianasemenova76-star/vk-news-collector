@@ -9,10 +9,12 @@ import urllib.request
 TARGET = "tamara_vkurse"
 TOKEN = os.environ.get("VK_USER_TOKEN", "").strip()
 MODE = os.environ.get("MODE", "inspect")
-if MODE in ("delete", "publish_test"):
+if MODE == "publish_test":
     TOKEN = os.environ.get("VK_TAMARA_TOKEN", "").strip()
     if not TOKEN:
         sys.exit("Missing secret VK_TAMARA_TOKEN")
+if MODE == "delete" and not TOKEN:
+    sys.exit("Missing secret VK_USER_TOKEN: deletion needs user authorization")
 if MODE == "delete" and not os.environ.get("VK_SERVICE_TOKEN", "").strip():
     sys.exit("Missing secret VK_SERVICE_TOKEN")
 if MODE not in ("inspect", "delete", "publish_test"):
@@ -23,7 +25,7 @@ def api(method, **params):
     body = urllib.parse.urlencode(
         dict(params, access_token=request_token, v="5.199")
     ).encode()
-    for attempt in range(1 if MODE == "inspect" else 5):
+    for attempt in range(5):
         time.sleep(0.4)
         try:
             req = urllib.request.Request(
@@ -40,7 +42,7 @@ def api(method, **params):
         error = data.get("error")
         if error:
             code = error.get("error_code")
-            if MODE != "inspect" and code in (6, 10) and attempt < 4:
+            if code in (6, 10) and attempt < 4:
                 time.sleep(2 ** attempt)
                 continue
             raise RuntimeError(
@@ -80,6 +82,11 @@ def main():
         TOKEN = os.environ.get("VK_TAMARA_TOKEN", "").strip()
         if not TOKEN:
             raise RuntimeError("Missing secret VK_TAMARA_TOKEN in vk-news-collector")
+    if MODE == "delete":
+        users = api("users.get")
+        if not isinstance(users, list) or len(users) != 1 or not users[0].get("id"):
+            raise RuntimeError("User authorization could not be verified")
+        print("User authorization verified.", flush=True)
     result = api("groups.getById", group_ids=TARGET)
     groups = result.get("groups", []) if isinstance(result, dict) else result
     if len(groups) != 1:
