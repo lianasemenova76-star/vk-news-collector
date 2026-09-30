@@ -71,6 +71,10 @@ def main():
         if not successes:
             raise RuntimeError("None of the existing tokens could read Tamara's wall")
         return
+    if MODE == "publish_test":
+        TOKEN = os.environ.get("VK_TAMARA_TOKEN", "").strip()
+        if not TOKEN:
+            raise RuntimeError("Missing secret VK_TAMARA_TOKEN in vk-news-collector")
     result = api("groups.getById", group_ids=TARGET)
     groups = result.get("groups", []) if isinstance(result, dict) else result
     if len(groups) != 1:
