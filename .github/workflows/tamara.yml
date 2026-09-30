@@ -1,0 +1,48 @@
+name: Tamara via existing VK access
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - tamara_wall.py
+      - .github/workflows/tamara.yml
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "inspect checks access; publish_test sends one test post; delete clears Tamara's wall"
+        required: true
+        default: inspect
+        type: choice
+        options: [inspect, publish_test, delete]
+
+permissions:
+  contents: read
+  statuses: write
+
+concurrency:
+  group: tamara-wall
+  cancel-in-progress: false
+
+jobs:
+  tamara:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use existing user token for Tamara only
+        env:
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.mode || 'inspect' }}
+        run: python3 tamara_wall.py
+      - name: Record result for assistant
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          STATE=error
+          if [ "$JOB_STATUS" = success ]; then STATE=success; fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+            -f state="$STATE" -f context="tamara-wall" \
+            -f description="Tamara action: $JOB_STATUS" \
+            -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
