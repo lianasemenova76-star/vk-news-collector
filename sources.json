@@ -1,62 +1,21 @@
 [
-  {
-    "domain": "tutaev"
-  },
-  {
-    "domain": "tipitutaev"
-  },
-  {
-    "domain": "club195801765"
-  },
-  {
-    "domain": "yarmkru"
-  },
-  {
-    "domain": "evraevmikhail"
-  },
-  {
-    "domain": "bibltut"
-  },
-  {
-    "domain": "76freeyaroslavl"
-  },
-  {
-    "domain": "tutaevadm"
-  },
-  {
-    "domain": "v_konstantinovsky"
-  },
-  {
-    "domain": "tutaevtoday"
-  },
-  {
-    "domain": "mchs.yaroslavl"
-  },
-  {
-    "domain": "galaktikatutaev"
-  },
-  {
-    "domain": "club226153295"
-  },
-  {
-    "domain": "dzif76"
-  },
-  {
-    "domain": "sorokalife"
-  },
-  {
-    "domain": "public189497520"
-  },
-  {
-    "domain": "public218299637"
-  },
-  {
-    "domain": "tutcrb"
-  },
-  {
-    "domain": "agni81"
-  },
-  {
-    "domain": "id738891199"
-  }
+  {"domain":"tutaev"},
+  {"domain":"tipitutaev"},
+  {"domain":"club195801765"},
+  {"domain":"yarmkru"},
+  {"domain":"evraevmikhail"},
+  {"domain":"bibltut"},
+  {"domain":"76freeyaroslavl"},
+  {"domain":"tutaevadm"},
+  {"domain":"v_konstantinovsky"},
+  {"domain":"tutaevtoday"},
+  {"domain":"mchs.yaroslavl"},
+  {"domain":"galaktikatutaev"},
+  {"domain":"club226153295"},
+  {"domain":"dzif76"},
+  {"domain":"sorokalife"},
+  {"domain":"public189497520"},
+  {"domain":"public218299637"},
+  {"domain":"tutcrb"},
+  {"domain":"agni81"}
 ]
