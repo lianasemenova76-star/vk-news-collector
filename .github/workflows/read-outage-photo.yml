@@ -1,0 +1,19 @@
+name: Read outage announcement
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/read-outage-photo.yml"]
+permissions:
+  contents: read
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read public source photo
+        env:
+          PHOTO_URL: "https://sun9-6.userapi.com/s/v1/ig2/Y3CJPwfH-_epKXnMrZiT5mXU99B_QMaN5yPnpl3mFHzLsJ6_PTbi3uMx4sJK5MCEr0klaS2inFBM70oEbWN981Fw.jpg?quality=95&crop=0,0,1862,2560&as=32x44,48x66,72x99,108x148,160x220,240x330,360x495,480x660,540x742,640x880,720x990,1080x1485,1280x1760,1440x1980,1862x2560&from=bu&cs=1862x0"
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-rus
+          curl --fail --silent --show-error "$PHOTO_URL" -o /tmp/outage.jpg
+          tesseract /tmp/outage.jpg stdout -l rus --psm 6
