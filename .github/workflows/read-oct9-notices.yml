@@ -1,0 +1,42 @@
+name: Read October 9 news notices
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/read-oct9-notices.yml"]
+permissions:
+  contents: read
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Russian OCR
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-rus
+      - name: Read original notices
+        env:
+          VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
+        run: |
+          python - <<'PY'
+          import os,json,subprocess
+          from urllib.request import Request,urlopen
+          from urllib.parse import urlencode
+          posts=['-38242868_1924260','-134631646_13994','-38242868_1924367','-150908127_56980']
+          req=Request('https://api.vk.com/method/wall.getById',data=urlencode({'access_token':os.environ['VK_SERVICE_TOKEN'],'v':'5.199','posts':','.join(posts)}).encode())
+          doc=json.load(urlopen(req,timeout=60))
+          if 'error' in doc: raise RuntimeError(str(doc['error'].get('error_code')))
+          response=doc['response'];items=response if isinstance(response,list) else response.get('items',[])
+          for post in items:
+              print('NOTICE',str(post['owner_id'])+'_'+str(post['id']),flush=True)
+              print(post.get('text',''),flush=True)
+              if str(post['id']) not in ['1924260','13994']: continue
+              for j,a in enumerate(post.get('attachments',[])):
+                  if a.get('type')!='photo': continue
+                  size=max(a['photo']['sizes'],key=lambda s:s.get('width',0)*s.get('height',0))
+                  path='/tmp/notice-%s-%s.jpg'%(post['id'],j)
+                  data=urlopen(Request(size['url'],headers={'User-Agent':'Mozilla/5.0','Referer':'https://vk.com/'}),timeout=90).read()
+                  open(path,'wb').write(data)
+                  subprocess.run(['tesseract',path,'stdout','-l','rus+eng'],check=True)
+          PY
