@@ -84,6 +84,10 @@ jobs:
             elif [ -n "$IMAGE_PATH" ]; then
               [[ "$IMAGE_PATH" == media/* ]]
               test -f "$IMAGE_PATH"
+              if [[ "$IMAGE_PATH" == *.b64 ]]; then
+                base64 --decode "$IMAGE_PATH" > "$RUNNER_TEMP/vk-image-$i.jpg"
+                IMAGE_PATH="$RUNNER_TEMP/vk-image-$i.jpg"
+              fi
             fi
             if [ -n "$IMAGE_PATH" ]; then ARGS+=(--image "$IMAGE_PATH"); fi
             if [ -n "$SOURCE_POST" ]; then
