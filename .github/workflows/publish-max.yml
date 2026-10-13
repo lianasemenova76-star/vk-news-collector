@@ -118,6 +118,10 @@ jobs:
             elif [ -n "$IMAGE_PATH" ]; then
               [[ "$IMAGE_PATH" == media/* ]]
               test -f "$IMAGE_PATH"
+              if [[ "$IMAGE_PATH" == *.b64 ]]; then
+                base64 --decode "$IMAGE_PATH" > "$RUNNER_TEMP/max-image-$i.jpg"
+                IMAGE_PATH="$RUNNER_TEMP/max-image-$i.jpg"
+              fi
               ARGS+=(--image "$IMAGE_PATH")
             elif [ -n "$SOURCE_POST" ]; then
               [[ "$SOURCE_POST" =~ ^-?[0-9]+_[0-9]+$ ]]
