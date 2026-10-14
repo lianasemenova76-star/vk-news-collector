@@ -89,6 +89,7 @@ jobs:
             IMAGE_PATH=$(jq -r ".posts[$i].image_path // empty" publish-request.json)
             IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" publish-request.json)
             SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" publish-request.json)
+            EDIT_MESSAGE_ID=$(jq -r ".posts[$i].edit_message_id // empty" publish-request.json)
             test -n "$MESSAGE"
 
             if jq -e --arg message "$MESSAGE" \
@@ -110,7 +111,10 @@ jobs:
             fi
 
             ARGS=(--message "$MESSAGE")
-            if [ -n "$IMAGE_URL" ]; then
+            if [ -n "$EDIT_MESSAGE_ID" ]; then
+              [[ "$EDIT_MESSAGE_ID" == mid.* ]]
+              ARGS+=(--edit-message-id "$EDIT_MESSAGE_ID")
+            elif [ -n "$IMAGE_URL" ]; then
               [[ "$IMAGE_URL" == https://* ]]
               DOWNLOADED_IMAGE="$RUNNER_TEMP/max-image-$i.jpg"
               python -c 'import sys; from urllib.request import Request, urlopen; r=Request(sys.argv[1], headers={"User-Agent":"Mozilla/5.0","Referer":"https://vk.com/"}); open(sys.argv[2],"wb").write(urlopen(r, timeout=120).read())' "$IMAGE_URL" "$DOWNLOADED_IMAGE"
@@ -137,7 +141,7 @@ jobs:
               MESSAGE_ID=$(printf '%s' "$OUTPUT" | python -c 'import json,sys; print(json.load(sys.stdin).get("message_id") or "unknown")')
               gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
                 -f state=success -f context="$CONTEXT" \
-                -f description="MAX post $MESSAGE_ID published"
+                -f description="MAX post $MESSAGE_ID updated"
             else
               DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
               gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
