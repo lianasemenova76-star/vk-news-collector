@@ -1,0 +1,41 @@
+name: Read notice image
+on:
+  push:
+    paths:
+      - data/ocr-request.json
+permissions:
+  contents: write
+concurrency:
+  group: notice-ocr
+  cancel-in-progress: true
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          persist-credentials: true
+      - name: Read text on public notice
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq tesseract-ocr tesseract-ocr-rus
+          python - <<'PY'
+          import json
+          from urllib.request import Request, urlopen
+          from pathlib import Path
+          data=json.loads(Path('data/ocr-request.json').read_text())
+          req=Request(data['image_url'],headers={'User-Agent':'Mozilla/5.0','Referer':'https://vk.com/'})
+          response=urlopen(req,timeout=120).read()
+          if not response.startswith(b'\xff\xd8'): raise RuntimeError('Image download did not return JPEG')
+          Path('/tmp/notice.jpg').write_bytes(response)
+          PY
+          tesseract /tmp/notice.jpg data/notice-ocr -l rus+eng
+      - name: Save OCR text
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/notice-ocr.txt
+          git commit -m "Capture notice text" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
