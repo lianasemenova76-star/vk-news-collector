@@ -183,6 +183,7 @@ def publish(
     image_urls: list[str] | None = None,
     source_post: str | None = None,
     vk_token: str | None = None,
+    edit_message_id: str | None = None,
 ) -> None:
     if os.environ.get("CONFIRM_PUBLISH") != "YES":
         raise RuntimeError("Publishing is blocked: CONFIRM_PUBLISH must be YES")
@@ -191,6 +192,13 @@ def publish(
         raise RuntimeError("Publishing is blocked: message is empty")
     if len(text) > MAX_MESSAGE_LIMIT:
         raise RuntimeError(f"MAX message is longer than {MAX_MESSAGE_LIMIT} characters")
+
+    if edit_message_id:
+        if image_paths or image_urls or source_post:
+            raise RuntimeError("Editing text cannot replace existing media")
+        response = max_api("/messages", token, method="PUT", body={"text": text, "notify": False}, message_id=edit_message_id)
+        print(json.dumps({"status": "edited", "chat_id": chat_id, "message_id": find_first(response, "mid") or edit_message_id}, ensure_ascii=False))
+        return
 
     resolved_urls = list(image_urls or [])
     if source_post:
@@ -238,6 +246,7 @@ def main() -> int:
     parser.add_argument("--image", action="append", type=Path, default=[])
     parser.add_argument("--image-url", action="append", default=[])
     parser.add_argument("--source-post")
+    parser.add_argument("--edit-message-id")
     args = parser.parse_args()
 
     token = os.environ.get("MAX_BOT_TOKEN")
@@ -266,6 +275,7 @@ def main() -> int:
                 image_urls=args.image_url,
                 source_post=args.source_post,
                 vk_token=os.environ.get("VK_SERVICE_TOKEN"),
+                edit_message_id=args.edit_message_id,
             )
         else:
             parser.error("use --check or --message")
