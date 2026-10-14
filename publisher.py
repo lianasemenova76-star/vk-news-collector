@@ -339,7 +339,12 @@ def publish(
 
     if edit_post_id is not None:
         params["post_id"] = edit_post_id
-        response = api_call("wall.edit", token, **params)
+        try:
+            response = api_call("wall.edit", token, **params)
+        except RuntimeError as exc:
+            if "VK API wall.edit error 27:" not in str(exc) or not photo_token or photo_token == token:
+                raise
+            response = api_call("wall.edit", photo_token, **params)
         if response != 1:
             raise RuntimeError("VK did not confirm wall.edit")
         post_id = edit_post_id
