@@ -1,9 +1,9 @@
 {
   "mode": "full",
-  "max_pages": 10,
+  "max_pages": 2000,
   "start": "2018-10-17",
   "end": "2021-10-17",
   "rewind_pages": 2,
-  "request_id": "vk-mentions-older-pilot-2026-10-17",
-  "note": "Pilot older dates only; rewind 2 pages from persisted checkpoint for gap-free handover. No public artifacts."
+  "request_id": "vk-mentions-2018-2021-full-2026-10-17",
+  "note": "Continue from pilot checkpoint, overlap 2 pages, save matching texts to Google Drive only."
 }
