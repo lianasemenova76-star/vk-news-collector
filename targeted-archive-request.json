@@ -1,5 +1,6 @@
 {
-  "mode": "test",
-  "request_id": "drive-connection-test-2026-10-17",
-  "note": "Verify authorized Google Sheets endpoint only. Do not collect VK."
+  "mode": "full",
+  "max_pages": 10,
+  "request_id": "vk-mentions-pilot-2026-10-17",
+  "note": "Pilot run: up to ten pages; stream matches and checkpoint to Google Sheets"
 }
