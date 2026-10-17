@@ -38,7 +38,7 @@ def main():
     end=int(datetime.fromisoformat(args.end+"T23:59:59+03:00").timestamp())
     out=Path(args.out);out.mkdir(parents=True,exist_ok=True)
     d=json.loads((ROOT/"targeted_keywords.json").read_text(encoding="utf-8"))
-    patterns=[(x["label"],re.compile(r"(?<!\\w)(?:"+x["regex"]+r")(?!\\w)",re.I)) for x in d["keywords"]]
+    patterns=[(x["label"],re.compile(r"(?<!\w)(?:"+x["regex"]+r")(?!\w)",re.I)) for x in d["keywords"]]
     db=sqlite3.connect(out/"matched.sqlite")
     db.execute("CREATE TABLE IF NOT EXISTS posts (id TEXT PRIMARY KEY,date TEXT,text TEXT,url TEXT,terms TEXT,forms TEXT)")
     checked=set(); seen=0; matched=0; pages=0; completed=False
