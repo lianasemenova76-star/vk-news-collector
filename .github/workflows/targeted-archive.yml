@@ -1,8 +1,5 @@
 name: Targeted VK text archive
 on:
-  push:
-    paths:
-      - "targeted-archive-request.json"
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,15 +15,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Collect historical matches
+      - name: Verify Google Drive connection configured
+        env:
+          ARCHIVE_WEBAPP_URL: ${{ secrets.ARCHIVE_WEBAPP_URL }}
+          ARCHIVE_WEBAPP_TOKEN: ${{ secrets.ARCHIVE_WEBAPP_TOKEN }}
+        run: |
+          if [ -z "$ARCHIVE_WEBAPP_URL" ] || [ -z "$ARCHIVE_WEBAPP_TOKEN" ]; then
+            echo "::error::Set ARCHIVE_WEBAPP_URL and ARCHIVE_WEBAPP_TOKEN first"
+            exit 1
+          fi
+      - name: Collect historical matches directly into Google Sheets
         env:
           VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
-        run: |
-          python targeted_archive.py --mode live --start 2021-10-17 --end 2026-10-17 --out "$RUNNER_TEMP/vk-results"
-      - name: Save private results
-        uses: actions/upload-artifact@v4
-        with:
-          name: targeted-vk-${{ github.run_id }}
-          path: ${{ runner.temp }}/vk-results/
-          retention-days: 3
-          if-no-files-found: error
+          ARCHIVE_WEBAPP_URL: ${{ secrets.ARCHIVE_WEBAPP_URL }}
+          ARCHIVE_WEBAPP_TOKEN: ${{ secrets.ARCHIVE_WEBAPP_TOKEN }}
+        run: python targeted_archive.py --mode live --start 2021-10-17 --end 2026-10-17 --out "$RUNNER_TEMP/vk-results"
