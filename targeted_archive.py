@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Text-only targeted VK archive. Store output only as a private Actions artifact."""
+"""Search public VK wall text and stream matches to Google Sheets."""
 import argparse,csv,json,os,re,sqlite3,time
 from datetime import datetime,timezone
 from pathlib import Path
@@ -46,6 +46,7 @@ def main():
     ap.add_argument("--start",default="2021-10-17")
     ap.add_argument("--end",default="2026-10-17")
     ap.add_argument("--max-pages",type=int,default=2000)
+    ap.add_argument("--rewind-pages",type=int,default=0)
     ap.add_argument("--archive-dir",default="data/archive")
     ap.add_argument("--mode",choices=["live","archive"],default="live")
     ap.add_argument("--out",default="targeted-output")
@@ -82,10 +83,12 @@ def main():
             db.commit()
     else:
         first_offset=int(drive_call({"action":"status"})["offset"])
+        offset_base=max(0,first_offset-100*args.rewind_pages)
+        print(f"Starting VK API scan at offset {offset_base} (saved checkpoint: {first_offset}); period: {args.start} to {args.end}",flush=True)
         token=os.environ.get("VK_SERVICE_TOKEN")
         if not token:raise RuntimeError("Missing VK_SERVICE_TOKEN")
         for page in range(args.max_pages):
-            offset=first_offset+page*100
+            offset=offset_base+page*100
             items=get_page(token,offset).get("items",[])
             if not items:completed=True;break
             pages+=1
@@ -103,6 +106,7 @@ def main():
             if page%20==0:print("Pages",pages,"checked",seen,"matched",matched,flush=True)
             time.sleep(.45)
     if args.mode=="live":
+        print(f"Scan done: {pages} pages, {seen} unique posts checked, {matched} keyword matches, reached requested start: {completed}",flush=True)
         db.close()
         return 0
     with (out/"matched.csv").open("w",encoding="utf-8-sig",newline="") as f:
