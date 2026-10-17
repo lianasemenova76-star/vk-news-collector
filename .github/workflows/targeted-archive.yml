@@ -26,12 +26,22 @@ jobs:
           import json
           from pathlib import Path
           mode = json.loads(Path("targeted-archive-request.json").read_text(encoding="utf-8")).get("mode")
+          from datetime import date
           if mode not in ("test", "full"):
               raise SystemExit("Expected 'mode' of 'test' or 'full'")
           print("mode="+mode)
-          pages = int(json.loads(Path("targeted-archive-request.json").read_text(encoding="utf-8")).get("max_pages", 2000))
-          if pages < 1 or pages > 2000: raise SystemExit("Invalid max_pages")
+          request=json.loads(Path("targeted-archive-request.json").read_text(encoding="utf-8"))
+          pages=int(request.get("max_pages",2000))
+          if not 1 <= pages <= 2000: raise SystemExit("Invalid max_pages")
           print("max_pages="+str(pages))
+          start=request.get("start","2021-10-17")
+          end=request.get("end","2026-10-17")
+          if date.fromisoformat(start)>date.fromisoformat(end):raise SystemExit("Invalid date range")
+          print("start="+start)
+          print("end="+end)
+          rewind=int(request.get("rewind_pages",0))
+          if not 0<=rewind<=5:raise SystemExit("Invalid rewind_pages")
+          print("rewind_pages="+str(rewind))
           PY
       - name: Verify Google Drive connection configured
         env:
@@ -58,4 +68,4 @@ jobs:
           VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
           ARCHIVE_WEBAPP_URL: ${{ secrets.ARCHIVE_WEBAPP_URL }}
           ARCHIVE_WEBAPP_TOKEN: ${{ secrets.ARCHIVE_WEBAPP_TOKEN }}
-        run: python targeted_archive.py --mode live --start 2021-10-17 --end 2026-10-17 --max-pages "${{ steps.intent.outputs.max_pages }}" --out "$RUNNER_TEMP/vk-results"
+        run: python targeted_archive.py --mode live --start "${{ steps.intent.outputs.start }}" --end "${{ steps.intent.outputs.end }}" --max-pages "${{ steps.intent.outputs.max_pages }}" --rewind-pages "${{ steps.intent.outputs.rewind_pages }}" --out "$RUNNER_TEMP/vk-results"
