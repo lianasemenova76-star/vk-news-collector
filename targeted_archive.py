@@ -25,6 +25,22 @@ def get_page(token,offset):
             if retry==5:raise
         time.sleep(2**retry)
     raise RuntimeError("Exhausted API retries")
+def drive_call(payload):
+    url=os.environ.get("ARCHIVE_WEBAPP_URL")
+    secret=os.environ.get("ARCHIVE_WEBAPP_TOKEN")
+    if not url or not secret:
+        raise RuntimeError("Set ARCHIVE_WEBAPP_URL and ARCHIVE_WEBAPP_TOKEN GitHub secrets")
+    request=Request(url,data=json.dumps({"token":secret,**payload},ensure_ascii=False).encode(),headers={"Content-Type":"application/json"},method="POST")
+    for retry in range(5):
+        try:
+            with urlopen(request,timeout=90) as response:
+                result=json.load(response)
+            if result.get("ok"): return result
+            if result.get("error")!="busy": raise RuntimeError("Drive receiver: "+str(result.get("error")))
+        except (TimeoutError,OSError,ValueError) as exc:
+            if retry==4: raise RuntimeError("Drive connection failed") from exc
+        time.sleep(2**retry)
+    raise RuntimeError("Drive connection failed")
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--start",default="2021-10-17")
@@ -65,19 +81,30 @@ def main():
                 except (KeyError,ValueError):continue
             db.commit()
     else:
+        first_offset=int(drive_call({"action":"status"})["offset"])
         token=os.environ.get("VK_SERVICE_TOKEN")
         if not token:raise RuntimeError("Missing VK_SERVICE_TOKEN")
         for page in range(args.max_pages):
-            items=get_page(token,page*100).get("items",[])
+            offset=first_offset+page*100
+            items=get_page(token,offset).get("items",[])
             if not items:completed=True;break
             pages+=1
             for item in items:process(item)
+            db.commit()
+            records=[dict(zip(("date","terms","text","url","id","forms"),r)) for r in db.execute("SELECT date,terms,text,url,id,forms FROM posts")]
+            for k in range(0,len(records),100):
+                drive_call({"action":"append","records":records[k:k+100],"next_offset":offset})
+            drive_call({"action":"append","records":[],"next_offset":offset+len(items)})
+            db.execute("DELETE FROM posts")
             db.commit()
             ordinary=[int(p["date"]) for p in items if not p.get("is_pinned")]
             if ordinary and min(ordinary)<start:completed=True;break
             if len(items)<100:completed=True;break
             if page%20==0:print("Pages",pages,"checked",seen,"matched",matched,flush=True)
             time.sleep(.45)
+    if args.mode=="live":
+        db.close()
+        return 0
     with (out/"matched.csv").open("w",encoding="utf-8-sig",newline="") as f:
         w=csv.writer(f);w.writerow(["Дата","Найденные запросы","Полный текст","Ссылка","ID","Совпавшие формы"])
         for row in db.execute("SELECT date,terms,text,url,id,forms FROM posts ORDER BY date"):
