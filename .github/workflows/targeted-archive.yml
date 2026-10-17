@@ -29,6 +29,9 @@ jobs:
           if mode not in ("test", "full"):
               raise SystemExit("Expected 'mode' of 'test' or 'full'")
           print("mode="+mode)
+          pages = int(json.loads(Path("targeted-archive-request.json").read_text(encoding="utf-8")).get("max_pages", 2000))
+          if pages < 1 or pages > 2000: raise SystemExit("Invalid max_pages")
+          print("max_pages="+str(pages))
           PY
       - name: Verify Google Drive connection configured
         env:
@@ -55,4 +58,4 @@ jobs:
           VK_SERVICE_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
           ARCHIVE_WEBAPP_URL: ${{ secrets.ARCHIVE_WEBAPP_URL }}
           ARCHIVE_WEBAPP_TOKEN: ${{ secrets.ARCHIVE_WEBAPP_TOKEN }}
-        run: python targeted_archive.py --mode live --start 2021-10-17 --end 2026-10-17 --out "$RUNNER_TEMP/vk-results"
+        run: python targeted_archive.py --mode live --start 2021-10-17 --end 2026-10-17 --max-pages "${{ steps.intent.outputs.max_pages }}" --out "$RUNNER_TEMP/vk-results"
