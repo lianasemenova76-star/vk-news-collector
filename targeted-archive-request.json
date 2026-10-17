@@ -1,6 +1,6 @@
 {
   "mode": "full",
-  "max_pages": 10,
-  "request_id": "vk-mentions-pilot-2026-10-17",
-  "note": "Pilot run: up to ten pages; stream matches and checkpoint to Google Sheets"
+  "max_pages": 2000,
+  "request_id": "vk-mentions-five-years-2026-10-17",
+  "note": "Resume full five-year mention archive directly to private Google Sheet; no artifacts"
 }
