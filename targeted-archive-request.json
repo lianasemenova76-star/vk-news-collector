@@ -1,9 +1,9 @@
 {
   "mode": "full",
   "max_pages": 2000,
-  "start": "2018-10-17",
-  "end": "2021-10-17",
+  "start": "2017-01-01",
+  "end": "2018-10-17",
   "rewind_pages": 2,
-  "request_id": "vk-mentions-2018-2021-full-2026-10-17",
-  "note": "Continue from pilot checkpoint, overlap 2 pages, save matching texts to Google Drive only."
+  "request_id": "vk-mentions-2017-to-2018-2026-10-18",
+  "note": "Continue backward from Oct 2018 checkpoint; overlap pages, add only matched post texts to the same Google Sheet; no public artifacts."
 }
