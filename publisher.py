@@ -342,7 +342,7 @@ def publish(
         try:
             response = api_call("wall.edit", token, **params)
         except RuntimeError as exc:
-            if "VK API wall.edit error 27:" not in str(exc) or not photo_token or photo_token == token:
+            if not any(f"VK API wall.edit error {code}:" in str(exc) for code in (10, 27)) or not photo_token or photo_token == token:
                 raise
             response = api_call("wall.edit", photo_token, **params)
         if response != 1:
