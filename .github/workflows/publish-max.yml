@@ -90,6 +90,16 @@ jobs:
             IMAGE_URL=$(jq -r ".posts[$i].image_url // empty" publish-request.json)
             SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" publish-request.json)
             EDIT_MESSAGE_ID=$(jq -r ".posts[$i].edit_message_id // empty" publish-request.json)
+            EDIT_ORIGINAL_TEXT=$(jq -r ".posts[$i].edit_original_text // empty" publish-request.json)
+            if [ -n "$EDIT_ORIGINAL_TEXT" ] && [ -z "$EDIT_MESSAGE_ID" ]; then
+              EDIT_MESSAGE_ID=$(jq -r --arg old "$EDIT_ORIGINAL_TEXT" \
+                '.messages[]? | select(.body.text == $old) | .body.mid // empty' \
+                "$RUNNER_TEMP/max-messages.json" | head -n 1)
+              if [ -z "$EDIT_MESSAGE_ID" ]; then
+                echo "Original MAX message not found for edit $i" >&2
+                exit 2
+              fi
+            fi
             test -n "$MESSAGE"
 
             if jq -e --arg message "$MESSAGE" \
