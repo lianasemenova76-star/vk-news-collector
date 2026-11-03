@@ -196,7 +196,7 @@ def publish(
     if edit_message_id:
         if image_paths or image_urls or source_post:
             raise RuntimeError("Editing text cannot replace existing media")
-        response = max_api("/messages", token, method="PUT", body={"text": text, "notify": False}, message_id=edit_message_id)
+        response = max_api("/messages", token, method="PUT", body={"text": text}, message_id=edit_message_id)
         print(json.dumps({"status": "edited", "chat_id": chat_id, "message_id": find_first(response, "mid") or edit_message_id}, ensure_ascii=False))
         return
 
