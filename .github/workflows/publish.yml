@@ -64,6 +64,7 @@ jobs:
             SOURCE_POST=$(jq -r ".posts[$i].source_post // empty" "$REQUEST_FILE")
             SOURCE_LIMIT=$(jq -r ".posts[$i].source_limit // empty" "$REQUEST_FILE")
             EDIT_POST_ID=$(jq -r ".posts[$i].edit_post_id // empty" "$REQUEST_FILE")
+            REPLACE_SCHEDULED_ID=$(jq -r ".posts[$i].replace_scheduled_id // empty" "$REQUEST_FILE")
             STORY_TITLE=$(jq -r ".posts[$i].story_title // empty" "$REQUEST_FILE")
             STORY_TEXT=$(jq -r ".posts[$i].story_text // empty" "$REQUEST_FILE")
             test -n "$MESSAGE"
@@ -77,6 +78,7 @@ jobs:
             ARGS=(--message "$MESSAGE")
             if [ -n "$PUBLISH_DATE" ]; then ARGS+=(--publish-date "$PUBLISH_DATE"); fi
             if [ -n "$EDIT_POST_ID" ]; then ARGS+=(--edit-post-id "$EDIT_POST_ID"); fi
+            if [ -n "$REPLACE_SCHEDULED_ID" ]; then ARGS+=(--replace-scheduled-id "$REPLACE_SCHEDULED_ID"); fi
             if [ -n "$IMAGE_URL" ]; then
               [[ "$IMAGE_URL" == https://* ]]
               IMAGE_PATH="$RUNNER_TEMP/vk-image-$i.jpg"
