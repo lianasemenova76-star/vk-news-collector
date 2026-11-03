@@ -338,13 +338,21 @@ def publish(
         params["attachments"] = attachment
 
     if edit_post_id is not None:
-        params["post_id"] = edit_post_id
+        edit_params: dict[str, object] = {
+            "owner_id": -group_id,
+            "post_id": edit_post_id,
+            "message": message.strip(),
+        }
+        if publish_date is not None:
+            edit_params["publish_date"] = publish_date
+        if attachment:
+            edit_params["attachments"] = attachment
         try:
-            response = api_call("wall.edit", token, **params)
+            response = api_call("wall.edit", token, **edit_params)
         except RuntimeError as exc:
             if not any(f"VK API wall.edit error {code}:" in str(exc) for code in (10, 27)) or not photo_token or photo_token == token:
                 raise
-            response = api_call("wall.edit", photo_token, **params)
+            response = api_call("wall.edit", photo_token, **edit_params)
         if response != 1:
             raise RuntimeError("VK did not confirm wall.edit")
         post_id = edit_post_id
