@@ -397,6 +397,7 @@ def main() -> int:
     parser.add_argument("--story-title")
     parser.add_argument("--story-text")
     parser.add_argument("--edit-post-id", type=int)
+    parser.add_argument("--replace-scheduled-id", type=int)
     parser.add_argument("--source-post")
     parser.add_argument("--source-limit", type=int)
     args = parser.parse_args()
@@ -410,6 +411,19 @@ def main() -> int:
         if args.check:
             check_token(token)
         elif args.message is not None:
+            if args.replace_scheduled_id is not None:
+                if args.publish_date is None or args.publish_date <= int(time.time()) + 60:
+                    raise RuntimeError("Replacement schedule must be more than 60 seconds in the future")
+                group_id = int(resolve_group(token)["id"])
+                try:
+                    deleted = api_call("wall.delete", token, owner_id=-group_id, post_id=args.replace_scheduled_id)
+                except RuntimeError as exc:
+                    user_token = os.environ.get("VK_USER_TOKEN")
+                    if not user_token or not any(f"VK API wall.delete error {code}:" in str(exc) for code in (10, 27)):
+                        raise
+                    deleted = api_call("wall.delete", user_token, owner_id=-group_id, post_id=args.replace_scheduled_id)
+                if deleted != 1:
+                    raise RuntimeError("VK did not confirm deletion of scheduled post")
             publish(
                 token,
                 args.message,
