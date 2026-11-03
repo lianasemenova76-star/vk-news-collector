@@ -92,12 +92,13 @@ jobs:
             EDIT_MESSAGE_ID=$(jq -r ".posts[$i].edit_message_id // empty" publish-request.json)
             EDIT_ORIGINAL_TEXT=$(jq -r ".posts[$i].edit_original_text // empty" publish-request.json)
             if [ -n "$EDIT_ORIGINAL_TEXT" ] && [ -z "$EDIT_MESSAGE_ID" ]; then
-              EDIT_MESSAGE_ID=$(jq -r --arg old "$EDIT_ORIGINAL_TEXT" \
-                '.messages[]? | select(.body.text == $old) | .body.mid // empty' \
+              EDIT_TITLE=$(printf '%s\\n' "$EDIT_ORIGINAL_TEXT" | head -n 1)
+              EDIT_MESSAGE_ID=$(jq -r --arg title "$EDIT_TITLE" \
+                '.messages[]? | select((.body.text // "") | startswith($title)) | .body.mid // empty' \
                 "$RUNNER_TEMP/max-messages.json" | head -n 1)
               if [ -z "$EDIT_MESSAGE_ID" ]; then
                 gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
-                  -f state=error -f context="$CONTEXT" \
+                  -f state=error -f context="max-edit/original-not-found-$i" \
                   -f description="Original MAX message not found for edit $i"
                 exit 2
               fi
@@ -157,7 +158,7 @@ jobs:
             else
               DESCRIPTION=$(printf '%s' "$OUTPUT" | tail -n 1 | tr -cd '[:alnum:] .:_-' | cut -c1-70)
               gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
-                -f state=error -f context="$CONTEXT" -f description="$DESCRIPTION"
+                -f state=error -f context="max-edit/$DESCRIPTION" -f description="$DESCRIPTION"
               exit "$RESULT"
             fi
           done
