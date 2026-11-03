@@ -96,7 +96,9 @@ jobs:
                 '.messages[]? | select(.body.text == $old) | .body.mid // empty' \
                 "$RUNNER_TEMP/max-messages.json" | head -n 1)
               if [ -z "$EDIT_MESSAGE_ID" ]; then
-                echo "Original MAX message not found for edit $i" >&2
+                gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" \
+                  -f state=error -f context="$CONTEXT" \
+                  -f description="Original MAX message not found for edit $i"
                 exit 2
               fi
             fi
