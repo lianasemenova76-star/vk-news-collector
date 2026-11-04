@@ -35,8 +35,8 @@ jobs:
 
       - name: Send only an explicitly approved comment
         env:
-          VK_USER_TOKEN: \${{ secrets.VK_USER_TOKEN }}
-          VK_PUBLISH_TOKEN: \${{ secrets.VK_PUBLISH_TOKEN }}
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
         run: |
           if jq -e '.confirmed == true' comment-publish-request.json >/dev/null; then
             CONFIRM_COMMENT=YES python comment_publisher.py --request comment-publish-request.json --send
