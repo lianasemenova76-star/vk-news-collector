@@ -1,0 +1,45 @@
+name: Publish approved VK community comment
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "comment-publish-request.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vk-community-comments
+  cancel-in-progress: false
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test comment validation and safe publishing logic
+        run: python -m unittest discover -s tests -p 'test_comment_publisher.py' -v
+
+      - name: Validate request without sending anything
+        run: python comment_publisher.py --request comment-publish-request.json --validate
+
+      - name: Send only an explicitly approved comment
+        env:
+          VK_USER_TOKEN: \${{ secrets.VK_USER_TOKEN }}
+          VK_PUBLISH_TOKEN: \${{ secrets.VK_PUBLISH_TOKEN }}
+        run: |
+          if jq -e '.confirmed == true' comment-publish-request.json >/dev/null; then
+            CONFIRM_COMMENT=YES python comment_publisher.py --request comment-publish-request.json --send
+          else
+            echo '{"status":"not-approved","published":false}'
+          fi
