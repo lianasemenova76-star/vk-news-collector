@@ -8,6 +8,7 @@ on:
       - "publish-request.json"
       - "horoscope-request.json"
       - "good-morning-request.json"
+      - "news-vk-request.json"
 
 permissions:
   contents: read
@@ -47,6 +48,9 @@ jobs:
             REQUEST_FILE="horoscope-request.json"
           elif printf '%s\n' "$CHANGED_FILES" | grep -qx "good-morning-request.json"; then
             REQUEST_FILE="good-morning-request.json"
+          fi
+          if printf '%s\n' "$CHANGED_FILES" | grep -qx "news-vk-request.json"; then
+            REQUEST_FILE="news-vk-request.json"
           fi
           echo "Using request file: $REQUEST_FILE"
           jq -e '.confirmed == true' "$REQUEST_FILE"
