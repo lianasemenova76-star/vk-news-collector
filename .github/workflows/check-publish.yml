@@ -29,4 +29,41 @@ jobs:
           VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
         run: python publisher.py --check
 
+      - name: List queued VK posts
+        env:
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+        run: |
+          python - <<'PY'
+          import datetime
+          import json
+          import os
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+          from zoneinfo import ZoneInfo
+
+          for name in ("VK_PUBLISH_TOKEN", "VK_USER_TOKEN"):
+              token = os.getenv(name)
+              if not token:
+                  continue
+              payload = urlencode({"owner_id": -70948047, "filter": "postponed", "count": 100,
+                                   "access_token": token, "v": "5.199"}).encode()
+              with urlopen(Request("https://api.vk.com/method/wall.get", data=payload), timeout=60) as response:
+                  result = json.load(response)
+              if "error" in result:
+                  print(name, "VK API error", result["error"].get("error_code"),
+                        result["error"].get("error_msg"))
+                  continue
+              items = result["response"].get("items", [])
+              print("Queued VK posts:", len(items))
+              for post in sorted(items, key=lambda p: p.get("date", 0)):
+                  dt = datetime.datetime.fromtimestamp(post["date"], ZoneInfo("Europe/Moscow"))
+                  print(dt.strftime("%Y-%m-%d %H:%M"), post["id"],
+                        "marked_as_ads=" + str(post.get("marked_as_ads")),
+                        post.get("text", "").split("\\n")[0][:100])
+              break
+          else:
+              raise SystemExit("Could not read the queued VK posts")
+          PY
+
 # Community token verified without publishing: 2026-09-13
