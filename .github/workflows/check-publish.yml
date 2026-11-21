@@ -38,6 +38,7 @@ jobs:
           import datetime
           import json
           import os
+          import time
           from urllib.parse import urlencode
           from urllib.request import Request, urlopen
           from zoneinfo import ZoneInfo
@@ -48,8 +49,12 @@ jobs:
                   continue
               payload = urlencode({"owner_id": -70948047, "filter": "postponed", "count": 100,
                                    "access_token": token, "v": "5.199"}).encode()
-              with urlopen(Request("https://api.vk.com/method/wall.get", data=payload), timeout=60) as response:
-                  result = json.load(response)
+              for attempt in range(5):
+                  with urlopen(Request("https://api.vk.com/method/wall.get", data=payload), timeout=60) as response:
+                      result = json.load(response)
+                  if result.get("error", {}).get("error_code") != 10 or attempt == 4:
+                      break
+                  time.sleep(3)
               if "error" in result:
                   print(name, "VK API error", result["error"].get("error_code"),
                         result["error"].get("error_msg"))
