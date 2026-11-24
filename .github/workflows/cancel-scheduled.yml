@@ -1,0 +1,40 @@
+name: Cancel approved incorrect VK scheduled post
+
+on:
+  push:
+    branches: [main]
+    paths: [cancel-scheduled-request.json]
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  cancel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Delete incorrect scheduled VK post
+        env:
+          VK_PUBLISH_TOKEN: ${{ secrets.VK_PUBLISH_TOKEN }}
+          VK_USER_TOKEN: ${{ secrets.VK_USER_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          jq -e '.confirmed == true and .post_id == 418166 and .owner_id == -38242868' cancel-scheduled-request.json
+          python - <<'PY'
+          import json, os
+          from urllib.request import Request, urlopen
+          from urllib.parse import urlencode
+          data = json.load(open("cancel-scheduled-request.json"))
+          def call(token):
+              payload = urlencode({"access_token":token,"v":"5.199","owner_id":data["owner_id"],"post_id":data["post_id"]}).encode()
+              with urlopen(Request("https://api.vk.com/method/wall.delete", data=payload),timeout=60) as r:
+                  return json.load(r)
+          result=call(os.environ["VK_PUBLISH_TOKEN"])
+          if result.get("response") != 1 and os.environ.get("VK_USER_TOKEN"):
+              result=call(os.environ["VK_USER_TOKEN"])
+          if result.get("response") != 1:
+              raise SystemExit(f"VK did not delete scheduled post: {result.get('error')}")
+          print("Deleted scheduled VK post 418166")
+          PY
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=success -f context=vk-cancel/post-418166 -f description="Deleted incorrect scheduled post 418166"
