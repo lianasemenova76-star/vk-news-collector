@@ -326,7 +326,13 @@ def publish(
 
     attachment = None
     if image_path is not None:
-        attachment = upload_wall_photo(photo_token or token, group_id, image_path)
+        try:
+            attachment = upload_wall_photo(photo_token or token, group_id, image_path)
+        except RuntimeError as exc:
+            # Retry allocation with the publishing token if VK cannot validate the photo token.
+            if not photo_token or photo_token == token or "VK API photos.getWallUploadServer error 10:" not in str(exc):
+                raise
+            attachment = upload_wall_photo(token, group_id, image_path)
         params["attachments"] = attachment
     elif source_post is not None:
         attachments = source_wall_photos(source_token or token, source_post)
